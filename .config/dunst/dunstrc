@@ -1,0 +1,20 @@
+# FOLLOWING LINES WILL BE OVERWRITTEN
+
+[global]
+icon_theme = "Papirus-Dark"
+enable_recursive_icon_lookup = "true"
+
+[urgency_low]
+background = "#282828"
+foreground = "#ebdbb2"
+frame_color = "#3c3836"
+
+[urgency_normal]
+background = "#282828"
+foreground = "#ebdbb2"
+frame_color = "#a89984"
+
+[urgency_critical]
+background = "#282828"
+foreground = "#ebdbb2"
+frame_color = "#fb4934"
