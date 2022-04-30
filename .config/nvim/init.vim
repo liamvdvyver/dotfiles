@@ -61,6 +61,7 @@ nnoremap <leader>o :set spell!<CR>
 
 " plugin maps
 nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>t :TagbarToggle<CR>
 
 " }}}
 
@@ -92,6 +93,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'lervag/vimtex'
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'preservim/tagbar'
 Plug 'ap/vim-css-color'
 
 call plug#end()
@@ -103,6 +105,7 @@ call plug#end()
 " install shellcheck with :CocInstall coc-diagnostic
 "   requires shellcheck and shfmt system packages
 "   and config in ./coc-settings.json
+" install system package ctags for tagbar
 
 " choose colorscheme
 colorscheme gruvbox
