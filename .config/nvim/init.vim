@@ -58,6 +58,7 @@ nnoremap <leader>w :set wrap!<CR>
 nnoremap <leader>c :execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>
 nnoremap <leader>ch :noh<CR>
 nnoremap <leader>o :set spell!<CR>
+nnoremap <leader>s  :!
 
 " plugin maps
 nnoremap <leader>n :NERDTreeToggle<CR>
