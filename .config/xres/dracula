@@ -1,0 +1,105 @@
+! palette
+
+! standard
+#define bground    #282a36
+#define currline   #44475a
+#define selection  #44475a
+#define fground    #f8f8f2
+#define comment    #6272a4
+#define cyan       #8be9fd
+#define green      #50fa7b
+#define orange     #ffb86c
+#define pink       #ff79c6
+#define purple     #bd93f9
+#define red        #ff5555
+#define yellow     #f1fa8c
+
+! ANSI
+#define black         #21222c
+#define brightblack   #6272a4
+#define red           #ff5555
+#define brightred     #ff6e6e
+#define green         #50fa7b
+#define brightgreen   #69ff94
+#define yellow        #f1fa8c
+#define brightyellow  #ffffa5
+#define blue          #bd93f9
+#define brightblue    #d6acff
+#define magenta       #ff79c6
+#define brightmagenta #ff92df
+#define cyan          #8be9fd
+#define brightcyan    #a4ffff
+#define white         #f8f8f2
+#define brightwhite   #ffffff
+
+! Xresources
+#define xr_foreground #F8F8F2
+#define xr_background #282A36
+#define xr_color0     #000000
+#define xr_color8     #4D4D4D
+#define xr_color1     #FF5555
+#define xr_color9     #FF6E67
+#define xr_color2     #50FA7B
+#define xr_color10    #5AF78E
+#define xr_color3     #F1FA8C
+#define xr_color11    #F4F99D
+#define xr_color4     #BD93F9
+#define xr_color12    #CAA9FA
+#define xr_color5     #FF79C6
+#define xr_color13    #FF92D0
+#define xr_color6     #8BE9FD
+#define xr_color14    #9AEDFE
+#define xr_color7     #BFBFBF
+#define xr_color15    #E6E6E6
+
+! ANSII
+
+! black
+*color0:  black
+*color8:  brightblack
+! red
+*color1:  red
+*color9:  brightred
+! green
+*color2:  green
+*color10: brightgreen
+! yellow
+*color3:  yellow
+*color11: brightyellow
+! blue
+*color4:  blue
+*color12: brightblue
+! magenta
+*color5:  magenta
+*color13: brightmagenta
+! cyan
+*color6:  cyan
+*color14: brightcyan
+! white
+*color7:  white
+*color15: brightwhite
+
+! terminal
+
+*background:  bground
+*foreground:  fground
+*cursorColor: fground
+
+! ricing
+
+rice.foreground.alt:      comment
+rice.foreground.focused:  fground
+rice.foreground.active:   fground
+rice.foreground.inactive: fground
+rice.background.focused:  comment
+rice.background.active:   selection
+rice.background.inactive: bground
+rice*urgent:              red
+rice.border.focused:      comment
+rice.border.unfocused:    selection
+rice.indicator.focused:   purple
+
+rice.nvim.theme:      dracula
+rice.nvim.background: dark
+rice.theme:           dracula
+rice.background:      dark

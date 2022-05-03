@@ -1,0 +1,81 @@
+! palette
+
+#define bg0          #282828
+#define bg0_h        #1d2021
+#define bg0_s        #32302f
+#define bg1          #3c3836
+#define bg2          #504945
+#define bg3          #665c54
+#define bg4          #7c6f64
+#define gray         #928374
+#define fg4          #a89984
+#define fg3          #bdae93
+#define fg2          #d5c4a1
+#define fg1          #ebdbb2
+#define fg0          #fbf1c7
+#define red_dark     #cc241d
+#define red_light    #fb4934
+#define green_dark   #98971a
+#define green_light  #b8bb26
+#define yellow_dark  #d79921
+#define yellow_light #fabd2f
+#define blue_dark    #458588
+#define blue_light   #83a598
+#define purple_dark  #b16286
+#define purple_light #d3869b
+#define aqua_dark    #689d6a
+#define aqua_light   #8ec07c
+#define orange_dark  #d65d0e
+#define orange_light #fe8019
+
+! ANSII
+
+! black
+*color0:  bg0
+*color8:  gray
+! red
+*color1:  red_dark
+*color9:  red_light
+! green
+*color2:  green_dark
+*color10: green_light
+! yellow
+*color3:  yellow_dark
+*color11: yellow_light
+! blue
+*color4:  blue_dark
+*color12: blue_light
+! magenta
+*color5:  purple_dark
+*color13: purple_light
+! cyan
+*color6:  aqua_dark
+*color14: aqua_light
+! white
+*color7:  fg4
+*color15: fg1
+
+! terminal
+
+*background:  bg0
+*foreground:  fg1
+*cursorColor: fg1
+
+! ricing
+
+rice.foreground.alt:      gray
+rice.foreground.focused:  bg0
+rice.foreground.active:   fg1
+rice.foreground.inactive: fg1
+rice.background.focused:  fg4
+rice.background.active:   bg1
+rice.background.inactive: bg0
+rice*urgent:              red_light
+rice.border.focused:      fg4
+rice.border.unfocused:    bg1
+rice.indicator.focused:   fg1
+
+rice.nvim.theme:      gruvbox
+rice.nvim.background: dark
+rice.theme:           gruvbox
+rice.background:      dark

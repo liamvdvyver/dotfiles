@@ -1,0 +1,70 @@
+! palette
+
+#define nord0 #2E3440
+#define nord1 #3B4252
+#define nord2 #434C5E
+#define nord3 #4C566A
+#define nord4 #D8DEE9
+#define nord5 #E5E9F0
+#define nord6 #ECEFF4
+#define nord7 #8FBCBB
+#define nord8 #88C0D0
+#define nord9 #81A1C1
+#define nord10 #5E81AC
+#define nord11 #BF616A
+#define nord12 #D08770
+#define nord13 #EBCB8B
+#define nord14 #A3BE8C
+#define nord15 #B48EAD
+
+! ANSII
+
+! black
+*color0:  nord1
+*color8:  nord3
+! red
+*color1:  nord11
+*color9:  nord11
+! green
+*color2:  nord14
+*color10: nord14
+! yellow
+*color3:  nord13
+*color11: nord13
+! blue
+*color4:  nord9
+*color12: nord9
+! magenta
+*color5:  nord15
+*color13: nord15
+! cyan
+*color6:  nord8
+*color14: nord7
+! white
+*color7:  nord5
+*color15: nord6
+
+! terminal
+
+*background:  nord0
+*foreground:  nord4
+*cursorColor: nord4
+
+! ricing
+
+rice.foreground.alt:      nord3
+rice.foreground.focused:  nord0
+rice.foreground.active:   nord5
+rice.foreground.inactive: nord4
+rice.background.focused:  nord8
+rice.background.active:   nord3
+rice.background.inactive: nord0
+rice*urgent:              nord11
+rice.border.focused:      nord8
+rice.border.unfocused:    nord1
+rice.indicator.focused:   nord7
+
+rice.nvim.theme:      nord
+rice.nvim.background: dark
+rice.theme:           nord
+rice.background:      dark

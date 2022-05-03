@@ -1,0 +1,70 @@
+! palette
+
+#define base03  #002b36
+#define base02  #073642
+#define base01  #586e75
+#define base00  #657b83
+#define base0   #839496
+#define base1   #93a1a1
+#define base2   #eee8d5
+#define base3   #fdf6e3
+#define yellow  #b58900
+#define orange  #cb4b16
+#define red     #dc322f
+#define magenta #d33682
+#define violet  #6c71c4
+#define blue    #268bd2
+#define cyan    #2aa198
+#define green   #859900
+
+! ANSII
+
+! black
+*color0:  base02
+*color8:  base03
+! red
+*color1:  red
+*color9:  orange
+! green
+*color2:  green
+*color10: base01
+! yellow
+*color3:  yellow
+*color11: base00
+! blue
+*color4:  blue
+*color12: base0
+! magenta
+*color5:  magenta
+*color13: violet
+! cyan
+*color6:  cyan
+*color14: base1
+! white
+*color7:  base2
+*color15: base3
+
+! terminal
+
+*background:  base03
+*foreground:  base0
+*cursorColor: base1
+
+! ricing
+
+rice.foreground.alt:      base01
+rice.foreground.focused:  base3
+rice.foreground.active:   base1
+rice.foreground.inactive: base0
+rice.background.focused:  base1
+rice.background.active:   base02
+rice.background.inactive: base03
+rice*urgent:              orange
+rice.border.focused:      base1
+rice.border.unfocused:    base02
+rice.indicator.focused:   base3
+
+rice.nvim.theme:      solarized8
+rice.nvim.background: dark
+rice.theme:           solarized
+rice.background:      dark
