@@ -152,10 +152,10 @@ mode "$mode_rice" {
     bindsym l exec --no-startup-id rice.sh --light, mode "default"
     bindsym d exec --no-startup-id rice.sh --dark, mode "default"
     bindsym t exec --no-startup-id rice.sh --toggle, mode "default"
-    bindsym shift+d exec --no-startup-id rice.sh drac, mode "default"
-    bindsym shift+g exec --no-startup-id rice.sh gruv, mode "default"
+    bindsym shift+d exec --no-startup-id rice.sh dracula, mode "default"
+    bindsym shift+g exec --no-startup-id rice.sh gruvbox-dark, mode "default"
     bindsym shift+n exec --no-startup-id rice.sh nord, mode "default"
-    bindsym shift+s exec --no-startup-id rice.sh solar, mode "default"
+    bindsym shift+s exec --no-startup-id rice.sh solarized-dark, mode "default"
     bindsym o exec --no-startup-id picom --experimental-backends -c, mode "default"
     bindsym f exec --no-startup-id killall picom, mode "default"
 
@@ -186,30 +186,26 @@ set_from_resource $c12    color12
 set_from_resource $c13    color13
 set_from_resource $c14    color14
 set_from_resource $c15    color15
-set_from_resource $wf     windowf
-set_from_resource $wf2    windowf2
-set_from_resource $wu     windowu
-set_from_resource $wu2    windowu2
-set_from_resource $wi     windowi
-set_from_resource $bb     barb
-set_from_resource $bs     bars
-set_from_resource $bs2    bars2
-set_from_resource $bf     barf
-set_from_resource $bf2    barf2
-set_from_resource $bf3    barf3
-set_from_resource $ba     bara
-set_from_resource $ba2    bara2
-set_from_resource $ba3    bara3
-set_from_resource $bi     bari
-set_from_resource $bi2    bari2
-set_from_resource $bi3    bari3
+
+set_from_resource $fg_l rice.foreground.alt
+set_from_resource $fg_f rice.foreground.focused
+set_from_resource $fg_a rice.foreground.active
+set_from_resource $fg_i rice.foreground.inactive
+set_from_resource $bg_f rice.background.focused
+set_from_resource $bg_a rice.background.active
+set_from_resource $bg_i rice.background.inactive
+set_from_resource $bg_r rice.background.urgent
+set_from_resource $bd_f rice.border.focused
+set_from_resource $bd_u rice.border.unfocused
+set_from_resource $bd_r rice.border.urgent
+set_from_resource $id_f rice.indicator.focused
 
 # class                   border  backgr. text    indic.   child_border
-  client.focused          $wf     $wf     $bf     $wf2
-  client.focused_inactive $wi     $wi     $bi     $wi
-  client.unfocused        $wi     $wi     $bi     $wi
-  client.urgent           $wu     $wu     $fg     $wu2
-  client.placeholder      $wi     $wi     $fg     $wi
+  client.focused          $bd_f   $bg_f   $fg_f   $id_f
+  client.focused_inactive $bd_u   $bd_u   $fg     $bd_u
+  client.unfocused        $bd_u   $bd_u   $fg     $bd_u
+  client.urgent           $bd_r   $bg_r   $fg     $bd_r
+  client.placeholder      $bg     $bg     $fg     $bd
 
   client.background       $bg
 
@@ -414,16 +410,16 @@ bar {
     #tray_output primary
 
     colors {
-        background $bb
-        statusline $bs
-        separator  $bs2
+        background $bg
+        statusline $fg
+        separator  $fg_l
 
         #                  border  backgr. text
-        focused_workspace  $bf3    $bf2    $bf
-        active_workspace   $ba3    $ba2    $ba
-        inactive_workspace $bi3    $bi2    $bi
+        focused_workspace  $bg_f   $bg_f   $fg_f
+        active_workspace   $bg_a   $bg_a   $fg_a
+        inactive_workspace $bg_i   $bg_i   $fg_i
         binding_mode       $bg     $bg     $fg
-        urgent_workspace   $wu     $wu     $fg
+        urgent_workspace   $bg_u   $bg_u   $fg
     }
 }
 
@@ -432,9 +428,9 @@ bar {
 # DMENU -------------------------------------------------------------------- {{{
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -nb "$(xrdb -query | grep '^\*barb:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*bari:' | cut -f 2)" -sb "$(xrdb -query | grep '^\*barf2:' | cut -f 2)" -sf "$(xrdb -query | grep '^\*barf:' | cut -f 2)"
-bindsym $mod+p exec --no-startup-id passmenu --type -nb "$(xrdb -query | grep '^\*barb:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*bari:' | cut -f 2)" -sb "$(xrdb -query | grep '^\*barf2:' | cut -f 2)" -sf "$(xrdb -query | grep '^\*barf:' | cut -f 2)"
-bindsym $mod+Shift+p exec --no-startup-id usermenu.sh --type -nb "$(xrdb -query | grep '^\*barb:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*bari:' | cut -f 2)" -sb "$(xrdb -query | grep '^\*barf2:' | cut -f 2)" -sf "$(xrdb -query | grep '^\*barf:' | cut -f 2)"
+bindsym $mod+d exec --no-startup-id dmenu_run -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
+bindsym $mod+p exec --no-startup-id passmenu --type -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
+bindsym $mod+Shift+p exec --no-startup-id usermenu.sh --type -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
