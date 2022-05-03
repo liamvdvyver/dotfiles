@@ -82,11 +82,6 @@ Plug 'preservim/nerdtree'
 Plug 'mboughaba/i3config.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'altercation/vim-colors-solarized'
-Plug 'lifepillar/vim-solarized8'
-Plug 'dracula/vim'
-Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -96,6 +91,13 @@ Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/tagbar'
 Plug 'ap/vim-css-color'
+
+Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
+Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
+Plug 'rakr/vim-one'
 
 call plug#end()
 
