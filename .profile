@@ -19,6 +19,7 @@ export GPG_TTY=$(tty)
 export PASSWORD_STORE_DIR=~/git/password-store
 export BASH_COMPLETION_USER_FILE=/usr/share/bash-complete-alias/complete_alias
 export HISTFILESIZE=-1
+export LESSHISTFILE=-
 
 # Pfetch config
 export PF_INFO="ascii os kernel uptime pkgs shell wm editor palette"
