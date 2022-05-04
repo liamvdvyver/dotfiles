@@ -52,7 +52,7 @@
 #define xr_color7     #BFBFBF
 #define xr_color15    #E6E6E6
 
-! ANSII
+! ANSI
 
 ! black
 *color0:  black

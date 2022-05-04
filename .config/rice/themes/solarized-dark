@@ -17,7 +17,7 @@
 #define cyan    #2aa198
 #define green   #859900
 
-! ANSII
+! ANSI
 
 ! black
 *color0:  base02

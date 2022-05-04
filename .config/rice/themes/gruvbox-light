@@ -28,7 +28,7 @@
 #define orange_dark  #af3a03
 #define orange_light #d65d0e
 
-! ANSII
+! ANSI
 
 ! black
 *color0:  bg0

@@ -17,7 +17,7 @@
 #define nord14 #A3BE8C
 #define nord15 #B48EAD
 
-! ANSII
+! ANSI
 
 ! black
 *color0:  nord1
@@ -62,7 +62,7 @@ rice.background.inactive: nord0
 rice*urgent:              nord11
 rice.border.focused:      nord8
 rice.border.unfocused:    nord1
-rice.indicator.focused:   nord7
+rice.indicator.focused:   nord14
 
 rice.nvim.theme:      nord
 rice.nvim.background: dark
