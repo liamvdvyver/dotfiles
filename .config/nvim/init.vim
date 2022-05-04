@@ -40,6 +40,15 @@ let g:airline_powerline_fonts = 1
 "let NERDTreeMinimalUI = 1
 let g:tokyonight_transparent_background = 1
 let R_assign = 0
+let g:coc_global_extensions = [
+            \ 'coc-pyright',
+            \ 'coc-vimtex',
+            \ 'coc-r-lsp',
+            \ 'coc-diagnostic',
+            \ ]
+
+" install languageserver package in R for coc-r-lsp
+" install shellcheck and shfmt for coc-diagnostics
 
 " }}}
 
@@ -49,21 +58,22 @@ let R_assign = 0
 nnoremap j gj
 nnoremap k gk
 nnoremap Y y$
-nnoremap <A-h> <c-w><
-nnoremap <A-j> <c-w>+
-nnoremap <A-k> <c-w>-
-nnoremap <A-l> <c-w>>
+nnoremap <A-y> <c-w><
+nnoremap <A-u> <c-w>+
+nnoremap <A-i> <c-w>-
+nnoremap <A-o> <c-w>>
 
 " leaders
 nnoremap <leader>w :set wrap!<CR>
-nnoremap <leader>c :execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>
-nnoremap <leader>ch :noh<CR>
+nnoremap <leader>l :execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>
+nnoremap <leader>h :noh<CR>
 nnoremap <leader>o :set spell!<CR>
 nnoremap <leader>s  :!
 
 " plugin maps
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>t :TagbarToggle<CR>
+nnoremap <leader>c :ColorToggle<CR>
 
 " }}}
 
