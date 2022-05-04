@@ -19,6 +19,7 @@ alias ls='ls --color=auto'
 alias :q='exit'
 alias q='exit'
 alias cl='clear'
+alias x='startx'
 
 # colour
 alias grep='grep --color=auto'
