@@ -5,6 +5,9 @@
 #(_)_|____/_/ \___\___/|_| |_|_| |_|\__, |
 #                                   |___/
 
+bindsym $mod+mod1+x exec --no-startup-id xterm
+bindsym $mod+mod1+u exec --no-startup-id urxvt
+
 # EXECS ------------------------------------------------------------------- {{{
 
 exec_always --no-startup-id ~/.config/arandr.sh && hsetroot -solid "$(xrdb -query | grep '^\*background' | cut -f 2)" && nitrogen --restore
@@ -147,15 +150,11 @@ mode "$mode_system" {
 # RICE MODE --------------------------------------------------------------- {{{
 
 bindsym $mod+t mode "$mode_rice"
-set $mode_rice colours: (l)ight | (d)ark | (t)oggle | picom: (o)n, o(f)f | switch to theme: (D)racula, (G)ruvbox, (N)ord, (S)olarized
+set $mode_rice rice.sh: (l)ight, (d)ark, (t)oggle | picom: (o)n, o(f)f
 mode "$mode_rice" {
     bindsym l exec --no-startup-id rice.sh --light, mode "default"
     bindsym d exec --no-startup-id rice.sh --dark, mode "default"
     bindsym t exec --no-startup-id rice.sh --toggle, mode "default"
-    bindsym shift+d exec --no-startup-id rice.sh dracula, mode "default"
-    bindsym shift+g exec --no-startup-id rice.sh gruvbox-dark, mode "default"
-    bindsym shift+n exec --no-startup-id rice.sh nord, mode "default"
-    bindsym shift+s exec --no-startup-id rice.sh solarized-dark, mode "default"
     bindsym o exec --no-startup-id picom --experimental-backends -c, mode "default"
     bindsym f exec --no-startup-id killall picom, mode "default"
 
@@ -431,6 +430,7 @@ bar {
 bindsym $mod+d exec --no-startup-id dmenu_run -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
 bindsym $mod+p exec --no-startup-id passmenu --type -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
 bindsym $mod+Shift+p exec --no-startup-id usermenu.sh --type -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
+bindsym $mod+Shift+t exec --no-startup-id rice.sh "$(rice.sh --list | dmenu -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)")"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
