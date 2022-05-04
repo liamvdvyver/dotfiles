@@ -38,6 +38,7 @@ let mapleader = " "
 let g:airline_powerline_fonts = 1
 "let g:airline_symbols_ascii = 1
 "let NERDTreeMinimalUI = 1
+let g:tokyonight_transparent_background = 1
 let R_assign = 0
 
 " }}}
@@ -77,37 +78,38 @@ endif
 
 " load plugins
 call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'preservim/nerdtree'
-Plug 'mboughaba/i3config.vim'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
+" IDE like/language specific
 Plug 'lervag/vimtex'
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
-Plug 'christoomey/vim-tmux-navigator'
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+" navigation
+Plug 'preservim/nerdtree'
+Plug 'francoiscabrol/ranger.vim'
+" syntax
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/tagbar'
-Plug 'ap/vim-css-color'
-
+Plug 'mboughaba/i3config.vim'
+Plug 'chrisbra/Colorizer'
+Plug 'preservim/tagbar'
+" airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" colorschemes
 Plug 'altercation/vim-colors-solarized'
 Plug 'lifepillar/vim-solarized8'
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'rakr/vim-one'
-
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'lourenci/github-colors'
+" other
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
-" install pyright with :CocInstall coc-pyright
-" install vimtex with :CocInstall coc-vimtex
-" install r-lsp with :CocInstall coc-r-lsp
-"   and install.packages("languageserver") in R
-" install shellcheck with :CocInstall coc-diagnostic
-"   requires shellcheck and shfmt system packages
-"   and config in ./coc-settings.json
 " install system package ctags for tagbar
 
 " choose colorscheme

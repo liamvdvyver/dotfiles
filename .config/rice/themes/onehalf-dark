@@ -1,0 +1,72 @@
+! palette
+
+#define c0        #282c34
+#define c1        #e06c75
+#define c2        #98c379
+#define c3        #e5c07b
+#define c4        #61afef
+#define c5        #c678dd
+#define c6        #56b6c2
+#define c7        #dcdfe4
+#define c8        #5d677a
+#define c9        #e06c75
+#define c10       #98c379
+#define c11       #e5c07b
+#define c12       #61afef
+#define c13       #c678dd
+#define c14       #56b6c2
+#define c15       #dcdfe4
+#define selection #313640
+#define lighttext #919baa
+
+! ANSI
+
+! black
+*color0:  c0
+*color8:  c8
+! red
+*color1:  c1
+*color9:  c9
+! green
+*color2:  c2
+*color10: c10
+! yellow
+*color3:  c3
+*color11: c11
+! blue
+*color4:  c4
+*color12: c12
+! magenta
+*color5:  c5
+*color13: c13
+! cyan
+*color6:  c6
+*color14: c14
+! white
+*color7:  c7
+*color15: c15
+
+! terminal
+
+*background:  c0
+*foreground:  c15
+*cursorColor: c15
+
+! ricing
+
+rice.foreground.alt:      lighttext
+rice.foreground.focused:  c15
+rice.foreground.active:   c15
+rice.foreground.inactive: c15
+rice.background.focused:  c8
+rice.background.active:   selection
+rice.background.inactive: c0
+rice*urgent:              c1
+rice.border.focused:      c8
+rice.border.unfocused:    selection
+rice.indicator.focused:   lighttext
+
+rice.nvim.theme:      onehalfdark
+rice.nvim.background: dark
+rice.theme:           onehalf
+rice.background:      dark

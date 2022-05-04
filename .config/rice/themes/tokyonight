@@ -1,0 +1,74 @@
+! palette
+
+#define ansiBlack         #363b54
+#define ansiRed           #f7768e
+#define ansiGreen         #41a6b5
+#define ansiYellow        #e0af68
+#define ansiBlue          #7aa2f7
+#define ansiMagenta       #bb9af7
+#define ansiCyan          #7dcfff
+#define ansiWhite         #787c99
+#define ansiBrightBlack   #363b54
+#define ansiBrightRed     #f7768e
+#define ansiBrightGreen   #41a6b5
+#define ansiBrightYellow  #e0af68
+#define ansiBrightBlue    #7aa2f7
+#define ansiBrightMagenta #bb9af7
+#define ansiBrightCyan    #7dcfff
+#define ansiBrightWhite   #acb0d0
+#define fground           #a9b1d6
+#define bground           #1a1b26
+#define selection         #232433
+#define comment           #444b6a
+
+! ANSI
+
+! black
+*color0:  ansiBlack
+*color8:  ansiBrightBlack
+! red
+*color1:  ansiRed
+*color9:  ansiBrightRed
+! green
+*color2:  ansiGreen
+*color10: ansiBrightGreen
+! yellow
+*color3:  ansiYellow
+*color11: ansiBrightYellow
+! blue
+*color4:  ansiBlue
+*color12: ansiBrightBlue
+! magenta
+*color5:  ansiMagenta
+*color13: ansiBrightMagenta
+! cyan
+*color6:  ansiCyan
+*color14: ansiBrightCyan
+! white
+*color7:  ansiWhite
+*color15: ansiBrightWhite
+
+! terminal
+
+*background:  bground
+*foreground:  fground
+*cursorColor: fground
+
+! ricing
+
+rice.foreground.alt:      comment
+rice.foreground.focused:  bground
+rice.foreground.active:   fground
+rice.foreground.inactive: fground
+rice.background.focused:  ansiBrightBlue
+rice.background.active:   selection
+rice.background.inactive: bground
+rice*urgent:              ansiBrightRed
+rice.border.focused:      comment
+rice.border.unfocused:    selection
+rice.indicator.focused:   ansiBrightGreen
+
+rice.nvim.theme:      tokyonight
+rice.nvim.background: dark
+rice.theme:           tokyonight
+rice.background:      dark
