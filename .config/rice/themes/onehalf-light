@@ -22,8 +22,8 @@
 ! ANSI
 
 ! black
-*color0:  c0
-*color8:  c8
+*color0:  c7
+*color8:  c15
 ! red
 *color1:  c1
 *color9:  c9
@@ -43,8 +43,8 @@
 *color6:  c6
 *color14: c14
 ! white
-*color7:  c7
-*color15: c15
+*color7:  c0
+*color15: c8
 
 ! terminal
 
