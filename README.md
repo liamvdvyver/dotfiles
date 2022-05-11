@@ -11,11 +11,14 @@ have made no effort to make these portable.
 
 2. Yadm clone into `~`
 
-3. Clone my [scripts repo](https://gitlab.com/liamvdvyver/scripts) to
+3. To use multiple monitors, create arandr.sh in ~/.config
+
+4. Clone my [scripts repo](https://gitlab.com/liamvdvyver/scripts) to
    `~/git/scripts` (or other directory and add to path) to generate
    config files from Xresources
 
-4. If dmenu is installed, switch themes with `$mod+t` or switch light/dark with
+
+5. If dmenu is installed, switch themes with `$mod+t` or switch light/dark with
    `$mod+r`
 
 ### Configuration for `rice.sh`
@@ -79,3 +82,8 @@ Resources take format `rice.foreground.X` or `rice.background.X`, where X is:
 * `rice.background`: background colour, either `light` or `dark`
 * `rice.nvim.theme`: theme name for neovim
 * `rice.nvim.background`: background colour for neovim
+
+Resources are resused to support:
+
+* dunst
+* zathura
