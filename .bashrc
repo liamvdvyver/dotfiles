@@ -42,6 +42,7 @@ alias r='ranger'
 alias s='systemctl'
 alias t='tmux'
 alias v='nvim'
+alias yt='ytfzf -t'
 
 # git
 alias g='git'
