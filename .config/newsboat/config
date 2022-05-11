@@ -1,5 +1,5 @@
 # comma+v to open video in mpv
-macro v set browser "setsid -f mpv" ; open-in-browser ; set browser brave
+macro m set browser "setsid -f mpv" ; open-in-browser ; set browser qutebrowser
 
 # unbind keys
 unbind-key ENTER
@@ -13,4 +13,3 @@ bind-key j down
 bind-key k up
 bind-key l open
 bind-key h quit
-

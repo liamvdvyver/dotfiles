@@ -32,7 +32,7 @@ bindsym $Mod+Shift+Delete exec --no-startup-id picom-trans -c 100
 bindsym $mod+Shift+x --release exec --no-startup-id xkill
 
 # Start Binds
-bindsym $mod+Mod1+w exec brave
+bindsym $mod+Mod1+w exec qutebrowser
 bindsym $mod+Mod1+e exec pcmanfm
 bindsym $mod+Mod1+j exec --no-startup-id joplin-desktop
 bindsym $mod+Mod1+r exec rstudio-bin --no-sandbox
