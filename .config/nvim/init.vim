@@ -74,6 +74,9 @@ nnoremap <leader>s  :!
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>c :ColorToggle<CR>
+nnoremap <c-p> :GFiles<CR>
+nnoremap <c-f> :Files<CR>
+nnoremap <leader>r :Rg<CR>
 
 " }}}
 
@@ -97,6 +100,7 @@ Plug 'airblade/vim-gitgutter'
 " navigation
 Plug 'preservim/nerdtree'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'junegunn/fzf.vim'
 " syntax
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/tagbar'
@@ -141,12 +145,12 @@ autocmd Filetype tex nnoremap <localleader>wc :!pdftotext *.pdf - \| wc -w<CR>
 autocmd Filetype tex set wrap spell
 
 " python
-autocmd Filetype python nnoremap <leader>r :w<bar>!python %<CR>
-autocmd Filetype python nnoremap <leader>R :w<bar>!$TERMINAL -e python %<CR><CR>
+autocmd Filetype python nnoremap <localleader>r :w<bar>!python %<CR>
+autocmd Filetype python nnoremap <localleader>R :w<bar>!$TERMINAL -e python %<CR><CR>
 autocmd Filetype python set textwidth=79
 
 " bash
-autocmd Filetype sh nnoremap <leader>r :w<bar>!bash %<CR>
+autocmd Filetype sh nnoremap <localleader>r :w<bar>!bash %<CR>
 
 " }}}
 
