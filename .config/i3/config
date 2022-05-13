@@ -7,7 +7,7 @@
 
 # EXECS ------------------------------------------------------------------- {{{
 
-exec_always --no-startup-id ~/.config/arandr.sh && hsetroot -solid "$(xrdb -query | grep '^\*background' | cut -f 2)" && nitrogen --restore
+exec--no-startup-id ~/.config/arandr.sh && cat ~/.config/rice/pape | xargs pape
 exec_always --no-startup-id bash ~/.config/i3/restarts.sh
 exec --no-startup-id mpd
 exec --no-startup-id mpDris2
@@ -24,7 +24,7 @@ exec --no-startup-id nmcli radio wifi off
 bindsym $mod+grave exec --no-startup-id flameshot gui
 bindsym $mod+Shift+grave exec --no-startup-id flameshot launcher
 bindsym $mod+Shift+m exec --no-startup-id notify-send "Syncing mail" && mw -Y && notify-send "Synced mail"
-bindsym $mod+Shift+w exec --no-startup-id nitrogen --restore
+bindsym $mod+Shift+w exec --no-startup-id cat ~/.config/rice/pape | xargs pape
 bindsym $mod+shift+s exec --no-startup-id hsetroot -solid "$(xrdb -query | grep '^\*background' | cut -f 2)"
 bindsym $Mod+Shift+Prior exec --no-startup-id picom-trans -c +2
 bindsym $Mod+Shift+Next exec --no-startup-id picom-trans -c -2
