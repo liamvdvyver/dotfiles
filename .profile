@@ -8,12 +8,12 @@
 # Environment variables: defaults
 export VISUAL=nvim
 export EDITOR=$VISUAL
-export BROWSER=brave
+export BROWSER=qutebrowser
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export TERMINAL=kitty
 export QT_QPA_PLATFORMTHEME=gtk2
 export CALIBRE_USE_SYSTEM_THEME=1
-export PATH=~/git/scripts:$PATH
+export PATH=~/git/scripts:~/.local/bin:$PATH
 export TERM=xterm-kitty
 export GPG_TTY=$(tty)
 export PASSWORD_STORE_DIR=~/git/password-store
