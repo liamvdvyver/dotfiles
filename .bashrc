@@ -43,6 +43,7 @@ alias s='systemctl'
 alias t='tmux'
 alias v='nvim'
 alias yt='ytfzf -t'
+alias wp='pape -i'
 
 # git
 alias g='git'
@@ -72,6 +73,7 @@ alias pg='ps aux | grep'
 alias ipp='curl https://ipinfo.io/ip && echo'
 alias umm='sudo umount /media/media && sudo mount /media/media'
 alias xr='xrdb .Xresources'
+alias vr='nvim +:Ranger'
 
 # making things work
 alias gcalcli='gcalcli --config-folder ~/.config/gcalcli'
