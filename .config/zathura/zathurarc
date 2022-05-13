@@ -16,7 +16,7 @@ set notification-fg \#ebdbb2 #fg2
 set notification-bg \#3c3836 #bg2
 set notification-warning-fg \#282828 #fg3
 set notification-warning-bg \#a89984 #bg3
-set notification-error-fg \#ebdbb2 #fg
+set notification-error-fg \#282828 #bg
 set notification-error-bg \#fb4934 #bgr
 
 set index-fg \#ebdbb2 #fg

@@ -389,7 +389,7 @@ bar {
         active_workspace   $bg_a   $bg_a   $fg_a
         inactive_workspace $bg_i   $bg_i   $fg_i
         binding_mode       $bg     $bg     $fg
-        urgent_workspace   $bg_u   $bg_u   $fg
+        urgent_workspace   $bg_r   $bg_r   $bg
     }
 }
 

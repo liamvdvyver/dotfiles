@@ -117,6 +117,10 @@ c.colors.messages.warning.bg = xresources["rice.background.focused"]
 c.colors.messages.warning.border = xresources["rice.background.focused"]
 c.colors.messages.warning.fg = xresources["rice.foreground.focused"]
 
+c.colors.prompts.fg = xresources["*foreground"]
+c.colors.prompts.bg = xresources["*background"]
+c.colors.prompts.border = xresources["*background"]
+
 if xresources["rice.background"] == "dark":
     c.colors.webpage.darkmode.enabled = True
 elif xresources["rice.background"] == "light":
