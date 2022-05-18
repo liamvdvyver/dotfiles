@@ -1,7 +1,7 @@
 # FOLLOWING LINES WILL BE OVERWRITTEN
 
 [global]
-icon_theme = "Papirus-Dark"
+icon_theme = "gruvbox-dark-icons-gtk"
 enable_recursive_icon_lookup = "true"
 
 [urgency_low]

@@ -79,3 +79,5 @@ rice.nvim.theme:      gruvbox
 rice.nvim.background: dark
 rice.theme:           gruvbox
 rice.background:      dark
+! install from aur
+rice.icon.dark:       gruvbox-dark-icons-gtk 
