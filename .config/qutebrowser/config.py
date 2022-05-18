@@ -1,5 +1,4 @@
 import subprocess
-from qutebrowser.api import interceptor
 
 config.load_autoconfig(False)
 
@@ -46,6 +45,7 @@ c.colors.statusbar.caret.selection.bg = xresources["*color5"]
 c.colors.statusbar.passthrough.bg = xresources["*color4"]
 c.colors.statusbar.normal.fg = xresources["*foreground"]
 c.colors.statusbar.command.fg = xresources["*foreground"]
+c.colors.statusbar.progress.bg = xresources["*foreground"]
 c.colors.statusbar.insert.fg = xresources["*background"]
 c.colors.statusbar.caret.selection.fg = xresources["*background"]
 c.colors.statusbar.passthrough.fg = xresources["*background"]
@@ -120,6 +120,8 @@ c.colors.messages.warning.fg = xresources["rice.foreground.focused"]
 c.colors.prompts.fg = xresources["*foreground"]
 c.colors.prompts.bg = xresources["*background"]
 c.colors.prompts.border = xresources["*background"]
+c.colors.prompts.selected.fg = xresources["*foreground"]
+c.colors.prompts.selected.bg = xresources["*background"]
 
 if xresources["rice.background"] == "dark":
     c.colors.webpage.darkmode.enabled = True
