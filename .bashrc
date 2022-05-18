@@ -35,6 +35,7 @@ alias nb='newsboat'
 alias nf='neofetch'
 alias nm='neomutt'
 alias p='yay'
+alias pc='pcmanfm'
 alias pf='pfetch'
 alias py='python'
 alias p3='python3'
@@ -43,7 +44,6 @@ alias s='systemctl'
 alias t='tmux'
 alias v='nvim'
 alias yt='ytfzf -t'
-alias wp='pape -i'
 
 # git
 alias g='git'
@@ -67,13 +67,18 @@ alias rmd='rclone sync -i Mega: ~/mega'
 alias rmu='rclone sync -i ~/mega Mega:'
 
 # misc commands
-alias cls='clear && source ~/.bashrc && xrdb ~/.Xresources'
+alias cls='clear && source ~/.bashrc && xrdb ~/.Xresources 2>/dev/null'
 alias pls='sudo $(history -p !!)'
 alias pg='ps aux | grep'
 alias ipp='curl https://ipinfo.io/ip && echo'
 alias umm='sudo umount /media/media && sudo mount /media/media'
 alias xr='xrdb .Xresources'
 alias vr='nvim +:Ranger'
+alias mpw='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
+
+# my scripts
+alias wp='pape -i ~/drive/Pictures/papes/'
+alias mmd='find . -regex '\''.*\.\(flac\|mp3\|dsf\)'\'' -exec musmv {} \;'
 
 # making things work
 alias gcalcli='gcalcli --config-folder ~/.config/gcalcli'
