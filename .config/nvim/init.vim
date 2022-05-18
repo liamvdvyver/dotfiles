@@ -3,6 +3,7 @@
 " \ \ / / | '_ ` _ \| '__/ __|
 "  \ V /| | | | | | | | | (__
 " (_)_/ |_|_| |_| |_|_|  \___|
+"
 
 " SETS --------------------------------------------------------------------- {{{
 
@@ -26,6 +27,7 @@ set fdm=marker
 set nowrap
 set formatoptions=
 set noshowmode
+set clipboard+=unnamedplus
 
 " }}}
 
@@ -107,6 +109,9 @@ Plug 'preservim/tagbar'
 Plug 'mboughaba/i3config.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'preservim/tagbar'
+" snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 " airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -120,6 +125,7 @@ Plug 'rakr/vim-one'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'lourenci/github-colors'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 " other
 Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
