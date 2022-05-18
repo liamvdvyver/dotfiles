@@ -1,0 +1,138 @@
+# Applications ------------------------------------------------------------  {{{
+
+super + Return
+    $TERMINAL
+
+super + alt + w 
+    qutebrowser
+
+super + alt + e 
+    pcmanfm
+
+super + alt + j 
+    joplin-desktop
+
+super + alt + r 
+    rstudio-bin --no-sandbox
+
+super + alt + v 
+    virt-manager
+
+super + alt + c 
+    calibre
+
+super + alt + s 
+    steam
+
+super + alt + g 
+    gimp
+
+super + alt + d
+    discord
+
+super + alt + Return
+    $TERMINAL --name __scratchpad
+
+super + shift + a
+    pavucontrol
+
+super + alt + p
+    sxiv ~/drive/Pictures/ptable.png -N __scratchpad
+
+# }}}
+
+# Shortcuts ---------------------------------------------------------------- {{{
+
+super + grave
+    flameshot gui
+
+super + shift+grave 
+    scr
+
+super + shift + m 
+    notify-send "Syncing mail" && mw -Y && notify-send "Synced mail"
+
+super + shift + w 
+    cat ~/.config/rice/pape | xargs pape
+
+super + shift + s 
+    hsetroot -solid "$(xrdb -query | grep '^\*background' | cut -f 2)"
+
+super + shift + Prior 
+    picom-trans -c +5
+
+super + shift + Next 
+    picom-trans -c -5
+
+super + shift + Delete 
+    picom-trans -c 100
+
+super + shift + x
+    xkill
+
+super + shift + t
+    rice --toggle
+
+# }}}
+
+# Dmenu -------------------------------------------------------------------- {{{
+
+super + d
+    dmenu_run -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
+
+super + p
+    passmenu --type -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
+
+super + shift + p
+    usermenu --type -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
+
+super + t
+    rice "$(rice --list | dmenu -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)")"
+
+# }}}
+
+# Media -------------------------------------------------------------------- {{{
+
+# Media keys
+
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +10%
+
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -10%
+
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86AudioMicMute
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Volume
+
+super + Prior
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+super + Next
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+super + Delete
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# MPRIS
+
+super + backslash
+    playerctl play-pause
+
+super + bracketright
+    playerctl next
+
+super + bracketleft
+    playerctl previous
+
+super + shift + backslash
+    playerctl --player=mpd play-pause
+
+super + control + backslash
+    playerctl --player=spotifyd play-pause
+
+# }}}

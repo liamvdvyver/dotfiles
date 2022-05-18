@@ -5,42 +5,7 @@
 #(_)_|____/_/ \___\___/|_| |_|_| |_|\__, |
 #                                   |___/
 
-# EXECS ------------------------------------------------------------------- {{{
-
-exec--no-startup-id ~/.config/arandr.sh && cat ~/.config/rice/pape | xargs pape
-exec_always --no-startup-id bash ~/.config/i3/restarts.sh
-exec --no-startup-id mpd
-exec --no-startup-id mpDris2
-exec --no-startup-id spotifyd
-exec --no-startup-id barriers --enable-crypto -c ~/.config/barrier.conf
-#exec --no-startup-id picom --experimental-backends -c
-exec --no-startup-id nmcli radio wifi off
-
-# }}}
-
 # BINDS -------------------------------------------------------------------- {{{
-
-# Shortcuts
-bindsym $mod+grave exec --no-startup-id flameshot gui
-bindsym $mod+Shift+grave exec --no-startup-id flameshot launcher
-bindsym $mod+Shift+m exec --no-startup-id notify-send "Syncing mail" && mw -Y && notify-send "Synced mail"
-bindsym $mod+Shift+w exec --no-startup-id cat ~/.config/rice/pape | xargs pape
-bindsym $mod+shift+s exec --no-startup-id hsetroot -solid "$(xrdb -query | grep '^\*background' | cut -f 2)"
-bindsym $Mod+Shift+Prior exec --no-startup-id picom-trans -c +2
-bindsym $Mod+Shift+Next exec --no-startup-id picom-trans -c -2
-bindsym $Mod+Shift+Delete exec --no-startup-id picom-trans -c 100
-bindsym $mod+Shift+x --release exec --no-startup-id xkill
-
-# Start Binds
-bindsym $mod+Mod1+w exec qutebrowser
-bindsym $mod+Mod1+e exec pcmanfm
-bindsym $mod+Mod1+j exec --no-startup-id joplin-desktop
-bindsym $mod+Mod1+r exec rstudio-bin --no-sandbox
-bindsym $mod+mod1+v exec virt-manager
-bindsym $mod+Mod1+c exec calibre
-bindsym $mod+Mod1+s exec steam
-bindsym $mod+Mod1+g exec gimp
-bindsym $mod+Mod1+d exec --no-startup-id discord
 
 # Scratchpad
 for_window [instance="__scratchpad"] move scratchpad
@@ -49,23 +14,6 @@ for_window [class="KeePassXC"] move scratchpad
 for_window [class="KeePassXC"] scratchpad show
 for_window [class="Pavucontrol"] move scratchpad
 for_window [class="Pavucontrol"] scratchpad show
-
-bindsym $mod+Mod1+Return exec --no-startup-id i3-sensible-terminal --name __scratchpad
-bindsym $mod+Mod1+k exec --no-startup-id keepassxc --keyfile ~/drive/Documents/passwords.kbdx
-bindsym $mod+Shift+a exec --no-startup-id pavucontrol
-bindsym $mod+Mod1+p exec --no-startup-id sxiv ~/drive/Pictures/ptable.png -N __scratchpad
-
-# Volume binds
-bindsym $Mod+Prior exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym $Mod+Next exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym $Mod+Delete exec --no-startup-id pactl set-sink-mute 0 toggle
-
-# MPRIS binds
-bindsym $mod+backslash exec --no-startup-id playerctl play-pause
-bindsym $mod+bracketright exec --no-startup-id playerctl next
-bindsym $mod+bracketleft exec --no-startup-id playerctl previous
-bindsym $mod+Shift+backslash exec --no-startup-id playerctl --player=mpd play-pause
-bindsym $mod+control+backslash exec --no-startup-id playerctl --player=spotifyd play-pause
 
 # Controls
 bindsym $mod+period move workspace to output right
@@ -234,18 +182,8 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -377,7 +315,7 @@ bar {
     status_command i3status
     position top
 
-    #tray_output primary
+    tray_output primary
 
     colors {
         background $bg
@@ -392,20 +330,5 @@ bar {
         urgent_workspace   $bg_r   $bg_r   $bg
     }
 }
-
-# }}}
-
-# DMENU -------------------------------------------------------------------- {{{
-
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
-bindsym $mod+p exec --no-startup-id passmenu --type -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
-bindsym $mod+Shift+p exec --no-startup-id usermenu --type -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
-bindsym $mod+t exec --no-startup-id rice "$(rice --list | dmenu -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)")"
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # }}}
