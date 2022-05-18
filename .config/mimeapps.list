@@ -1,6 +1,6 @@
 [Default Applications]
-x-scheme-handler/http=qutebrowser.desktop
-x-scheme-handler/https=qutebrowser.desktop
+x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop
+x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/chrome=qutebrowser.desktop
 text/html=org.qutebrowser.qutebrowser.desktop
 application/x-extension-htm=qutebrowser.desktop
@@ -16,8 +16,8 @@ image/jpeg=sxiv.desktop
 inode/x-empty=nvim.desktop
 
 [Added Associations]
-x-scheme-handler/http=qutebrowser.desktop;
-x-scheme-handler/https=qutebrowser.desktop;
+x-scheme-handler/http=qutebrowser.desktop;org.qutebrowser.qutebrowser.desktop;
+x-scheme-handler/https=qutebrowser.desktop;org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/chrome=qutebrowser.desktop;
 text/html=org.qutebrowser.qutebrowser.desktop;qutebrowser.desktop;
 application/x-extension-htm=qutebrowser.desktop;
