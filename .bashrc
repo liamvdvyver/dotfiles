@@ -77,7 +77,7 @@ alias vr='nvim +:Ranger'
 alias mpw='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
 
 # my scripts
-alias wp='pape -i ~/drive/Pictures/papes/'
+alias wp='pape -i ~/drive/pictures/papes/'
 alias mmd='find . -regex '\''.*\.\(flac\|mp3\|dsf\)'\'' -exec musmv {} \;'
 
 # making things work
