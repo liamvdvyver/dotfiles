@@ -105,7 +105,6 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'junegunn/fzf.vim'
 " syntax
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/tagbar'
 Plug 'mboughaba/i3config.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'preservim/tagbar'
