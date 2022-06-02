@@ -1,6 +1,8 @@
 xrdb .Xresources &
+xset s off &
+xset -dpms &
 
-picom --experimental-backends &
+picom --experimental-backends -c &
 ~/.config/arandr.sh &
 cat ~/.config/rice/pape | xargs pape &
 
