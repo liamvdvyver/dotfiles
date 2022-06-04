@@ -74,7 +74,7 @@ alias ipp='curl https://ipinfo.io/ip && echo'
 alias umm='sudo umount /media/media && sudo mount /media/media'
 alias xr='xrdb .Xresources'
 alias vr='nvim +:Ranger'
-alias mpw='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
+alias mpw='mpv --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0'
 alias f='xdg-open "$(fzf)"'
 alias d='cd "$(fd . ~ -L -td | fzf)"'
 
