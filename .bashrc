@@ -20,6 +20,7 @@ alias :q='exit'
 alias q='exit'
 alias cl='clear'
 alias x='startx'
+alias gh='cd ~'
 
 # colour
 alias grep='grep --color=auto'
