@@ -28,7 +28,6 @@ alias lsa='ls -A --color=auto'
 # programs
 alias S='sudo systemctl'
 alias V='sudo nvim'
-alias f='ranger --cmd=fzf_select'
 alias h='htop'
 alias m='ncmpcpp'
 alias nb='newsboat'
@@ -75,6 +74,8 @@ alias umm='sudo umount /media/media && sudo mount /media/media'
 alias xr='xrdb .Xresources'
 alias vr='nvim +:Ranger'
 alias mpw='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
+alias f='xdg-open "$(fzf)"'
+alias d='cd "$(fd . ~ -L -td | fzf)"'
 
 # my scripts
 alias wp='pape -i ~/drive/pictures/papes/'
