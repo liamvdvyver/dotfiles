@@ -89,10 +89,12 @@ alias gcalcli='gcalcli --config-folder ~/.config/gcalcli'
 
 # PROMPT ------------------------------------------------------------------- {{{
 
+. ~/.config/git-prompt.sh
+
 if [[ ${EUID} == 0 ]] ; then
     PS1='\[\e[0m\]\W\[\e[1;31m\] \$\[\e[0m\] '
 else
-    PS1='\[\e[0;34m\]\W\[\e[1;36m\] \$\[\e[0m\] '
+    PS1='\[\e[0;34m\]\W\[\e[1;36m\] $(__git_ps1 "(%s) ")\$\[\e[0m\] '
     PS2='\[\e[1;36m\]> \[\e[0m\] '
 fi
 
