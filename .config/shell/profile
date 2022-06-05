@@ -11,16 +11,21 @@ export EDITOR=$VISUAL
 export BROWSER=qutebrowser
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export TERMINAL=kitty
+export TERM=xterm-kitty
 export QT_QPA_PLATFORMTHEME=gtk2
 export CALIBRE_USE_SYSTEM_THEME=1
 export PATH=~/git/scripts:~/.local/bin:$PATH
-export TERM=xterm-kitty
 export GPG_TTY=$(tty)
+export FZF_DEFAULT_COMMAND='fd -L -tf'
+
+# Clean up dotfiles
 export PASSWORD_STORE_DIR=~/git/password-store
 export BASH_COMPLETION_USER_FILE=/usr/share/bash-complete-alias/complete_alias
-export HISTFILESIZE=-1
 export LESSHISTFILE=-
-export FZF_DEFAULT_COMMAND='fd -L -tf'
+export ZDOTDIR=~/.config/shell
+#export XINITRC=~/.config/xinitrc
+export HISTFILE=~/.cache/histfile
+export HISTFILESIZE=100000
 
 # Pfetch config
 export PF_INFO="ascii os kernel uptime pkgs shell wm editor palette"

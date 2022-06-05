@@ -1,4 +1,4 @@
-xrdb .Xresources &
+xrdb ~/.config/Xresources &
 xset s off &
 xset -dpms &
 
