@@ -28,6 +28,7 @@ set nowrap
 set formatoptions=
 set noshowmode
 set clipboard+=unnamedplus
+set background=dark
 
 " }}}
 
@@ -107,10 +108,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mboughaba/i3config.vim'
 Plug 'chrisbra/Colorizer'
-Plug 'preservim/tagbar'
+Plug 'preservim/tagbar' " install system package ctags
 " snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 " airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -129,17 +130,14 @@ Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
-" install system package ctags for tagbar
-
-" choose colorscheme
-colorscheme gruvbox
-set background=dark
-
 " auto detect i3 config
 aug i3config_ft_detection
   au!
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
+
+" source coc maps
+source ~/.config/nvim/coc.vim
 
 " }}}
 
@@ -162,5 +160,6 @@ autocmd Filetype sh nnoremap <localleader>r :w<bar>!bash %<CR>
 " OTHER STUFF -------------------------------------------------------------- {{{
 
 syntax enable
+colorscheme gruvbox
 
 " }}}
