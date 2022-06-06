@@ -13,7 +13,7 @@ bindkey -v
 
 source ~/.config/shell/aliases
 
-PS1='%F{blue}%1~%f %B%F{cyan}❯%f%b '
+PS1='%B%F{blue}%1~%f %F{cyan}❯%f%b '
 HISTFILE=$HISTFILE
 HISTSIZE=$HISTSIZE
 SAVEHIST=$HISTSIZE
@@ -48,5 +48,6 @@ colors
 # Plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 
 pfetch
