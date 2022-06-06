@@ -21,58 +21,29 @@ general {
         color_degraded = "#DC322F"
 }
 
-# order += "ipv6"
 order += "cpu_usage"
-# order += "wireless _first_"
-# order += "ethernet _first_"
-# order += "battery all"
-# order += "load"
 order += "memory"
-#order += "disk /"
-#order += "disk /home"
 order += "volume master"
 order += "tztime local"
 
 volume master {
-        format = " VOL: %volume "
-        format_muted = " VOL: MUTE "
+        device = "pulse"
+        format = "  %volume "
+        format_muted = "  %volume "
         device = "default"
         mixer = "Master"
         mixer_idx = 0
 }
 
 cpu_usage {
-        format = " CPU: %usage "
+        format = "  %usage "
 }
 
-load {
-        format = " load %1min "
-        # max_threshold = 0.3
-}
-
-disk "/" {
-        format = " root: %used / %total "
-        # format = " ⛁ %avail "
-}
-
-disk "/home" {
-        format = " home: %used / %total "
-        # format = " ⛁ %avail "
-}
-ethernet _first_ {
-# if you use %speed, i3status requires root privileges
-        format_up = "D/U: %Down / %Up"
-        format_down = " no lan "
-}
 
 memory {
-        format = " RAM: %used / %total "
-        threshold_degraded = "1G"
-        # format_degraded = "MEMORY < %available"
-        format_degraded = " RAM: %used / %total "
+        format = "  %used "
 }
 
 tztime local {
-        format = " %a %b %d, %I:%M:%S %p "
-        # format = " %d.%m. %H:%M "
+        format = "  %a %b %d  %I:%M:%S %p "
 }
