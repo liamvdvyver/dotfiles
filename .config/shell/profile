@@ -24,8 +24,8 @@ export BASH_COMPLETION_USER_FILE=/usr/share/bash-complete-alias/complete_alias
 export LESSHISTFILE=-
 export ZDOTDIR=~/.config/shell
 #export XINITRC=~/.config/xinitrc
-export HISTFILE=~/.local/share/histfile
-export HISTFILESIZE=100000
+export HISTFILE=~/.local/share/bash_history
+export HISTFILESIZE=-1
 
 # Pfetch config
 export PF_INFO="ascii os kernel uptime pkgs shell wm editor palette"

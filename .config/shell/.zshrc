@@ -11,12 +11,17 @@
 setopt autocd
 bindkey -v
 
+# Source aliases
 source ~/.config/shell/aliases
 
+# Set prompt
 PS1='%B%F{blue}%1~%f %F{cyan}❯%f%b '
-HISTFILE=$HISTFILE
-HISTSIZE=$HISTSIZE
-SAVEHIST=$HISTSIZE
+PS2='%B%F{blue}→%f%b '
+
+# Configure history
+HISTFILE=~/.local/share/histfile
+HISTSIZE=10000
+SAVEHIST=10000
 
 # Enable completion
 zmodload zsh/complist
@@ -51,4 +56,5 @@ source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh 2>/de
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh
 
+# Rice
 pfetch
