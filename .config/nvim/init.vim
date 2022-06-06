@@ -40,7 +40,7 @@ let mapleader = " "
 let g:airline_powerline_fonts = 1
 "let g:airline_symbols_ascii = 1
 "let NERDTreeMinimalUI = 1
-let g:tokyonight_transparent_background = 1
+let g:tokyonight_transparent_background = 0
 let R_assign = 0
 let g:coc_global_extensions = [
             \ 'coc-pyright',
