@@ -21,9 +21,9 @@ have made no effort to make these portable.
 5. If dmenu is installed, switch themes with `$mod+t` or switch light/dark with
    `$mod+r`
 
-### Configuration for `rice.sh`
+### Configuration for `rice`
 
-Some config files written to by `rice.sh` need to be initialised first:
+Some config files written to by `rice` need to be initialised first:
 
 * Set background images with nitrogen to initialise
 * Set GTK themes with lxappearance to initialise
@@ -87,3 +87,8 @@ Resources are resused to support:
 
 * dunst
 * zathura
+
+### Wallpapers
+
+Wallpapers are set with xwallpaper according to the path specified in
+`~.config/rice/pape`, which can be set with 'pape' from my scripts repo.
