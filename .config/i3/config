@@ -145,10 +145,10 @@ set_from_resource $bd_r rice.border.urgent
 set_from_resource $id_f rice.indicator.focused
 
 # class                   border  backgr. text    indic.   child_border
-  client.focused          $bd_f   $bg_f   $fg_f   $id_f
+  client.focused          $bd_f   $bd_f   $fg_f   $id_f
   client.focused_inactive $bd_u   $bd_u   $fg     $bd_u
   client.unfocused        $bd_u   $bd_u   $fg     $bd_u
-  client.urgent           $bd_r   $bg_r   $fg     $bd_r
+  client.urgent           $bd_r   $bd_r   $fg     $bd_r
   client.placeholder      $bg     $bg     $fg     $bd
 
   client.background       $bg
