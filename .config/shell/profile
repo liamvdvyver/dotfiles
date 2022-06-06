@@ -24,7 +24,7 @@ export BASH_COMPLETION_USER_FILE=/usr/share/bash-complete-alias/complete_alias
 export LESSHISTFILE=-
 export ZDOTDIR=~/.config/shell
 #export XINITRC=~/.config/xinitrc
-export HISTFILE=~/.cache/histfile
+export HISTFILE=~/.local/share/histfile
 export HISTFILESIZE=100000
 
 # Pfetch config
