@@ -1,3 +1,18 @@
 [user]
     name = Liam van der Vyver
     email = 1495063-liamvdvyver@users.noreply.gitlab.com
+[alias]
+    s = status
+    c = commit
+    ca = commit -a
+    a = add
+    co = checkout
+    d = diff
+    pl = log
+    p = push
+    pl = pull
+    f = fetch
+    r = rebase
+    ri = rebase -i
+    b = branch
+    l = log
