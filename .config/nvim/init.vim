@@ -41,8 +41,13 @@ let mapleader = " "
 let g:airline_powerline_fonts = 1
 "let g:airline_symbols_ascii = 1
 "let NERDTreeMinimalUI = 1
+let NERDTreeShowHidden=1
 let g:tokyonight_transparent_background = 0
 let R_assign = 0
+
+" coc extensions
+" install languageserver R package for coc-r-lsp
+" install shellcheck and shfmt system packages for coc-diagnostic
 let g:coc_global_extensions = [
             \ 'coc-pyright',
             \ 'coc-vimtex',
@@ -50,36 +55,10 @@ let g:coc_global_extensions = [
             \ 'coc-diagnostic',
             \ ]
 
-" install languageserver package in R for coc-r-lsp
-" install shellcheck and shfmt for coc-diagnostics
-
-" }}}
-
-" MAPS --------------------------------------------------------------------- {{{
-
-" normal remaps
-nnoremap j gj
-nnoremap k gk
-nnoremap Y y$
-nnoremap <A-y> <c-w><
-nnoremap <A-u> <c-w>+
-nnoremap <A-i> <c-w>-
-nnoremap <A-o> <c-w>>
-
-" leaders
-nnoremap <leader>w :set wrap!<CR>
-nnoremap <leader>l :execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>
-nnoremap <leader>h :noh<CR>
-nnoremap <leader>o :set spell!<CR>
-nnoremap <leader>s  :!
-
-" plugin maps
-nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>t :TagbarToggle<CR>
-nnoremap <leader>c :ColorToggle<CR>
-nnoremap <c-p> :GFiles<CR>
-nnoremap <c-f> :Files<CR>
-nnoremap <leader>r :Rg<CR>
+" coc-ultisnips config
+let g:UltiSnipsExpandTrigger = "<Null>"
+let g:UltiSnipsJumpForwardTrigger = "<Null>"
+let g:UltiSnipsJumpBackwardTrigger = "<Null>"
 
 " }}}
 
@@ -103,15 +82,19 @@ Plug 'airblade/vim-gitgutter'
 " navigation
 Plug 'preservim/nerdtree'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf.vim'
 " syntax
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mboughaba/i3config.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'preservim/tagbar' " install system package ctags
+"Plug 'nvim-treesitter/nvim-treesitter'
 " snippets
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 " airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -138,6 +121,36 @@ aug end
 
 " source coc maps
 source ~/.config/nvim/coc.vim
+
+" }}}
+
+" MAPS --------------------------------------------------------------------- {{{
+
+" normal remaps
+nnoremap j gj
+nnoremap k gk
+nnoremap Y y$
+nnoremap <A-y> <c-w><
+nnoremap <A-u> <c-w>+
+nnoremap <A-i> <c-w>-
+nnoremap <A-o> <c-w>>
+
+" leaders
+nnoremap <leader>w :set wrap!<CR>
+nnoremap <leader>l :execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>
+nnoremap <leader>ch :noh<CR>
+nnoremap <leader>o :set spell!<CR>
+nnoremap <leader>s  :!
+nnoremap <leader>S :source $MYVIMRC<CR>
+nnoremap <leader>f :Ranger<CR>
+
+" plugin maps
+nnoremap <leader>n :NERDTreeToggle %:p:h<CR>
+nnoremap <leader>t :TagbarToggle<CR>
+nnoremap <leader>c :ColorToggle<CR>
+nnoremap <c-p> :GFiles<CR>
+nnoremap <c-f> :Files<CR>
+nnoremap <leader>rg :Rg<CR>
 
 " }}}
 
