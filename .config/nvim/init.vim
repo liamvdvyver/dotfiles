@@ -44,6 +44,8 @@ let g:airline_powerline_fonts = 1
 let NERDTreeShowHidden=1
 let g:tokyonight_transparent_background = 0
 let R_assign = 0
+"let g:vimspector_enable_mappings = 'HUMAN'
+"let g:vimspector_install_gadgets = [ 'debugpy' ]
 
 " coc extensions
 " install languageserver R package for coc-r-lsp
@@ -86,18 +88,20 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf.vim'
-" syntax
+" language/syntax
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mboughaba/i3config.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'preservim/tagbar' " install system package ctags
 "Plug 'nvim-treesitter/nvim-treesitter'
+"Plug 'puremourning/vimspector'
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 " airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+"Plug 'itchyny/lightline.vim'
 " colorschemes
 Plug 'altercation/vim-colors-solarized'
 Plug 'lifepillar/vim-solarized8'
