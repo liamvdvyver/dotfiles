@@ -3,16 +3,17 @@ alias :q='exit'
 alias q='exit'
 alias x='startx'
 alias gh='cd ~'
-
-# colour
-alias grep='grep --color=auto'
 alias ls='ls --color=auto'
-alias la='ls -A --color=auto'
+alias l='exa --group-directories-first --icons'
+alias la='l -a'
+alias ll='l -la --git'
+alias grep='grep --color=auto'
 
 # programs
 alias S='sudo systemctl'
 alias V='sudo nvim'
 alias h='htop'
+alias b='btop'
 alias m='ncmpcpp'
 alias nb='newsboat'
 alias nf='neofetch'
