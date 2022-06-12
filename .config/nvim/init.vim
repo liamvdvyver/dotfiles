@@ -29,6 +29,7 @@ set formatoptions=
 set noshowmode
 set clipboard+=unnamedplus
 set background=dark
+set list
 
 " }}}
 
@@ -46,6 +47,8 @@ let g:tokyonight_transparent_background = 0
 let R_assign = 0
 "let g:vimspector_enable_mappings = 'HUMAN'
 "let g:vimspector_install_gadgets = [ 'debugpy' ]
+let g:floaterm_keymap_toggle = '<C-t>'
+let g:UltiSnipsExpandTrigger = "<c-cr>"
 
 " coc extensions
 " install languageserver R package for coc-r-lsp
@@ -57,11 +60,6 @@ let g:coc_global_extensions = [
             \ 'coc-diagnostic',
             \ ]
 
-" coc-ultisnips config
-let g:UltiSnipsExpandTrigger = "<Null>"
-let g:UltiSnipsJumpForwardTrigger = "<Null>"
-let g:UltiSnipsJumpBackwardTrigger = "<Null>"
-
 " }}}
 
 " PLUGINS  ----------------------------------------------------------------- {{{
@@ -69,8 +67,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<Null>"
 " if not installed, install plugged
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
         silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-                                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+                            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " load plugins
@@ -115,6 +113,8 @@ Plug 'lourenci/github-colors'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 " other
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'voldikss/vim-floaterm'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " auto detect i3 config
@@ -138,6 +138,12 @@ nnoremap <A-y> <c-w><
 nnoremap <A-u> <c-w>+
 nnoremap <A-i> <c-w>-
 nnoremap <A-o> <c-w>>
+
+" visual remaps indent
+vnoremap < <gv
+vnoremap > >gv
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " leaders
 nnoremap <leader>w :set wrap!<CR>
