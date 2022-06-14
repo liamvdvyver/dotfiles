@@ -37,14 +37,6 @@ alias gv='nvim +:G +:on'
 alias y='yadm'
 alias yv='yadm enter nvim +:G +:on'
 alias ye='yadm enter zsh'
-alias yei='yadm enter $EDITOR ~/.config/i3/config'
-alias yeb='yadm enter $EDITOR ~/.bashrc'
-alias yez='yadm enter $EDITOR ~/.config/shell/.zshrc'
-alias yea='yadm enter $EDITOR ~/.config/shell/aliases'
-alias yep='yadm enter $EDITOR ~/.config/shell/profile'
-alias yex='yadm enter $EDITOR ~/.config/Xresources'
-alias yev='yadm enter $EDITOR ~/.config/nvim/init.vim'
-alias yek='yadm enter $EDITOR ~/.config/kitty/kitty.conf'
 
 # rclone
 alias rdd='rclone sync -i Drive: ~/drive'
@@ -63,6 +55,7 @@ alias vr='nvim +:Ranger'
 alias mpw='mpv --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0'
 alias f='xdg-open "$(fzf)"'
 alias d='cd "$(fd . ~ -L -td | fzf)"'
+alias c='yadm list | fzf | cd'
 alias grades='cd ~/drive/school/grades && Rscript grades.R'
 
 # my scripts
