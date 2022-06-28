@@ -30,6 +30,7 @@ set noshowmode
 set clipboard+=unnamedplus
 set background=dark
 set list
+set conceallevel=1
 
 " }}}
 
@@ -44,6 +45,7 @@ let g:tokyonight_transparent_background = 0
 let R_assign = 0
 let g:floaterm_keymap_toggle = '<C-t>'
 let g:UltiSnipsExpandTrigger = "<c-cr>"
+let g:tex_conceal='abdmg'
 
 " coc extensions
 " install languageserver R package for coc-r-lsp
