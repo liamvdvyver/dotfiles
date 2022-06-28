@@ -123,9 +123,9 @@ c.colors.prompts.border = xresources["*background"]
 c.colors.prompts.selected.fg = xresources["*foreground"]
 c.colors.prompts.selected.bg = xresources["*background"]
 
-if xresources["rice.background"] == "dark":
-    c.colors.webpage.darkmode.enabled = True
-elif xresources["rice.background"] == "light":
-    c.colors.webpage.darkmode.enabled = False
+#if xresources["rice.background"] == "dark":
+#    c.colors.webpage.darkmode.enabled = True
+#elif xresources["rice.background"] == "light":
+#    c.colors.webpage.darkmode.enabled = False
 
 # }}}
