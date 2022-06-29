@@ -11,24 +11,16 @@ have made no effort to make these portable.
 
 2. Yadm clone into `~`
 
-3. To use multiple monitors, create arandr.sh in ~/.config
+3. Install and set default shell to zsh: `$ chsh -s /bin/zsh`
 
-4. Clone my [scripts repo](https://gitlab.com/liamvdvyver/scripts) to
+4. To use multiple monitors, create arandr.sh in ~/.config
+
+5. Clone my [scripts repo](https://gitlab.com/liamvdvyver/scripts) to
    `~/git/scripts` (or other directory and add to path) to generate
    config files from Xresources
 
-
-5. If dmenu is installed, switch themes with `$mod+t` or switch light/dark with
+6. If dmenu is installed, switch themes with `$mod+t` or switch light/dark with
    `$mod+r`
-
-### Configuration for `rice`
-
-Some config files written to by `rice` need to be initialised first:
-
-* Set background images with nitrogen to initialise
-* Set GTK themes with lxappearance to initialise
-* Create dunst config at `~/.config/dunst/dunstrc` including `$warningline` (by
-  default: `# FOLLOWING LINES WILL BE OVERWRITTEN`)
 
 ## Themes
 
