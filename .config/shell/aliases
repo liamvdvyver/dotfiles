@@ -1,7 +1,7 @@
 # basic commands
 alias :q='exit'
 alias q='exit'
-alias x='startx'
+alias x='startx $XINITRC'
 alias gh='cd ~'
 alias ls='ls --color=auto'
 alias l='exa --group-directories-first --icons'
@@ -62,5 +62,6 @@ alias grades='cd ~/drive/school/grades && Rscript grades.R'
 alias wp='pape -i ~/drive/pictures/papes/'
 alias mmd='find . -regex '\''.*\.\(flac\|mp3\|dsf\)'\'' -exec musmv {} \;'
 
-# making things work
+# clean up dotfiles
 alias gcalcli='gcalcli --config-folder ~/.config/gcalcli'
+alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"

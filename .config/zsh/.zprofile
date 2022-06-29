@@ -1,3 +1,3 @@
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-    pgrep i3 || startx
+    pgrep i3 || startx "$XINITRC"
 fi

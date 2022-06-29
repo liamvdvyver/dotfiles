@@ -1,31 +1,24 @@
-#                    __ _ _      
-#   _ __  _ __ ___  / _(_) | ___ 
+#                    __ _ _
+#   _ __  _ __ ___  / _(_) | ___
 #  | '_ \| '__/ _ \| |_| | |/ _ \
 # _| |_) | | | (_) |  _| | |  __/
 #(_) .__/|_|  \___/|_| |_|_|\___|
-#  |_|                           
+#  |_|
 
-# Environment variables: defaults
+# Defaults
 export VISUAL=nvim
 export EDITOR=$VISUAL
 export BROWSER=qutebrowser
-export RANGER_LOAD_DEFAULT_RC=FALSE
 export TERMINAL=kitty
 #export TERM=xterm-kitty
+export PATH=~/git/scripts:~/.local/bin:$PATH
+
+# Application config
+export RANGER_LOAD_DEFAULT_RC=FALSE
 export QT_QPA_PLATFORMTHEME=gtk2
 export CALIBRE_USE_SYSTEM_THEME=1
-export PATH=~/git/scripts:~/.local/bin:$PATH
 export GPG_TTY=$(tty)
 export FZF_DEFAULT_COMMAND='fd -L -tf'
-
-# Clean up dotfiles
-export PASSWORD_STORE_DIR=~/git/password-store
-export BASH_COMPLETION_USER_FILE=/usr/share/bash-complete-alias/complete_alias
-export LESSHISTFILE=-
-export ZDOTDIR=~/.config/shell
-#export XINITRC=~/.config/xinitrc
-export HISTFILE=~/.local/share/bash_history
-export HISTFILESIZE=-1
 
 # Pfetch config
 export PF_INFO="ascii os kernel uptime pkgs shell wm editor palette"
@@ -33,3 +26,22 @@ export PF_COL1=""
 export PF_COL2=9
 export PF_COL3=6
 #export PF_ASCII="linux"
+
+# XDG directories
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+
+# Clean up dotfiles
+export PASSWORD_STORE_DIR=~/git/password-store
+export BASH_COMPLETION_USER_FILE=/usr/share/bash-complete-alias/complete_alias
+export LESSHISTFILE=-
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
+export XINITRC=$XDG_CONFIG_HOME/X11/xinitrc
+export HISTFILE=$XDG_DATA_HOME/bash_history
+export HISTFILESIZE=-1
+export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc
+export WINEPREFIX=$XDG_DATA_HOME/wineprefixes/default
+export GNUPGHOME=$XDG_DATA_HOME/gnupg
+export MBSYNCRC=$XDG_CONFIG_HOME/isync/mbsyncrc
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
