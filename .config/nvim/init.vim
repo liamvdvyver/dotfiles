@@ -46,6 +46,8 @@ let R_assign = 0
 let g:floaterm_keymap_toggle = '<C-t>'
 let g:UltiSnipsExpandTrigger = "<c-cr>"
 let g:tex_conceal='abdmg'
+let g:latex_view_general_viewer = 'zathura'
+let g:vimtex_view_method = "zathura"
 
 " coc extensions
 " install languageserver R package for coc-r-lsp
