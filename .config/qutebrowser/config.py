@@ -12,6 +12,9 @@ config.bind(',m', 'hint links spawn --verbose --detach mpv {hint-url} --input-ip
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
 
+config.bind('>', 'tab-move +')
+config.bind('<', 'tab-move -')
+
 c.content.blocking.enabled = True
 c.content.blocking.method = "both"
 
