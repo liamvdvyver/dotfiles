@@ -13,7 +13,7 @@ set signcolumn=auto
 set textwidth=80
 set cursorline
 set number relativenumber
-set guicursor=
+"set guicursor=
 set shiftwidth=4
 set tabstop=4
 set expandtab
