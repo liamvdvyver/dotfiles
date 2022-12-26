@@ -8,6 +8,9 @@
 # Doesn't work from xinitrc:
 exec_always --no-startup-id setxkbmap -option caps:swapescape
 
+# Temporary fix:
+for_window [class=".*"] border pixel 3
+
 # BINDS -------------------------------------------------------------------- {{{
 
 # Scratchpad
