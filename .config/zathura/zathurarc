@@ -2,34 +2,34 @@ set recolor true
 set recolor-keephue true
 set dbus-service true
 
-set default-bg \#282828 #bg
-set default-fg \#ebdbb2 #fg
-set recolor-lightcolor \#282828 #bg
-set recolor-darkcolor \#ebdbb2 #fg
+set default-bg \ #bg
+set default-fg \ #fg
+set recolor-lightcolor \ #bg
+set recolor-darkcolor \ #fg
 
-set statusbar-bg \#282828 #bg
-set statusbar-fg \#ebdbb2 #fg
-set inputbar-bg \#3c3836 #bg2
-set inputbar-fg \#ebdbb2 #fg2
+set statusbar-bg \ #bg
+set statusbar-fg \ #fg
+set inputbar-bg \ #bg2
+set inputbar-fg \ #fg2
 
-set notification-fg \#ebdbb2 #fg2
-set notification-bg \#3c3836 #bg2
-set notification-warning-fg \#282828 #fg3
-set notification-warning-bg \#a89984 #bg3
-set notification-error-fg \#282828 #bg
-set notification-error-bg \#fb4934 #bgr
+set notification-fg \ #fg2
+set notification-bg \ #bg2
+set notification-warning-fg \ #fg3
+set notification-warning-bg \ #bg3
+set notification-error-fg \ #bg
+set notification-error-bg \ #bgr
 
-set index-fg \#ebdbb2 #fg
-set index-bg \#282828 #bg
-set index-active-fg \#282828 #fg3
-set index-active-bg \#a89984 #bg3
+set index-fg \ #fg
+set index-bg \ #bg
+set index-active-fg \ #fg3
+set index-active-bg \ #bg3
 
-set highlight-color \#a89984 #bg3
-set highlight-active-color \#ebdbb2 #fg
+set highlight-color \ #bg3
+set highlight-active-color \ #fg
 
-set completion-bg \#3c3836 #bg2
-set completion-fg \#ebdbb2 #fg2
-set completion-group-bg \#3c3836 #bg2
-set completion-group-fg \#ebdbb2 #fg2
-set completion-highlight-bg \#a89984 #bg3
-set completion-highlight-fg \#282828 #fg3
+set completion-bg \ #bg2
+set completion-fg \ #fg2
+set completion-group-bg \ #bg2
+set completion-group-fg \ #fg2
+set completion-highlight-bg \ #bg3
+set completion-highlight-fg \ #fg3
