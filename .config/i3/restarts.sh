@@ -2,8 +2,8 @@
 
 pkill -f flameshot
 pkill -f dunst
-#pkill -f nm-applet
+pkill -f nm-applet
 
 flameshot &
 dunst &
-#nm-applet &
+nm-applet &

@@ -12,5 +12,6 @@ mpDris2 &
 spotifyd &
 flameshot &
 dunst &
+nm-applet &
 
 exec i3
