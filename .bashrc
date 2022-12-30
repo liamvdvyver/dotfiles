@@ -29,6 +29,10 @@ fi
 # Type directory name to cd
 shopt -s autocd
 
+# History file
+export HISTFILE=$XDG_DATA_HOME/bash_history
+export HISTFILESIZE=-1
+
 # rice
 pfetch
 
