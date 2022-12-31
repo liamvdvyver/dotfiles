@@ -92,6 +92,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mboughaba/i3config.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'preservim/tagbar' " install system package ctags
+Plug 'tpope/vim-commentary'
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -158,7 +159,8 @@ nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>c :ColorToggle<CR>
 nnoremap <c-p> :GFiles<CR>
 nnoremap <c-f> :Files<CR>
-nnoremap <leader>rg :Rg<CR>
+nnoremap <c-b> :Buffers<CR>
+nnoremap <c-g> :Rg<CR>
 
 " }}}
 
