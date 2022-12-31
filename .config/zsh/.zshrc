@@ -56,5 +56,16 @@ source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh 2>/de
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh
 
+# Git status
+autoload -Uz add-zsh-hook vcs_info
+setopt prompt_subst
+add-zsh-hook precmd vcs_info
+PS1='%B%F{blue}%1~%f %F{cyan}${vcs_info_msg_0_}❯%f%b '
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr ' *'
+zstyle ':vcs_info:*' stagedstr ' +'
+zstyle ':vcs_info:git:*' formats       ' %b%u%c '
+zstyle ':vcs_info:git:*' actionformats ' %b|%a%u%c '
+
 # Rice
 pfetch
