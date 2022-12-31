@@ -35,5 +35,3 @@ export HISTFILESIZE=-1
 
 # rice
 pfetch
-
-# }}}
