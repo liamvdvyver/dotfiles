@@ -114,6 +114,7 @@ Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'voldikss/vim-floaterm'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " auto detect i3 config
