@@ -78,7 +78,6 @@ return require('packer').startup(function(use)
             \ 'coc-diagnostic',
             \ ]
         ]]
-        return true
       end
     end
   }
@@ -93,15 +92,12 @@ return require('packer').startup(function(use)
   opt = true, cmd = {'Tagbar', 'TagbarToggle'}
   }
 
-  use 'tpope/vim-commentary'
-
-  -- snippets
-
   use {
-    'SirVer/ultisnips',
-    requires = { 'honza/vim-snippets' },
-    config = vim.cmd[[let g:UltiSnipsExpandTrigger = "<c-cr>"]]
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
   }
+
+  use 'tpope/vim-commentary'
 
   -- airline
 
