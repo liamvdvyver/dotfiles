@@ -66,6 +66,7 @@ vim.keymap.set("n", "<leader>ch", ":noh<CR>")
 vim.keymap.set("n", "<leader>o", ":set spell!<CR>")
 vim.keymap.set("n", "<leader>s", ":!")
 vim.keymap.set("n", "<leader>S", ":source $MYVIMRC<CR>")
+vim.keymap.set("n", "<leader>x", ":! chmod +x %<CR>")
 
 -- plugin maps
 vim.keymap.set("n", "<leader>n", ":NERDTreeToggle %:p:h<CR>")
