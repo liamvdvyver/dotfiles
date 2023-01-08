@@ -55,8 +55,12 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'junegunn/fzf.vim',
-    opt = true, cmd = {'Files', 'GFiles', 'Buffers', 'Rg'}
+    'nvim-telescope/telescope.nvim',
+    -- tag = '0.1.0',
+    requires = {
+      {'nvim-lua/plenary.nvim'},
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+    }
   }
 
   -- language/syntax
