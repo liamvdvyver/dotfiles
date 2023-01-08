@@ -33,7 +33,6 @@ vim.o.fdm = "marker"
 vim.o.wrap = false
 vim.o.formatoptions = true
 vim.o.showmode = false
-vim.o.clipboard = "unnamedplus"
 vim.o.background = "dark"
 vim.o.list = true
 vim.o.conceallevel = 1
@@ -52,6 +51,19 @@ vim.keymap.set("n", "<A-y>", "<c-w><") -- resize splits
 vim.keymap.set("n", "<A-u>", "<c-w>+")
 vim.keymap.set("n", "<A-i>", "<c-w>-")
 vim.keymap.set("n", "<A-o>", "<c-w>>")
+vim.keymap.set("n", "<C-u>", "<C-u>zz") -- keep centered
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- clipboard
+vim.keymap.set("n", "<leader>y", "\"+y") -- yank
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>d", "\"+d") -- delete
+vim.keymap.set("v", "<leader>d", "\"+d")
+vim.keymap.set("n", "<leader>p", "\"+p") -- paste
+vim.keymap.set("v", "<leader>p", "\"+p")
 
 -- visual
 vim.keymap.set("v", "<", "<gv") -- keep selected after indent
