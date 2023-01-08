@@ -44,7 +44,7 @@ vim.o.conceallevel = 1
 
 vim.g.mapleader = " "
 
--- normal remaps
+-- normal
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "Y", "y$")
@@ -53,7 +53,7 @@ vim.keymap.set("n", "<A-u>", "<c-w>+")
 vim.keymap.set("n", "<A-i>", "<c-w>-")
 vim.keymap.set("n", "<A-o>", "<c-w>>")
 
--- visual remaps indent
+-- visual
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
