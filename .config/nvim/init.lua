@@ -42,6 +42,7 @@ vim.o.conceallevel = 1
 -- MAPS --------------------------------------------------------------------- {{{
 
 vim.g.mapleader = " "
+vim.keymap.set("i", "<c-c>", "<esc>")
 
 -- normal
 vim.keymap.set("n", "j", "gj") -- hjkl through wrap
