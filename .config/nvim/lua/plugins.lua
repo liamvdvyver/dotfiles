@@ -104,13 +104,6 @@ return require('packer').startup(function(use)
   -- airline
 
   use {
-    'vim-airline/vim-airline',
-    disable = 'true',
-    requires = { 'vim-airline/vim-airline-themes', opt = true },
-    config = vim.cmd[[let g:airline_powerline_fonts = 1]]
-  }
-
-  use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
@@ -146,6 +139,10 @@ return require('packer').startup(function(use)
   }
   use 'jiangmiao/auto-pairs'
   use 'tpope/vim-surround'
+  use {
+    'mbbill/undotree',
+    opt = true, cmd = { 'UndotreeToggle' }
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -76,6 +76,7 @@ vim.keymap.set("n", "<c-p>", ":GFiles<CR>")
 vim.keymap.set("n", "<c-f>", ":Files<CR>")
 vim.keymap.set("n", "<c-b>", ":Buffers<CR>")
 vim.keymap.set("n", "<c-g>", ":Rg<CR>")
+vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
 
 -- }}}
 
