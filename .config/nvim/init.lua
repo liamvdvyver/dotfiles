@@ -65,6 +65,10 @@ vim.keymap.set("v", "<leader>d", "\"+d")
 vim.keymap.set("n", "<leader>p", "\"+p") -- paste
 vim.keymap.set("v", "<leader>p", "\"+p")
 
+-- find and replace word/selection
+vim.keymap.set("n", "<c-s>", [[:%s/\(<C-r><C-w>\)//gI<Left><Left><Left>]])
+vim.keymap.set("v", "<c-s>", [["hy:%s/\(<C-r>h\)//gI<Left><Left><Left>]])
+
 -- visual
 vim.keymap.set("v", "<", "<gv") -- keep selected after indent
 vim.keymap.set("v", ">", ">gv")
