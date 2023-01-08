@@ -45,19 +45,19 @@ vim.o.conceallevel = 1
 vim.g.mapleader = " "
 
 -- normal
-vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "j", "gj") -- hjkl through wrap
 vim.keymap.set("n", "k", "gk")
-vim.keymap.set("n", "Y", "y$")
-vim.keymap.set("n", "<A-y>", "<c-w><")
+vim.keymap.set("n", "Y", "y$") -- Y consistent with D,C
+vim.keymap.set("n", "<A-y>", "<c-w><") -- resize splits
 vim.keymap.set("n", "<A-u>", "<c-w>+")
 vim.keymap.set("n", "<A-i>", "<c-w>-")
 vim.keymap.set("n", "<A-o>", "<c-w>>")
 
 -- visual
-vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", "<", "<gv") -- keep selected after indent
 vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- auto indent visual block
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- leaders
 vim.keymap.set("n", "<leader>w", ":set wrap!<CR>")
