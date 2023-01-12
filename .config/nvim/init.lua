@@ -95,18 +95,18 @@ vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { desc = "Toggle [u]ndot
 
 -- telescope
 local builtin = require('telescope.builtin')
-vim.keymap.set("n", "<c-f>", builtin.find_files, { desc = "Fuzzy find [f]iles in working directory" })
-vim.keymap.set("n", "<c-p>", builtin.git_files, { desc = "Fuzzy find files in git [p]roject" })
-vim.keymap.set("n", "<c-g>", builtin.live_grep, { desc = "[g]rep through files in working directory" })
-vim.keymap.set("n", "<c-b>", builtin.buffers, { desc = "Fuzzy find [b]uffer" })
-vim.keymap.set("n", "<c-8>", builtin.grep_string, { desc = "grep word under cursor in working directory" })
-vim.keymap.set("n", "<c-/>", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy find in current buffer" })
-vim.keymap.set("n", "<c-e>", builtin.help_tags, { desc = "Fuzzy find h[e]lp tags" })
-vim.keymap.set("n", "<c-m>", builtin.keymaps, { desc = "Fuzzy find key[m]aps" })
+vim.keymap.set("n", "<leader>fl", builtin.find_files, { desc = "Fuzzy find [f]iles in [l]ocal directory" })
+vim.keymap.set("n", "<leader>fp", builtin.git_files, { desc = "Fuzzy find [f]iles in git [p]roject" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[g]rep through files in working directory" })
+vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Fuzzy [f]ind [b]uffer" })
+vim.keymap.set("n", "<leader>f8", builtin.grep_string, { desc = "grep word under cursor in working directory" })
+vim.keymap.set("n", "<leader>f/", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy [f]ind in current buffer" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Fuzzy [f]ind [h]elp tags" })
+vim.keymap.set("n", "<leader>fm", builtin.keymaps, { desc = "Fuzzy [f]ind key[m]aps" })
 
 -- lsp
-vim.keymap.set("n", "<leader>gr", builtin.lsp_references, { desc = "Fuzzy find [r]eferences" })
-vim.keymap.set("n", "<leader>gi", builtin.lsp_implementations, { desc = "Fuzzy find [i]mplementations" })
+vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Fuzzy [f]ind [r]eferences" })
+vim.keymap.set("n", "<leader>fi", builtin.lsp_implementations, { desc = "Fuzzy [f]ind [i]mplementations" })
 vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Fuzzy [f]ind [s]ymbols in document" })
 vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "Fuzzy [f]ind symbols in [w]orkspace" })
 vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Fuzzy [f]ind [d]iagnostics" })
