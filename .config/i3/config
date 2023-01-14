@@ -17,6 +17,8 @@ for_window [class="KeePassXC"] move scratchpad
 for_window [class="KeePassXC"] scratchpad show
 for_window [class="Pavucontrol"] move scratchpad
 for_window [class="Pavucontrol"] scratchpad show
+for_window [class="R_x11"] move scratchpad
+for_window [class="R_x11"] scratchpad show
 
 # Controls
 bindsym $mod+period move workspace to output right
