@@ -35,7 +35,6 @@ vim.o.formatoptions = true
 vim.o.showmode = false
 vim.o.background = "dark"
 vim.o.list = true
-vim.o.conceallevel = 1
 
 -- }}}
 
@@ -118,6 +117,7 @@ vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Fuzzy [f]ind [d
 -- .tex
 vim.cmd[[autocmd Filetype tex nnoremap <localleader>wc :!pdftotext *.pdf - \| wc -w<CR>]]
 vim.cmd[[autocmd Filetype tex set wrap spell]]
+vim.cmd[[autocmd Filetype tex set conceallevel=1]]
 
 -- python
 vim.cmd[[autocmd Filetype python nnoremap <localleader>r :w<bar>!python %<CR>]]
