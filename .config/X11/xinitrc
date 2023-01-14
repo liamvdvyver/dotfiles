@@ -2,7 +2,7 @@ xrdb ~/.config/X11/Xresources
 xset s off &
 xset -dpms &
 
-picom --experimental-backends -c &
+picom -c &
 ~/.config/arandr.sh &
 cat ~/.config/rice/pape | xargs pape &
 

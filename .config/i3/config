@@ -105,7 +105,7 @@ mode "$mode_rice" {
     bindsym l exec --no-startup-id rice --light, mode "default"
     bindsym d exec --no-startup-id rice --dark, mode "default"
     bindsym t exec --no-startup-id rice --toggle, mode "default"
-    bindsym o exec --no-startup-id picom --experimental-backends -c, mode "default"
+    bindsym o exec --no-startup-id picom -c, mode "default"
     bindsym f exec --no-startup-id killall picom, mode "default"
 
     # exit system mode: "Enter" or "Escape"
