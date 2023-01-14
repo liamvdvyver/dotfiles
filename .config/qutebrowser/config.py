@@ -2,6 +2,15 @@ import subprocess
 
 config.load_autoconfig(False)
 
+config.bind('<Ctrl+c>', 'mode-leave', mode='caret')
+config.bind('<Ctrl+c>', 'mode-leave', mode='command')
+config.bind('<Ctrl+c>', 'mode-leave', mode='hint')
+config.bind('<Ctrl+c>', 'mode-leave', mode='insert')
+config.bind('<Ctrl+c>', 'mode-leave', mode='passthrough')
+config.bind('<Ctrl+c>', 'mode-leave', mode='prompt')
+config.bind('<Ctrl+c>', 'mode-leave', mode='register')
+config.bind('<Ctrl+c>', 'mode-leave', mode='yesno')
+
 config.bind('<ctrl-Shift-p>', 'spawn --userscript qute-pass --username-target secret --username-pattern "username: (.+)"', mode='insert')
 config.bind('<ctrl-Shift-p>', 'spawn --userscript qute-pass --username-target secret --username-pattern "username: (.+)"')
 
