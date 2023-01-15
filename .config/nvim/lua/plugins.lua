@@ -124,7 +124,9 @@ return require('packer').startup(function(use)
     config = function()
       require('lualine').setup {
         options = {
-          sections = { lualine_a = {'mode', 'branch'} }
+          sections = { lualine_a = {'mode', 'branch'} },
+          section_separators = '',
+          component_separators = ''
         }
       }
     end,
