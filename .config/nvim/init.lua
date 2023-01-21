@@ -95,14 +95,14 @@ vim.keymap.set("n", "<leader>r", ":lua vim.lsp.buf.rename()<CR>")
 
 -- telescope
 local builtin = require('telescope.builtin')
-vim.keymap.set("n", "<leader>fl", builtin.find_files, { desc = "Fuzzy find [f]iles in [l]ocal directory" })
-vim.keymap.set("n", "<leader>fp", builtin.git_files, { desc = "Fuzzy find [f]iles in git [p]roject" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[g]rep through files in working directory" })
-vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Fuzzy [f]ind [b]uffer" })
-vim.keymap.set("n", "<leader>f8", builtin.grep_string, { desc = "grep word under cursor in working directory" })
+vim.keymap.set("n", "<leader>fl", builtin.find_files, { desc = "Fuzzy [f]ind fules in [l]ocal directory" })
+vim.keymap.set("n", "<leader>fp", builtin.git_files, { desc = "Fuzzy [f]ind files in git [p]roject" })
+vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Fuzzy [f]ind [b]uffers" })
 vim.keymap.set("n", "<leader>f/", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy [f]ind in current buffer" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Fuzzy [f]ind [h]elp tags" })
 vim.keymap.set("n", "<leader>fm", builtin.keymaps, { desc = "Fuzzy [f]ind key[m]aps" })
+vim.keymap.set("n", "<leader>gl", builtin.live_grep, { desc = "[g]rep through files in [l]ocal directory" })
+vim.keymap.set("n", "<leader>g8", builtin.grep_string, { desc = "[g]rep word under cursor in working directory" })
 
 -- lsp
 vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Fuzzy [f]ind [r]eferences" })
