@@ -91,6 +91,7 @@ vim.keymap.set("n", "<leader>n", ":NERDTreeToggle %:p:h<CR>", { desc = 'Toggle [
 vim.keymap.set("n", "<leader>t", ":TagbarToggle<CR>", { desc = "Toggle [t]agbar" })
 vim.keymap.set("n", "<leader>c", ":ColorToggle<CR>", { desc = "Toggle html [c]olours" })
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { desc = "Toggle [u]ndotree" })
+vim.keymap.set("n", "<leader>r", ":lua vim.lsp.buf.rename()<CR>")
 
 -- telescope
 local builtin = require('telescope.builtin')
