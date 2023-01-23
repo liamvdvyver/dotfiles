@@ -132,6 +132,10 @@ vim.cmd[[autocmd Filetype sh nnoremap <localleader>r :w<bar>!bash %<CR>]]
 vim.cmd[[autocmd Filetype lua set shiftwidth=2]]
 vim.cmd[[autocmd Filetype lua set tabstop=2]]
 
+-- yaml
+vim.cmd[[autocmd Filetype yaml set shiftwidth=2]]
+vim.cmd[[autocmd Filetype yaml set tabstop=2]]
+
 -- config
 vim.cmd[[autocmd BufEnter sxhkdrc set ft=sxhkdrc]]
 
