@@ -33,9 +33,62 @@ return require('packer').startup(function(use)
     config = vim.cmd[[let R_assign = 0]]
   }
 
+  -- notes
+
+  use {
+    'lervag/wiki.vim',
+    config = vim.cmd[[
+      let g:wiki_root = '~/Documents/vimwiki/'
+      let g:wiki_filetypes = ['md']
+      let g:wiki_link_extension = '.md'
+      let g:wiki_export = {
+      \ 'args' : '',
+      \ 'from_format' : 'markdown',
+      \ 'ext' : 'pdf',
+      \ 'link_ext_replace': v:false,
+      \ 'view' : v:true,
+      \ 'output': fnamemodify(tempname(), ':h'),
+      \}
+    ]]
+  }
+
+  use {
+    "iamcco/markdown-preview.nvim",
+    opt = true, ft = {'markdown'},
+    run = "cd app && npm install",
+    setup = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+    config = vim.cmd[[
+      let g:mkdp_page_title = '「${name}」'
+      let g:mkdp_theme = 'dark'
+      let g:mkdp_auto_start = 0
+      let g:mkdp_auto_close = 1
+    ]]
+  }
+
+  use {
+    'img-paste-devs/img-paste.vim',
+    opt = true, ft = {'markdown'},
+    config = vim.cmd[[
+      autocmd FileType markdown nmap <buffer><silent> <localleader>p :call mdip#MarkdownClipboardImage()<CR>
+    ]]
+  }
+
+  use {
+    'mipmip/vim-scimark',
+    opt = true, ft = {'markdown'},
+    config = vim.cmd[[let g:scimCommand = 'sc-im']]
+  }
+
   -- git
 
-  use 'airblade/vim-gitgutter'
+  use {
+    'airblade/vim-gitgutter',
+    config = vim.cmd[[let g:gitgutter_map_keys = 0]]
+  }
+
   use {
     'tpope/vim-fugitive',
     opt = true, cmd = {'G'}

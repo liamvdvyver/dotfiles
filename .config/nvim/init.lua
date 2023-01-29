@@ -78,9 +78,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Auto indent block on move
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Auto indent block on move down" })
 
 -- leaders
-vim.keymap.set("n", "<leader>w", ":set wrap!<CR>", { desc = "Toggle [w]rap" })
+vim.keymap.set("n", "<leader>W", ":set wrap!<CR>", { desc = "Toggle [w]rap" })
 vim.keymap.set("n", "<leader>l", ':execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>', { desc = "Toggle [l]ine at textwidth" })
-vim.keymap.set("n", "<leader>ch", ":noh<CR>", { desc = "[c]lear [h]ighlight" })
+vim.keymap.set("n", "<leader>h", ":noh<CR>", { desc = "[c]lear [h]ighlight" })
 vim.keymap.set("n", "<leader>o", ":set spell!<CR>", { desc = "Toggle [o]rthography (spelling)" })
 vim.keymap.set("n", "<leader>s", ":!", { desc = "Begin [s]hell command" })
 vim.keymap.set("n", "<leader>S", ":source $MYVIMRC<CR>", { desc = "[S]ource config file" })
@@ -92,6 +92,10 @@ vim.keymap.set("n", "<leader>t", ":TagbarToggle<CR>", { desc = "Toggle [t]agbar"
 vim.keymap.set("n", "<leader>c", ":ColorToggle<CR>", { desc = "Toggle html [c]olours" })
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { desc = "Toggle [u]ndotree" })
 vim.keymap.set("n", "<leader>r", ":lua vim.lsp.buf.rename()<CR>")
+
+-- scimark
+vim.keymap.set("n", "<leader>sc", "<nop>")
+vim.keymap.set("n", "<localleader>t", ":OpenInScim<CR>")
 
 -- telescope
 local builtin = require('telescope.builtin')
@@ -110,6 +114,11 @@ vim.keymap.set("n", "<leader>fi", builtin.lsp_implementations, { desc = "Fuzzy [
 vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Fuzzy [f]ind [s]ymbols in document" })
 vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "Fuzzy [f]ind symbols in [w]orkspace" })
 vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Fuzzy [f]ind [d]iagnostics" })
+
+-- wiki.vim
+vim.keymap.set("n", "<localleader>fp", ":WikiFzfPages<CR>")
+vim.keymap.set("n", "<localleader>ft", ":WikiFzfTags<CR>")
+vim.keymap.set("n", "<leader>wv", ":MarkdownPreviewToggle<CR>")
 
 -- }}}
 

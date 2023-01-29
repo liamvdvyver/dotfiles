@@ -8,6 +8,7 @@ lsp.ensure_installed({
   'bashls',
   'texlab',
   'r_language_server',
+  'marksman',
 })
 
 lsp.setup()
