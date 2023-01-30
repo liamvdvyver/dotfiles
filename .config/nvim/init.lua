@@ -94,10 +94,6 @@ vim.keymap.set("n", "<leader>c", ":ColorToggle<CR>", { desc = "Toggle html [c]ol
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { desc = "Toggle [u]ndotree" })
 vim.keymap.set("n", "<leader>r", ":lua vim.lsp.buf.rename()<CR>")
 
--- scimark
-vim.keymap.set("n", "<leader>sc", "<nop>")
-vim.keymap.set("n", "<localleader>t", ":OpenInScim<CR>")
-
 -- telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set("n", "<leader>fl", builtin.find_files, { desc = "Fuzzy [f]ind fules in [l]ocal directory" })
@@ -117,9 +113,17 @@ vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "Fuzzy
 vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Fuzzy [f]ind [d]iagnostics" })
 
 -- wiki.vim
-vim.keymap.set("n", "<localleader>fp", ":WikiFzfPages<CR>")
-vim.keymap.set("n", "<localleader>ft", ":WikiFzfTags<CR>")
-vim.keymap.set("n", "<leader>wv", ":MarkdownPreviewToggle<CR>")
+vim.keymap.set("n", "<leader>zi", ":ZkIndex<CR>")
+vim.keymap.set("n", "<leader>zp", ":WikiFzfPages<CR>")
+-- vim.keymap.set("n", "<leader>zp", ":ZkNotes {select = {'path'}}<CR>")
+vim.keymap.set("n", "<leader>zt", ":ZkTags<CR>")
+vim.keymap.set("n", "<leader>zl", ":ZkLinks<CR>")
+vim.keymap.set("n", "<leader>zb", ":ZkBacklinks<CR>")
+vim.keymap.set("n", "<leader>zv", ":MarkdownPreviewToggle<CR>")
+
+
+vim.keymap.set("n", "<leader>sc", "<nop>")
+vim.keymap.set("n", "<leader>zs", ":OpenInScim<CR>")
 
 -- }}}
 
