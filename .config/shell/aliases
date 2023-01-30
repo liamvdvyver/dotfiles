@@ -27,6 +27,7 @@ alias r='. ranger'
 alias s='systemctl'
 alias t='tmux'
 alias v='nvim'
+alias e="emacsclient -c -a 'emacs'"
 alias yt='ytfzf -t'
 
 # git

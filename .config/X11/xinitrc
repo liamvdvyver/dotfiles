@@ -13,5 +13,6 @@ spotifyd &
 flameshot &
 dunst &
 nm-applet &
+emacs --daemon &
 
 exec i3
