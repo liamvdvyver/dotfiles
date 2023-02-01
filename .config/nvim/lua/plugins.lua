@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
   use {
     'lervag/wiki.vim',
     config = vim.cmd[[
-      let g:wiki_root = '~/Documents/vimwiki/'
+      let g:wiki_root = '~/Documents/pkm/'
       let g:wiki_filetypes = ['md']
       let g:wiki_link_extension = '.md'
       let g:wiki_export = {
