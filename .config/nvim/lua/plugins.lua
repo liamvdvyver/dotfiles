@@ -242,6 +242,27 @@ return require('packer').startup(function(use)
     opt = true, cmd = { 'UndotreeToggle' }
   }
 
+  use {
+    'nvim-orgmode/orgmode',
+    config = function()
+      require('orgmode').setup_ts_grammar()
+      require('orgmode').setup{
+        org_default_notes_file = '~/Documents/org/refile.org',
+      org_agenda_files = '~/Documents/org/*.org',
+        mappings = {
+          global = {
+            -- org_agenda = '<leader>oA',
+            -- org_capture = '<leader>X'
+          },
+          org = {
+            org_meta_return = '<C-CR>',
+          }
+        }
+      }
+      require("cmp").setup { sources = { { name = 'nvim_lsp' } } }
+    end,
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
