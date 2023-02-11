@@ -38,9 +38,9 @@ return require('packer').startup(function(use)
   use {
     'lervag/wiki.vim',
     config = vim.cmd[[
-      let g:wiki_root = '~/Documents/pkm/'
-      let g:wiki_filetypes = ['md']
-      let g:wiki_link_extension = '.md'
+      let g:wiki_root = '~/Documents/pkb/'
+      let g:wiki_filetypes = ['md', 'org']
+      let g:wiki_link_extension = ''
       let g:wiki_export = {
       \ 'args' : '',
       \ 'from_format' : 'markdown',
@@ -80,33 +80,6 @@ return require('packer').startup(function(use)
     'mipmip/vim-scimark',
     opt = true, ft = {'markdown'},
     config = vim.cmd[[let g:scimCommand = 'sc-im']]
-  }
-
-  use {
-    "mickael-menu/zk-nvim",
-    config = function()
-      require("zk").setup({
-        -- can be "telescope", "fzf" or "select" (`vim.ui.select`)
-        -- it's recommended to use "telescope" or "fzf"
-        picker = "telescope",
-
-        lsp = {
-          -- `config` is passed to `vim.lsp.start_client(config)`
-          config = {
-            cmd = { "zk", "lsp" },
-            name = "zk",
-            -- on_attach = ...
-            -- etc, see `:h vim.lsp.start_client()`
-          },
-
-          -- automatically attach buffers in a zk notebook that match the given filetypes
-          auto_attach = {
-            enabled = true,
-            filetypes = { "markdown" },
-          },
-        },
-      })
-    end
   }
 
   -- git
