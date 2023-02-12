@@ -15,5 +15,6 @@ dunst &
 nm-applet &
 emacs --daemon &
 syncthingtray &
+xfce4-power-manager &
 
 exec i3
