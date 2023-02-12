@@ -3,28 +3,28 @@
 super + Return
     $TERMINAL
 
-super + alt + w 
+super + alt + w
     qutebrowser
 
-super + alt + e 
+super + alt + e
     emacsclient -c -a 'emacs'
 
-super + alt + j 
+super + alt + j
     joplin-desktop
 
-super + alt + r 
+super + alt + r
     rstudio-bin --no-sandbox
 
-super + alt + v 
+super + alt + v
     virt-manager
 
-super + alt + c 
+super + alt + c
     calibre --with-library=~/Documents/calibre/
 
-super + alt + s 
+super + alt + s
     steam
 
-super + alt + g 
+super + alt + g
     gimp
 
 super + alt + d
@@ -46,25 +46,25 @@ super + alt + p
 super + grave
     flameshot gui
 
-super + shift+grave 
+super + shift+grave
     scr
 
-super + shift + m 
+super + shift + m
     notify-send "Syncing mail" && mw -Y && notify-send "Synced mail"
 
-super + shift + w 
+super + shift + w
     cat ~/.config/rice/pape | xargs pape
 
-super + shift + s 
+super + shift + s
     hsetroot -solid "$(xrdb -query | grep '^\*background' | cut -f 2)"
 
-super + shift + Prior 
+super + shift + Prior
     picom-trans -c +5
 
-super + shift + Next 
+super + shift + Next
     picom-trans -c -5
 
-super + shift + Delete 
+super + shift + Delete
     picom-trans -c 100
 
 super + shift + x
