@@ -42,14 +42,17 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Documents/org")
 (setq org-default-notes-file "~/Documents/org/refile.org")
-(setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/Documents/org/refile.org" "Tasks")
-         "* TODO %?")
-        ("n" "Note" entry (file+headline "~/Documents/org/refile.org" "Notes")
-         "* %?")
-        ("j" "Journal" entry (file+headline "~/Documents/org/refile.org" "Journal")
-         "* %u %?")
-        ))
+
+(after! org
+    (setq org-capture-templates
+          '(("t" "Todo" entry (file+headline "~/Documents/org/refile.org" "Tasks")
+             "* TODO %?")
+            ("n" "Note" entry (file+headline "~/Documents/org/refile.org" "Notes")
+             "* %?")
+            ("j" "Journal" entry (file+headline "~/Documents/org/refile.org" "Journal")
+             "* %u %?")
+        )))
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
