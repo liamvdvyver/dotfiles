@@ -19,7 +19,7 @@ super + alt + v
     virt-manager
 
 super + alt + c 
-    calibre --with-library=~/drive/books/calibre/
+    calibre --with-library=~/Documents/calibre/
 
 super + alt + s 
     steam
