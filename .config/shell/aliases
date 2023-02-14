@@ -61,7 +61,7 @@ alias c='yadm list | fzf | xargs yadm enter nvim'
 alias grades='cd ~/drive/school/grades && Rscript grades.R'
 
 # my scripts
-alias wp='pape -i ~/drive/pictures/papes/'
+alias wp='pape -i ~/Pictures/papes/'
 alias mmd='find . -regex '\''.*\.\(flac\|mp3\|dsf\)'\'' -exec musmv {} \;'
 alias mms='muscf; musc; rm -d source/; rm -d other/; mmd'
 
