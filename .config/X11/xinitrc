@@ -16,5 +16,6 @@ nm-applet &
 emacs --daemon &
 syncthingtray &
 xfce4-power-manager &
+blueman-applet &
 
 exec i3

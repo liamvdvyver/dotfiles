@@ -8,6 +8,9 @@
 # Temporary fix:
 for_window [class=".*"] border pixel 3
 
+exec --no-startup-id pactl load-module module-bluetooth-policy
+exec --no-startup-id pactl load-module module-bluetooth-discover
+
 # BINDS -------------------------------------------------------------------- {{{
 
 # Scratchpad
@@ -19,6 +22,8 @@ for_window [class="Pavucontrol"] move scratchpad
 for_window [class="Pavucontrol"] scratchpad show
 for_window [class="R_x11"] move scratchpad
 for_window [class="R_x11"] scratchpad show
+for_window [class="Blueman-manager"] move scratchpad
+for_window [class="Blueman-manager"] scratchpad show
 
 # Controls
 bindsym $mod+period move workspace to output right
@@ -62,8 +67,8 @@ bindsym $mod+Shift+Mod1+y border normal
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+n workspace back_and_forth
+bindsym $mod+Shift+n move container to workspace back_and_forth; workspace back_and_forth
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad

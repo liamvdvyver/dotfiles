@@ -36,6 +36,9 @@ super + alt + Return
 super + shift + a
     pavucontrol
 
+super + shift + b
+    blueman-manager
+
 super + alt + p
     sxiv ~/drive/Pictures/ptable.png -N __scratchpad
 
@@ -43,7 +46,7 @@ super + alt + p
 
 # Shortcuts ---------------------------------------------------------------- {{{
 
-super + grave
+Print
     flameshot gui
 
 super + shift+grave
