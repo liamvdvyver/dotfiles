@@ -71,3 +71,5 @@ rice.nvim.theme:      tokyonight
 rice.nvim.background: dark
 rice.theme:           tokyonight
 rice.background:      dark
+rice.doom.theme:      doom-tokyo-night
+!rice.lualine.theme:   tokyonight

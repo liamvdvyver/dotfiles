@@ -78,3 +78,6 @@ rice.nvim.theme:      catppuccin
 rice.nvim.background: dark
 rice.theme:           catpuccin
 rice.background:      dark
+! Download theme from github first:
+rice.lualine.theme:   catppuccin
+rice.doom.theme:      catppuccin

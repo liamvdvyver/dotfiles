@@ -79,3 +79,5 @@ rice.nvim.theme:      gruvbox
 rice.nvim.background: light
 rice.theme:           gruvbox
 rice.background:      light
+rice.lualine.theme:   gruvbox
+rice.doom.theme:      doom-gruvbox-light

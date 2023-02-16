@@ -103,3 +103,5 @@ rice.nvim.theme:      dracula
 rice.nvim.background: dark
 rice.theme:           dracula
 rice.background:      dark
+rice.lualine.theme:   dracula
+rice.doom.theme:      doom-dracula

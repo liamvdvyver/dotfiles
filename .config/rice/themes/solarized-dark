@@ -68,3 +68,5 @@ rice.nvim.theme:      solarized8
 rice.nvim.background: dark
 rice.theme:           solarized
 rice.background:      dark
+rice.lualine.theme:   solarized_dark
+rice.doom.theme:      doom-solarized-dark

@@ -70,3 +70,5 @@ rice.nvim.theme:      onehalfdark
 rice.nvim.background: dark
 rice.theme:           onehalf
 rice.background:      dark
+rice.lualine.theme:   onedark
+rice.doom.theme:      doom-one
