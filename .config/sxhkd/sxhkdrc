@@ -39,8 +39,8 @@ super + shift + a
 super + shift + b
     blueman-manager
 
-super + alt + p
-    sxiv ~/drive/Pictures/ptable.png -N __scratchpad
+super + shift + t
+    tlpui
 
 # }}}
 
@@ -72,9 +72,6 @@ super + shift + Delete
 
 super + shift + x
     xkill
-
-super + shift + t
-    rice --toggle
 
 # }}}
 
