@@ -1,1 +1,0 @@
-source ~/.config/shell/profile
