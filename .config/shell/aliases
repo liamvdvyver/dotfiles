@@ -59,6 +59,7 @@ alias f='xdg-open "$(fzf)"'
 alias d='cd "$(fd . ~ -L -td | fzf)"'
 alias c='yadm list | fzf | xargs yadm enter nvim'
 alias grades='cd ~/drive/school/grades && Rscript grades.R'
+alias cln='rm -r ~/.Rhistory ~/.pki ~/.subversion ~/.npm'
 
 # my scripts
 alias wp='pape -i ~/Pictures/papes/'
