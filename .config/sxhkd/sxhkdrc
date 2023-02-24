@@ -74,7 +74,7 @@ super + shift + x
     xkill
 
 super + v
-    autorandr --change
+    autorandr --change docked
 
 # }}}
 
