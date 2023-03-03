@@ -3,7 +3,6 @@ xset s off &
 xset -dpms &
 
 picom -c &
-~/.config/arandr.sh &
 cat ~/.config/rice/pape | xargs pape &
 
 sxhkd &
