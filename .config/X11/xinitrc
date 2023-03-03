@@ -9,7 +9,7 @@ cat ~/.config/rice/pape | xargs pape &
 sxhkd &
 mpd &
 mpDris2 &
-spotifyd &
+playerctld daemon &
 flameshot &
 dunst &
 nm-applet &

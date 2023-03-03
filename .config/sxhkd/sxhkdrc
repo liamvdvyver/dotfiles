@@ -135,10 +135,4 @@ super + bracketright
 super + bracketleft
     playerctl previous
 
-super + shift + backslash
-    playerctl --player=mpd play-pause
-
-super + control + backslash
-    playerctl --player=spotifyd play-pause
-
 # }}}
