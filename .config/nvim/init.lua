@@ -128,6 +128,9 @@ vim.cmd[[autocmd Filetype tex nnoremap <localleader>wc :!pdftotext *.pdf - \| wc
 vim.cmd[[autocmd Filetype tex set wrap spell]]
 vim.cmd[[autocmd Filetype tex set conceallevel=1]]
 
+-- markdown
+vim.cmd[[autocmd Filetype markdown set nowrap spell]]
+
 -- python
 vim.cmd[[autocmd Filetype python nnoremap <localleader>r :w<bar>!python %<CR>]]
 vim.cmd[[autocmd Filetype python nnoremap <localleader>R :w<bar>!$TERMINAL -e python %<CR><CR>]]
