@@ -1,0 +1,129 @@
+#!/usr/bin/python3
+
+# Credit to Julynx/i3-master-stack
+
+# The GPLv2 License (GPLv2) {{{
+
+# Copyright (c) 2023 Author
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# }}}
+
+import i3ipc
+import argparse
+
+# NOTE: for documentation look in: https://github.com/altdesktop/i3ipc-python
+# for this to work you need python3 and i3ipc installed on your machine.
+# Install it with pip3 install i3ipc.
+
+# {{{ Setup -------------------------------------------------------------------
+
+parser = argparse.ArgumentParser()
+parser.add_argument('action')
+arg = parser.parse_args().action
+
+def get_vars():
+    # Initiate i3ipc library.
+    global i3
+    i3 = i3ipc.Connection()
+
+    # We need tree of containers to find focused and the biggest one.
+    global tree
+    tree = i3.get_tree()
+
+    # Class of currently focused container.
+    global focused
+    focused = tree.find_focused()
+
+    # Check if focused is floating.
+    # Possible states are: 'auto_on', 'auto_off', 'user_on', 'user_off'
+    global focused_floating_state
+    focused_floating_state = 'on' in focused.floating
+
+    # List of containers on focused workspace.
+    global list_con
+    list_con = focused.workspace().leaves()
+
+def get_container_area(container):
+    y = container.rect.height
+    x = container.rect.width
+    area = x * y
+    return area
+
+def find_biggest_container(list_con, include_focused):
+    """Gets list of leaves on current workspace as input and returns
+    largest one (by area) that isn't already focused."""
+
+    largest = 0
+    largest_container = list_con[0]
+    for container in list_con:
+        area = get_container_area(container)
+        # It makes no sense to swap focused with itself
+        if area >= largest and not (container.focused and not include_focused):
+            largest = area
+            largest_container = container
+
+    return largest_container
+
+# }}}
+
+# {{{ Master
+
+# Get swappin'
+def master():
+    get_vars()
+    if focused_floating_state:  # If currently focused is floating, do nothing.
+        pass
+    else:
+        # Firstly we need con_id (i3 container id ) of the largest container-swapee
+        largest_con_non_focus = find_biggest_container(list_con, False)
+        print(largest_con_non_focus)
+        # and then we swap it.
+        i3.command('swap container with con_id {}'.format(largest_con_non_focus.id))
+
+if arg == "master": master()
+
+# }}}}
+
+# {{{ Kill
+
+def kill():
+    get_vars()
+    already_killed = False
+    if focused_floating_state:  # If currently focused is floating, do nothing.
+        pass
+    else:
+        # Firstly we need con_id (i3 container id ) of the largest container
+        largest_con = find_biggest_container(list_con, True)
+        largest_con_non_focus = find_biggest_container(list_con, False)
+
+        # and then we swap it.
+        if largest_con.id == focused.id:
+            focused_area = get_container_area(focused)
+            largest_non_focus_area = get_container_area(largest_con_non_focus)
+            if focused_area > largest_non_focus_area:
+                print("TRUE")
+                i3.command('swap container with con_id {}'.format(largest_con_non_focus.id))
+                i3.command('kill')
+                i3.command('[con_id="{}"] focus'.format(largest_con_non_focus.id))
+                print(largest_con_non_focus.id)
+                already_killed = True
+
+    if not already_killed:
+        i3.command('kill')
+
+if arg == "kill": kill()
+
+# }}}

@@ -46,10 +46,6 @@ bindsym $mod+Shift+o resize grow width 20 px or 20 ppt
 
 # hide/unhide i3status bar
 
-bindsym $mod+m bar mode toggle
-
-bindsym $mod+q split toggle
-
 gaps inner 6
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
@@ -67,8 +63,8 @@ bindsym $mod+Shift+Mod1+y border normal
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
-bindsym $mod+n workspace back_and_forth
-bindsym $mod+Shift+n move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Tab+n move container to workspace back_and_forth; workspace back_and_forth
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -156,12 +152,12 @@ set_from_resource $bd_u rice.border.unfocused
 set_from_resource $bd_r rice.border.urgent
 set_from_resource $id_f rice.indicator.focused
 
-# class                   border  backgr. text    indic.   child_border
-  client.focused          $bd_f   $bd_f   $fg_f   $id_f
-  client.focused_inactive $bd_u   $bd_u   $fg     $bd_u
-  client.unfocused        $bd_u   $bd_u   $fg     $bd_u
-  client.urgent           $bd_r   $bd_r   $fg     $bd_r
-  client.placeholder      $bg     $bg     $fg     $bd
+# class                   border  backgr. text   indic.   child_border
+  client.focused          $bd_f   $bd_f   $fg_f  $bd_f
+  client.focused_inactive $bd_u   $bd_u   $fg    $bd_u
+  client.unfocused        $bd_u   $bd_u   $fg    $bd_u
+  client.urgent           $bd_r   $bd_r   $fg    $bd_r
+  client.placeholder      $bg     $bg     $fg    $bg  
 
   client.background       $bg
 
@@ -196,9 +192,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# kill focused window
-bindsym $mod+Shift+q kill
 
 # }}}
 
@@ -342,5 +335,16 @@ bar {
         urgent_workspace   $bg_r   $bg_r   $bg
     }
 }
+
+# }}}
+
+# {{{ Tiling
+
+# exec autotiling
+
+exec killall autotiling
+exec_always --no-startup-id autotiling -l 2
+bindsym $mod+m exec --no-startup-id "$HOME/.config/i3/swapper master"
+bindsym $mod+Shift+q exec --no-startup-id "$HOME/.config/i3/swapper kill"
 
 # }}}
