@@ -45,13 +45,18 @@
 
 (after! org
     (setq org-capture-templates
-          '(("t" "Todo" entry (file+headline "~/Documents/org/refile.org" "Tasks")
+          '(
+            ("t" "Todo" entry (file+headline "~/Documents/org/refile.org" "Tasks")
              "* TODO %?")
             ("n" "Note" entry (file+headline "~/Documents/org/refile.org" "Notes")
              "* %?")
             ("j" "Journal" entry (file+headline "~/Documents/org/refile.org" "Journal")
              "* %u %?")
-        )))
+        )
+    )
+    (setq org-agenda-todo-ignore-scheduled t)
+    (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
+)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
