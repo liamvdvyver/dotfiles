@@ -86,6 +86,7 @@ vim.keymap.set("n", "<leader>s", ":!", { desc = "Begin [s]hell command" })
 vim.keymap.set("n", "<leader>S", ":source $MYVIMRC<CR>", { desc = "[S]ource config file" })
 vim.keymap.set("n", "<leader>x", ":! chmod +x %<CR>", { desc = "Add e[x]ecute mode to current file" })
 vim.keymap.set("n", "<leader>ze", ":!s eval $(emacs %)&<CR>")
+vim.keymap.set("n", "<leader>.", ":Ex<CR>")
 
 -- plugin maps
 vim.keymap.set("n", "<leader>n", ":NERDTreeToggle %:p:h<CR>", { desc = 'Toggle [n]ERDTree' })
