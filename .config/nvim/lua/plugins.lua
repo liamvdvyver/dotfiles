@@ -18,9 +18,8 @@ return require('packer').startup(function(use)
 
   use {
     'lervag/vimtex',
-    opt = true, ft = {'tex', 'bib'},
     config = vim.cmd[[
-      let g:tex_conceal="abdmg:"
+    let g:tex_conceal="abdmg:"
       let g:latex_view_general_viewer = "zathura"
       let g:vimtex_view_method = "zathura"
     ]]
