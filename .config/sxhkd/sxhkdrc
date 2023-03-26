@@ -21,6 +21,9 @@ super + alt + v
 super + alt + c
     calibre --with-library=~/Documents/calibre/
 
+super + alt + z
+    zotero
+
 super + alt + s
     xstata-mp
 
