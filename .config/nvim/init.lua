@@ -111,6 +111,9 @@ vim.keymap.set("n", "<leader>fm", builtin.keymaps, { desc = "Fuzzy [f]ind key[m]
 vim.keymap.set("n", "<leader>gl", builtin.live_grep, { desc = "[g]rep through files in [l]ocal directory" })
 vim.keymap.set("n", "<leader>g8", builtin.grep_string, { desc = "[g]rep word under cursor in working directory" })
 
+vim.keymap.set("n", "<c-x><c-b>", ":Telescope bibtex<CR>")
+vim.keymap.set("i", "<c-x><c-b>", "<Esc>:Telescope bibtex<CR>")
+
 -- lsp
 vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Fuzzy [f]ind [r]eferences" })
 vim.keymap.set("n", "<leader>fi", builtin.lsp_implementations, { desc = "Fuzzy [f]ind [i]mplementations" })

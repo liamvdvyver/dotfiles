@@ -26,6 +26,24 @@ return require('packer').startup(function(use)
     ]]
   }
 
+  use{
+    'nvim-telescope/telescope-bibtex.nvim',
+    requires = {'nvim-telescope/telescope.nvim'},
+    after = {'telescope.nvim'},
+    config = function()
+      require("telescope").setup {
+       extensions = {
+         bibtex = {
+           -- context = true,
+           -- context_fallback = false
+           global_files = {'~/Documents/zotero/bib.bib'},
+         }
+       }
+     }
+     require("telescope").load_extension("bibtex")
+    end,
+  }
+
   use {
     'jalvesaq/Nvim-R',
     opt = true, ft = {'r', 'rmd'},
