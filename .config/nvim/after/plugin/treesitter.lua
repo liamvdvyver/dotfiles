@@ -1,9 +1,10 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
+  ignore_install = { "latex" },
   ensure_installed = {
     "c", "lua", "rust", "python",
     "bash", "awk", "regex", "perl",
-    "bibtex", "latex",
+    -- "bibtex", "latex",
     "css", "html", "http",
     "r", "sql",
     "json", "yaml", "sxhkdrc",
