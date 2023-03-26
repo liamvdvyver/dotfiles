@@ -94,6 +94,11 @@ vim.keymap.set("n", "<leader>c", ":ColorToggle<CR>", { desc = "Toggle html [c]ol
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { desc = "Toggle [u]ndotree" })
 vim.keymap.set("n", "<leader>r", ":lua vim.lsp.buf.rename()<CR>")
 vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", { desc = "Open diagnostics" })
+vim.keymap.set("n", "<M-h>", ":BufferLineCyclePrev<CR>")
+vim.keymap.set("n", "<M-l>", ":BufferLineCycleNext<CR>")
+vim.keymap.set("n", "<M-,>", ":BufferLineMovePrev<CR>")
+vim.keymap.set("n", "<M-.>", ":BufferLineMoveNext<CR>")
+vim.keymap.set("n", "<leader>bk", ":bd<CR>")
 
 -- telescope
 local builtin = require('telescope.builtin')

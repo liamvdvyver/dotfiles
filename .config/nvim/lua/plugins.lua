@@ -125,6 +125,23 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+    'akinsho/bufferline.nvim',
+    requires = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      require("bufferline").setup{
+        -- highlights = {
+        --     fill = {
+        --         bg = {
+        --             attribute = "bg",
+        --             highlight = "Normal"
+        --         }
+        --     }
+        -- }
+      }
+    end
+  }
+
   -- language/syntax
 
   use {
