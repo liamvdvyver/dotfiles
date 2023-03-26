@@ -282,7 +282,6 @@ return require('packer').startup(function(use)
           }
         }
       }
-      require("cmp").setup { sources = { { name = 'nvim_lsp' } } }
     end,
   }
 
