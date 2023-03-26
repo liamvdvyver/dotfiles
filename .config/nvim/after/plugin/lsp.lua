@@ -15,3 +15,6 @@ lsp.setup()
 
 -- Configure lua language server for neovim
 lsp.nvim_workspace()
+
+local ls = require('luasnip')
+ls.filetype_extend("markdown", { "tex" })

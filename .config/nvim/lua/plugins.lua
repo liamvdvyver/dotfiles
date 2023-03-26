@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
     let g:tex_conceal="abdmg:"
       let g:latex_view_general_viewer = "zathura"
       let g:vimtex_view_method = "zathura"
+      autocmd Filetype markdown call vimtex#init()
     ]]
   }
 
@@ -112,6 +113,20 @@ return require('packer').startup(function(use)
   }
 
   -- navigation
+
+  use {
+  'airblade/vim-rooter',
+  config = function()
+   vim.g.rooter_patterns = {
+      ".git",
+      "=pkb",
+    }
+    vim.g.rooter_change_directory_for_non_project_files = "current" -- when non of the above patterns is found
+    vim.g.rooter_cd_cmd =  "lcd"
+    vim.g.rooter_silent_chdir = true
+    vim.g.rooter_buftypes = {''}
+  end
+  }
 
   use {
     'preservim/nerdtree',
