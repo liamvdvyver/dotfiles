@@ -130,14 +130,15 @@ return require('packer').startup(function(use)
 
   use {
     'preservim/nerdtree',
-    opt = true, cmd = {'NERDTreeToggle'},
+    -- opt = true, cmd = {'NERDTreeToggle'},
     config = vim.cmd[[let NERDTreeShowHidden=1]],
     requires = {
-      { 'ryanoasis/vim-devicons', opt = true },
       { 'Xuyuanp/nerdtree-git-plugin', opt = true },
       -- {'tiagofumo/vim-nerdtree-syntax-highlight'}
     }
   }
+
+  use {'ryanoasis/vim-devicons', after = "nerdtree"}
 
   use {
     'nvim-telescope/telescope.nvim',
