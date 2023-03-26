@@ -16,13 +16,18 @@ config.bind('<ctrl-Shift-p>', 'spawn --userscript qute-pass --username-target se
 
 config.bind(',M', 'spawn --verbose --detach mpv {url} --input-ipc-server=/tmp/mpvsocket ytdl-format=bestvideo[height<=?1080]+bestaudio/best')
 config.bind(',m', 'hint links spawn --verbose --detach mpv {hint-url} --input-ipc-server=/tmp/mpvsocket ytdl-format=bestvideo[height<=?1080]+bestaudio/best')
-'J', 'tab-prev'
+
+config.bind(',Z', "spawn --userscript qute-zotero")
+config.bind(',z', "hint links userscript qute-zotero")
 
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
 
 config.bind('>', 'tab-move +')
 config.bind('<', 'tab-move -')
+
+config.bind('<Ctrl-p>', 'completion-item-focus --history prev', mode='command')
+config.bind('<Ctrl-n>', 'completion-item-focus --history next', mode='command')
 
 c.content.blocking.enabled = True
 c.content.blocking.method = "both"
