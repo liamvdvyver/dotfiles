@@ -342,8 +342,7 @@ bar {
 
 # exec autotiling
 
-exec killall autotiling
-exec_always --no-startup-id autotiling -l 2
+exec_always "autotiling -l 2"
 bindsym $mod+m exec --no-startup-id "$HOME/.config/i3/swapper master"
 bindsym $mod+Shift+q exec --no-startup-id "$HOME/.config/i3/swapper kill"
 
