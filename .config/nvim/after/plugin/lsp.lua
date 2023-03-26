@@ -24,7 +24,7 @@ lsp.setup_nvim_cmp({
     {name = 'nvim_lsp'},
     {name = 'path'},
     -- {name = 'omni'},
-    -- {name = 'cmp_nvim_r'},
+    {name = 'cmp_nvim_r'},
     -- {name = 'nvim_lua'},
   },
   preselect = 'none',

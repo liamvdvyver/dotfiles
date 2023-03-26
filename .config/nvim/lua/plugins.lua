@@ -46,9 +46,12 @@ return require('packer').startup(function(use)
 
   use {
     'jalvesaq/Nvim-R',
-    opt = true, ft = {'r', 'rmd'},
-    branch = 'stable',
-    config = vim.cmd[[let R_assign = 0]]
+    -- opt = true, ft = {'r', 'rmd'},
+    branch = 'master',
+    config = vim.cmd[[
+      let R_assign = 0
+      let rout_follow_colorscheme = 1
+    ]]
   }
 
   -- notes
@@ -191,7 +194,7 @@ return require('packer').startup(function(use)
       {'hrsh7th/cmp-path'},
       {'saadparwaiz1/cmp_luasnip'},
       {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
+      {'jalvesaq/cmp-nvim-r'},
 
       -- Snippets
       {'L3MON4D3/LuaSnip'},
@@ -291,5 +294,9 @@ return require('packer').startup(function(use)
   if packer_bootstrap then
     require('packer').sync()
   end
+  -- Ideally this should be moved
+  require('cmp_nvim_r').setup({
+    filetypes = {'r', 'rmd', 'quarto'}
+  })
 end)
 
