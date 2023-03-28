@@ -214,6 +214,34 @@ return require('packer').startup(function(use)
   }
 
   use {
+      "rcarriga/nvim-dap-ui",
+      requires = {"mfussenegger/nvim-dap"},
+      config = function()
+        require("dapui").setup()
+      end
+  }
+
+  use {
+    "jay-babu/mason-nvim-dap.nvim",
+    after = {"mason.nvim"},
+    config = function()
+      require("mason").setup()
+      require("mason-nvim-dap").setup({
+        ensure_insalled = { "python", "bash" },
+        automatic_setup = true,
+      })
+      require 'mason-nvim-dap'.setup_handlers()
+    end
+  }
+
+  use {
+    "theHamsta/nvim-dap-virtual-text",
+    config = function()
+      require("nvim-dap-virtual-text").setup()
+    end
+  }
+
+  use {
     'chrisbra/Colorizer',
     opt = true, cmd = {'ColorToggle'}
   }

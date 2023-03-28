@@ -122,6 +122,21 @@ vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Fuzzy 
 vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "Fuzzy [f]ind symbols in [w]orkspace" })
 vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Fuzzy [f]ind [d]iagnostics" })
 
+-- dap
+local dapui = require("dapui")
+vim.keymap.set("n", "<leader>dd", dapui.toggle, { desc = "Toggle [D]AP window" })
+
+local dap = require("dap")
+vim.keymap.set("n", "<F5>", dap.continue)
+vim.keymap.set("n", "<F10>", dap.step_over)
+vim.keymap.set("n", "<F11>", dap.step_into)
+vim.keymap.set("n", "<F12>", dap.step_out)
+vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint)
+vim.keymap.set("n", "<Leader>B", function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
+vim.keymap.set("n", "<Leader>lp", function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+vim.keymap.set("n", "<Leader>dr", dap.repl.open)
+vim.keymap.set("n", "<Leader>dl", dap.run_last)
+
 -- wiki.vim
 vim.keymap.set("n", "<leader>wp", ":WikiFzfPages<CR>")
 vim.keymap.set("n", "<leader>wt", ":WikiFzfTags<CR>")
