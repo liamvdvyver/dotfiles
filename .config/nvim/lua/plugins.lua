@@ -17,7 +17,7 @@ return require('packer').startup(function(use)
   -- IDE like/language specific {{{
 
   use {
-    'lervag/vimtex',
+    'lervag/vimtex', -- Lazy loading breaks inverse search
     config = vim.cmd[[
     let g:tex_conceal="abdmg:"
       let g:latex_view_general_viewer = "zathura"
