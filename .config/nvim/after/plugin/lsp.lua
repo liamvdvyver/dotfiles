@@ -22,10 +22,10 @@ lsp.setup_nvim_cmp({
   sources = {
     {name = 'luasnip'},
     {name = 'nvim_lsp'},
+    {name = 'nvim_lua'},
     {name = 'path'},
     -- {name = 'omni'},
     {name = 'cmp_nvim_r'},
-    -- {name = 'nvim_lua'},
   },
   preselect = 'none',
   completion = {
@@ -33,10 +33,10 @@ lsp.setup_nvim_cmp({
   },
 })
 
-lsp.setup()
-
 -- Configure lua language server for neovim
 lsp.nvim_workspace()
+
+lsp.setup()
 
 local ls = require('luasnip')
 ls.filetype_extend("markdown", { "tex" })
