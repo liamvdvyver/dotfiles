@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
   use {
     'lervag/vimtex', -- Lazy loading breaks inverse search
     config = vim.cmd[[
-    let g:tex_conceal="abdmg:"
       let g:latex_view_general_viewer = "zathura"
       let g:vimtex_view_method = "zathura"
       autocmd Filetype markdown call vimtex#init()
