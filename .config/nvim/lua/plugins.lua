@@ -174,14 +174,14 @@ return require('packer').startup(function(use)
     requires = 'nvim-tree/nvim-web-devicons',
     config = function()
       require("bufferline").setup{
-        -- highlights = {
-        --     fill = {
-        --         bg = {
-        --             attribute = "bg",
-        --             highlight = "Normal"
-        --         }
-        --     }
-        -- }
+        highlights = {
+            fill = {
+                bg = {
+                    attribute = "bg",
+                    highlight = "Normal"
+                }
+            }
+        }
       }
     end
   }
