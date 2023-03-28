@@ -107,15 +107,18 @@ return require('packer').startup(function(use)
 
   -- }}}
 
-  use {
-    'airblade/vim-gitgutter',
-    config = vim.cmd[[let g:gitgutter_map_keys = 0]]
-  }
   -- Git {{{
 
   use {
     'tpope/vim-fugitive',
     opt = true, cmd = {'G'}
+  }
+
+  use {
+  'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
   }
 
   -- }}}
