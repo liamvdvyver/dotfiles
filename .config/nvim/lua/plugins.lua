@@ -14,7 +14,7 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- IDE like/language specific
+  -- IDE like/language specific {{{
 
   use {
     'lervag/vimtex',
@@ -54,7 +54,9 @@ return require('packer').startup(function(use)
     ]]
   }
 
-  -- notes
+  -- }}}
+
+  -- Notes {{{
 
   use {
     'lervag/wiki.vim',
@@ -103,19 +105,22 @@ return require('packer').startup(function(use)
     config = vim.cmd[[let g:scimCommand = 'sc-im']]
   }
 
-  -- git
+  -- }}}
 
   use {
     'airblade/vim-gitgutter',
     config = vim.cmd[[let g:gitgutter_map_keys = 0]]
   }
+  -- Git {{{
 
   use {
     'tpope/vim-fugitive',
     opt = true, cmd = {'G'}
   }
 
-  -- navigation
+  -- }}}
+
+  -- Navigation {{{
 
   use {
   'airblade/vim-rooter',
@@ -178,7 +183,9 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- language/syntax
+  --- }}}
+
+  -- Language/Syntax {{{
 
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -223,7 +230,9 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-commentary'
 
-  -- airline
+  --- }}}
+
+  -- Lualine {{{
 
   use {
     'nvim-lualine/lualine.nvim',
@@ -240,7 +249,9 @@ return require('packer').startup(function(use)
     end,
   }
 
-  -- colorschemes
+  --- }}}
+
+  -- Colorschemes {{{
 
   use 'lifepillar/vim-solarized8'
   use {'dracula/vim', as = 'dracula'}
@@ -254,7 +265,9 @@ return require('packer').startup(function(use)
   }
   use {'catppuccin/nvim', as = 'catppuccin'}
 
-  -- other
+  --- }}}
+
+  -- Other {{{
 
   use 'christoomey/vim-tmux-navigator'
   use {
@@ -288,6 +301,8 @@ return require('packer').startup(function(use)
       }
     end,
   }
+
+  --- }}}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
