@@ -10,6 +10,14 @@ require("plugins")
 vim.cmd.syntax("enable")
 vim.cmd.colorscheme("gruvbox")
 
+P = function(v)
+    print(vim.inspect(v))
+end
+
+Pm = function(v)
+    print(vim.inspect(getmetatable(v)))
+end
+
 -- SETS --------------------------------------------------------------------- {{{
 
 vim.o.number = true
@@ -24,7 +32,7 @@ vim.o.tabstop = 4
 vim.o.expandtab = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.o.hlsearch = true
+vim.o.hlsearch = false
 vim.o.incsearch = true
 vim.o.showmatch = true
 vim.o.backspace = "eol,start,indent"
@@ -56,6 +64,9 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center after scroll down" })
 vim.keymap.set("n", "n", "nzzzv", { desc = "Center after [n]ext result" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Center after previous result" })
 
+vim.keymap.set("n", "H", "^")
+vim.keymap.set("n", "L", "$")
+
 -- clipboard
 vim.keymap.set("n", "<leader>y", "\"+y", { desc = "[y]ank to clipboard" })
 vim.keymap.set("v", "<leader>y", "\"+y", { desc = "[y]ank visual to clipboard" })
@@ -79,7 +90,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Auto indent block on move
 
 -- leaders
 vim.keymap.set("n", "<leader>W", ":set wrap!<CR>", { desc = "Toggle [w]rap" })
-vim.keymap.set("n", "<leader>l", ':execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>', { desc = "Toggle [l]ine at textwidth" })
+vim.keymap.set("n", "<leader>L", ':execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>', { desc = "Toggle [l]ine at textwidth" })
 vim.keymap.set("n", "<leader>h", ":noh<CR>", { desc = "[c]lear [h]ighlight" })
 vim.keymap.set("n", "<leader>o", ":set spell!<CR>", { desc = "Toggle [o]rthography (spelling)" })
 vim.keymap.set("n", "<leader>s", ":!", { desc = "Begin [s]hell command" })
@@ -89,7 +100,9 @@ vim.keymap.set("n", "<leader>ze", ":!s eval $(emacs %)&<CR>")
 vim.keymap.set("n", "<leader>.", ":Ex<CR>")
 
 -- plugin maps
-vim.keymap.set("n", "<leader>n", ":NERDTreeToggle %:p:h<CR>", { desc = 'Toggle [n]ERDTree' })
+-- vim.keymap.set("n", "<leader>n", ":NERDTreeToggle %:p:h<CR>", { desc = 'Toggle [n]ERDTree' })
+vim.keymap.set("n", "<leader>n", ":Lex<CR>", { desc = 'Toggle [n]etrw' })
+vim.keymap.set("n", "<leader>U", ":Sex $XDG_STATE_HOME/nvim/swap/<CR>", { desc = 'Toggle [n]etrw' })
 vim.keymap.set("n", "<leader>t", ":TagbarToggle<CR>", { desc = "Toggle [t]agbar" })
 vim.keymap.set("n", "<leader>c", ":ColorToggle<CR>", { desc = "Toggle html [c]olours" })
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { desc = "Toggle [u]ndotree" })
@@ -99,14 +112,28 @@ vim.keymap.set("n", "<M-h>", ":BufferLineCyclePrev<CR>")
 vim.keymap.set("n", "<M-l>", ":BufferLineCycleNext<CR>")
 vim.keymap.set("n", "<M-,>", ":BufferLineMovePrev<CR>")
 vim.keymap.set("n", "<M-.>", ":BufferLineMoveNext<CR>")
-vim.keymap.set("n", "<leader>bk", ":bd<CR>")
+vim.keymap.set("n", "<leader>k", ":bd<CR>")
+
+vim.keymap.set("n", "<M-C-h>", ":tabprevious<CR>") -- tab management
+vim.keymap.set("n", "<M-C-l>", ":tabnext<CR>")
+vim.keymap.set("n", "<M-C-,>", ":-tabmove<CR>")
+vim.keymap.set("n", "<M-C-.>", ":+tabmove<CR>")
+vim.keymap.set("n", "<leader>N", ":tabnew<CR>")
+vim.keymap.set("n", "<leader>K", ":tabclose<CR>")
+
+vim.keymap.set("n", "<leader>T", ":TSPlaygroundToggle<CR>")
+vim.keymap.set("n", "<leader>[", ":Gitsigns prev_hunk<CR>")
+vim.keymap.set("n", "<leader>]", ":Gitsigns next_hunk<CR>")
 
 -- telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set("n", "<leader>fl", builtin.find_files, { desc = "Fuzzy [f]ind fules in [l]ocal directory" })
+vim.keymap.set("n", "<leader>f.", function()
+    builtin.find_files({ search_dirs = {"~/.local/state/nvim/swap/"}})
+end, { desc = "Fuzzy [f]ind [s]wap files" })
 vim.keymap.set("n", "<leader>fp", builtin.git_files, { desc = "Fuzzy [f]ind files in git [p]roject" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Fuzzy [f]ind [b]uffers" })
-vim.keymap.set("n", "<leader>f/", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy [f]ind in current buffer" })
+vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy [f]ind in current buffer" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Fuzzy [f]ind [h]elp tags" })
 vim.keymap.set("n", "<leader>fm", builtin.keymaps, { desc = "Fuzzy [f]ind key[m]aps" })
 vim.keymap.set("n", "<leader>gl", builtin.live_grep, { desc = "[g]rep through files in [l]ocal directory" })
@@ -114,6 +141,13 @@ vim.keymap.set("n", "<leader>g8", builtin.grep_string, { desc = "[g]rep word und
 
 vim.keymap.set("n", "<c-x><c-b>", ":Telescope bibtex<CR>")
 vim.keymap.set("i", "<c-x><c-b>", "<Esc>:Telescope bibtex<CR>")
+
+-- harpoon
+vim.keymap.set("n", "<Leader>m", function() require("harpoon.ui").toggle_quick_menu() end)
+vim.keymap.set("n", "<Leader>M", function() require("harpoon.mark").add_file() end)
+vim.keymap.set("n", ";j", function() require("harpoon.ui").nav_file(1) end)
+vim.keymap.set("n", ";k", function() require("harpoon.ui").nav_file(2) end)
+vim.keymap.set("n", ";l", function() require("harpoon.ui").nav_file(3) end)
 
 -- lsp
 vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Fuzzy [f]ind [r]eferences" })
@@ -156,16 +190,16 @@ vim.cmd[[autocmd Filetype tex set conceallevel=1]]
 vim.cmd[[autocmd Filetype markdown set nowrap spell]]
 
 -- python
-vim.cmd[[autocmd Filetype python nnoremap <localleader>r :w<bar>!python %<CR>]]
-vim.cmd[[autocmd Filetype python nnoremap <localleader>R :w<bar>!$TERMINAL -e python %<CR><CR>]]
+vim.cmd[[autocmd Filetype python nnoremap <localleader>x :w<bar>!python %<CR>]]
 vim.cmd[[autocmd Filetype python set textwidth=79]]
 
 -- bash
-vim.cmd[[autocmd Filetype sh nnoremap <localleader>r :w<bar>!bash %<CR>]]
+vim.cmd[[autocmd Filetype sh nnoremap <localleader>x :w<bar>!bash %<CR>]]
 
 -- lua
-vim.cmd[[autocmd Filetype lua set shiftwidth=2]]
-vim.cmd[[autocmd Filetype lua set tabstop=2]]
+-- vim.cmd[[autocmd Filetype lua set shiftwidth=2]]
+-- vim.cmd[[autocmd Filetype lua set tabstop=2]]
+vim.cmd[[autocmd Filetype lua nnoremap <localleader>x :source %<CR>]]
 
 -- yaml
 vim.cmd[[autocmd Filetype yaml set shiftwidth=2]]
@@ -173,5 +207,8 @@ vim.cmd[[autocmd Filetype yaml set tabstop=2]]
 
 -- config
 vim.cmd[[autocmd BufEnter sxhkdrc set ft=sxhkdrc]]
+
+-- iron
+vim.cmd[[autocmd BufNewFile,BufRead *.sage,*.sage.python,*python :set filetype=sage]]
 
 -- }}}
