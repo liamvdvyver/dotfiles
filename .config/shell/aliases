@@ -25,7 +25,7 @@ alias pf='pfetch'
 alias py='python'
 alias p3='python3'
 alias r='. ranger'
-alias s='systemctl'
+# alias s='systemctl'
 alias t='tmux'
 alias v='nvim'
 alias e="emacsclient -c -a 'emacs'"
@@ -33,12 +33,9 @@ alias yt='ytfzf -t'
 
 # git
 alias g='git'
-alias gv='nvim +:G +:on'
 
 # yadm
 alias y='yadm'
-alias yv='yadm enter nvim +:G +:on'
-alias ye='yadm enter zsh'
 
 # rclone
 alias rdd='rclone sync -i Drive: ~/drive'
@@ -61,6 +58,12 @@ alias d='cd "$(fd . ~ -L -td | fzf)"'
 alias c='yadm list | fzf | xargs yadm enter nvim'
 alias grades='cd ~/drive/school/grades && Rscript grades.R'
 alias cln='rm -r ~/.Rhistory ~/.pki ~/.subversion ~/.npm'
+
+# tmux
+alias s='tmux-sessioniser'
+alias ty='tmux new -s yadm "yadm enter nvim"'
+alias tn='tmux new -s ncspot "ncspot"'
+alias tw='tmux new -s pkb "nvim ~/Documents/pkb/index.md"'
 
 # my scripts
 alias wp='pape -i ~/Pictures/papes/'
