@@ -71,6 +71,15 @@
 ;;     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
 ;;   - Setting doom variables (which start with 'doom-' or '+').
 ;;
+(use-package! org-alert)
+(after! org-alert
+     (setq org-alert-interval 300
+           org-alert-notify-cutoff 15
+           org-alert-notify-after-event-cutoff 10
+          alert-default-style 'libnotify)
+)
+
+
 ;; Here are some additional functions/macros that will help you configure Doom.
 ;;
 ;; - `load!' for loading external *.el files relative to this one
