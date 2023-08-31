@@ -53,6 +53,8 @@ return require('packer').startup(function(use)
     ]]
   }
 
+  use {"untitled-ai/jupyter_ascending.vim"}
+
   -- }}}
 
   -- Notes {{{
@@ -218,6 +220,8 @@ return require('packer').startup(function(use)
       {'hrsh7th/cmp-nvim-lsp'},
       {'hrsh7th/cmp-nvim-lua'},
       {'jalvesaq/cmp-nvim-r'},
+      {'~/git/cmp-nvim-r/'},
+      {'onsails/lspkind.nvim'},
 
       -- Snippets
       {'L3MON4D3/LuaSnip'},
@@ -270,6 +274,8 @@ return require('packer').startup(function(use)
         ts_update()
       end,
   }
+
+  use {'nvim-treesitter/playground'}
 
   use 'tpope/vim-commentary'
 
