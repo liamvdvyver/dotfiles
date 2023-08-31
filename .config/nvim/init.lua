@@ -182,7 +182,7 @@ vim.keymap.set("n", "<leader>ws", ":OpenInScim<CR>")
 -- AUTOCMDS  ---------------------------------------------------------------- {{{
 
 -- .tex
-vim.cmd[[autocmd Filetype tex nnoremap <localleader>wc :!pdftotext *.pdf - \| wc -w<CR>]]
+vim.cmd[[autocmd Filetype tex nnoremap <localleader>wc :!detex % \| wc -w<CR>]]
 vim.cmd[[autocmd Filetype tex set wrap spell]]
 vim.cmd[[autocmd Filetype tex set conceallevel=1]]
 
