@@ -240,10 +240,9 @@ return require('packer').startup(function(use)
     config = function()
       require("mason").setup()
       require("mason-nvim-dap").setup({
-        ensure_insalled = { "python", "bash" },
-        automatic_setup = true,
+        ensure_installed = { "python", "bash" },
+        handlers = {}
       })
-      require 'mason-nvim-dap'.setup_handlers()
     end
   }
 
