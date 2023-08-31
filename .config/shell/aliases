@@ -56,7 +56,7 @@ alias mpw='mpv --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0'
 alias f='rifle "$(fzf)"'
 alias d='cd "$(fd . ~ -L -td | fzf)"'
 alias c='yadm list | fzf | xargs yadm enter nvim'
-alias grades='cd ~/drive/school/grades && Rscript grades.R'
+alias grades='cd ~/Documents/school/grades && Rscript grades.R'
 alias cln='rm -r ~/.Rhistory ~/.pki ~/.subversion ~/.npm'
 
 # tmux
@@ -69,6 +69,7 @@ alias tw='tmux new -s pkb "nvim ~/Documents/pkb/index.md"'
 alias wp='pape -i ~/Pictures/papes/'
 alias mmd='find . -regex '\''.*\.\(flac\|mp3\|dsf\)'\'' -exec musmv {} \;'
 alias mms='muscf; musc; rm -d source/; rm -d other/; mmd'
+alias fb='fzf-calibre'
 
 # clean up dotfiles
 alias gcalcli='gcalcli --config-folder ~/.config/gcalcli'
