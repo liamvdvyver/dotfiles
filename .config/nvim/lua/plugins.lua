@@ -59,19 +59,32 @@ return require('packer').startup(function(use)
 
   use {
     'lervag/wiki.vim',
-    config = vim.cmd[[
-      let g:wiki_root = '~/Documents/pkb/'
-      let g:wiki_filetypes = ['md', 'org']
-      let g:wiki_link_extension = ''
-      let g:wiki_export = {
-      \ 'args' : '',
-      \ 'from_format' : 'markdown',
-      \ 'ext' : 'pdf',
-      \ 'link_ext_replace': v:false,
-      \ 'view' : v:true,
-      \ 'output': fnamemodify(tempname(), ':h'),
-      \}
-    ]]
+    config = function()
+      vim.g.wiki_select_method = {
+        pages = require("wiki.telescope").pages,
+        tags = require("wiki.telescope").tags,
+        toc = require("wiki.telescope").toc,
+      }
+      vim.cmd[[
+        let g:wiki_root = '~/Documents/pkb/'
+        let g:wiki_filetypes = ['md', 'org', 'tex']
+        let g:wiki_link_extension = ''
+        let g:wiki_export = {
+        \ 'args' : '',
+        \ 'from_format' : 'markdown',
+        \ 'ext' : 'pdf',
+        \ 'link_ext_replace': v:false,
+        \ 'view' : v:true,
+        \ 'output': fnamemodify(tempname(), ':h'),
+        \}
+        let g:wiki_tag_parsers = [
+        \ g:wiki#tags#default_parser,
+        \ { 'match': {x -> x =~# '^tags: '},
+        \   'parse': {x -> split(matchstr(x, '^tags:\zs.*'), '[ ,]\+')},
+        \   'make':  {t, x -> 'tags: ' . empty(t) ? '' : join(t, ', ')}}
+        \]
+      ]]
+    end
   }
 
   use {
