@@ -172,8 +172,8 @@ vim.keymap.set("n", "<Leader>dr", dap.repl.open)
 vim.keymap.set("n", "<Leader>dl", dap.run_last)
 
 -- wiki.vim
-vim.keymap.set("n", "<leader>wp", ":WikiFzfPages<CR>")
-vim.keymap.set("n", "<leader>wt", ":WikiFzfTags<CR>")
+vim.keymap.set("n", "<leader>wp", ":WikiPages<CR>")
+vim.keymap.set("n", "<leader>wt", ":WikiTags<CR>")
 vim.keymap.set("n", "<leader>wv", ":MarkdownPreviewToggle<CR>")
 vim.keymap.set("n", "<leader>ws", ":OpenInScim<CR>")
 
