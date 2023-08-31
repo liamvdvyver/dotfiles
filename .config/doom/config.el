@@ -56,6 +56,7 @@
     )
     (setq org-agenda-todo-ignore-scheduled t)
     (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
+    (setq org-agenda-span 7)
 )
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -79,6 +80,40 @@
           alert-default-style 'libnotify)
 )
 
+(after! org-super-agenda
+    (setq org-super-agenda-header-map (make-sparse-keymap))
+    (setq org-super-agenda-groups
+           '(;; Each group has an implicit boolean OR operator between its selectors.
+             (:name "Today"  ; Optionally specify section name
+                    :time-grid t  ; Items that appear on the time grid
+                    :todo "TODAY")  ; Items that have this TODO keyword
+             (:name "Important"
+                    :priority "A")
+             (:name "Started"
+                    :todo  ("STRT")
+                    :order 1)
+             (:priority<= "B"
+                          :order 2)
+             (:order-multi (3 (:name "Shopping in town"
+                                     ;; Boolean AND group matches items that match all subgroups
+                                     :and (:tag "shopping" :tag "@town"))
+                              (:name "Food-related"
+                                     ;; Multiple args given in list with implicit OR
+                                     :tag ("food" "dinner"))
+                              (:name "Personal"
+                                     :habit t
+                                     :tag "personal")
+                              (:name "Space-related (non-moon-or-planet-related)"
+                                     ;; Regexps match case-insensitively on the entire entry
+                                     :and (:regexp ("space" "NASA")
+                                                   ;; Boolean NOT also has implicit OR between selectors
+                                                   :not (:regexp "moon" :tag "planet")))))
+             ;; Groups supply their own section names when none are given
+             (:todo "WAITING" :order 8)  ; Set order of this section
+             )
+    )
+)
+(org-super-agenda-mode)
 
 ;; Here are some additional functions/macros that will help you configure Doom.
 ;;
