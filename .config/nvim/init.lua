@@ -112,18 +112,18 @@ vim.keymap.set("n", "<M-h>", ":BufferLineCyclePrev<CR>")
 vim.keymap.set("n", "<M-l>", ":BufferLineCycleNext<CR>")
 vim.keymap.set("n", "<M-,>", ":BufferLineMovePrev<CR>")
 vim.keymap.set("n", "<M-.>", ":BufferLineMoveNext<CR>")
-vim.keymap.set("n", "<leader>k", ":bd<CR>")
+vim.keymap.set("n", "<leader>k", ":bd<CR>", {desc = "[k]ill buffer"})
 
 vim.keymap.set("n", "<M-C-h>", ":tabprevious<CR>") -- tab management
 vim.keymap.set("n", "<M-C-l>", ":tabnext<CR>")
 vim.keymap.set("n", "<M-C-,>", ":-tabmove<CR>")
 vim.keymap.set("n", "<M-C-.>", ":+tabmove<CR>")
-vim.keymap.set("n", "<leader>N", ":tabnew<CR>")
-vim.keymap.set("n", "<leader>K", ":tabclose<CR>")
+vim.keymap.set("n", "<leader>N", ":tabnew<CR>", {desc = "[N]ew tab"})
+vim.keymap.set("n", "<leader>K", ":tabclose<CR>", {desc = "[K]ill tab"})
 
-vim.keymap.set("n", "<leader>T", ":TSPlaygroundToggle<CR>")
-vim.keymap.set("n", "<leader>[", ":Gitsigns prev_hunk<CR>")
-vim.keymap.set("n", "<leader>]", ":Gitsigns next_hunk<CR>")
+vim.keymap.set("n", "<leader>T", ":TSPlaygroundToggle<CR>", {desc = "Toggle [T]reesitter playground"})
+vim.keymap.set("n", "[g", ":Gitsigns prev_hunk<CR>", {desc = "Previous git hunk"})
+vim.keymap.set("n", "]g", ":Gitsigns next_hunk<CR>", {desc = "Next git hunk"})
 
 -- telescope
 local builtin = require('telescope.builtin')
@@ -133,40 +133,42 @@ vim.keymap.set("n", "<leader>f.", function()
 end, { desc = "Fuzzy [f]ind [s]wap files" })
 vim.keymap.set("n", "<leader>fp", builtin.git_files, { desc = "Fuzzy [f]ind files in git [p]roject" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Fuzzy [f]ind [b]uffers" })
-vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy [f]ind in current buffer" })
+vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy find in current buffer" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Fuzzy [f]ind [h]elp tags" })
 vim.keymap.set("n", "<leader>fm", builtin.keymaps, { desc = "Fuzzy [f]ind key[m]aps" })
+vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Fuzzy [f]ind [old] files" })
 vim.keymap.set("n", "<leader>gl", builtin.live_grep, { desc = "[g]rep through files in [l]ocal directory" })
-vim.keymap.set("n", "<leader>g8", builtin.grep_string, { desc = "[g]rep word under cursor in working directory" })
+vim.keymap.set("n", "<leader>8", builtin.grep_string, { desc = "grep word under cursor in working directory" })
 
-vim.keymap.set("n", "<c-x><c-b>", ":Telescope bibtex<CR>")
-vim.keymap.set("i", "<c-x><c-b>", "<Esc>:Telescope bibtex<CR>")
+vim.keymap.set("n", "<leader>ft", ":Telescope bibtex<CR>", { desc = "Fuzzy [f]ind bib[t]ex references"})
 
 -- harpoon
-vim.keymap.set("n", "<Leader>m", function() require("harpoon.ui").toggle_quick_menu() end)
-vim.keymap.set("n", "<Leader>M", function() require("harpoon.mark").add_file() end)
-vim.keymap.set("n", ";j", function() require("harpoon.ui").nav_file(1) end)
-vim.keymap.set("n", ";k", function() require("harpoon.ui").nav_file(2) end)
-vim.keymap.set("n", ";l", function() require("harpoon.ui").nav_file(3) end)
+vim.keymap.set("n", "<Leader>m", function() require("harpoon.ui").toggle_quick_menu() end, {desc = "View project [m]arks"})
+vim.keymap.set("n", "<Leader>M", function() require("harpoon.mark").add_file() end, {desc = "Add project [M]arks"})
+vim.keymap.set("n", "gh", function() require("harpoon.ui").nav_file(1) end, {desc = "Open primary file"})
+vim.keymap.set("n", "gj", function() require("harpoon.ui").nav_file(2) end, {desc = "Open secondary file"})
+vim.keymap.set("n", "gk", function() require("harpoon.ui").nav_file(3) end, {desc = "Open tertiary file"})
 
 -- lsp
-vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Fuzzy [f]ind [r]eferences" })
-vim.keymap.set("n", "<leader>fi", builtin.lsp_implementations, { desc = "Fuzzy [f]ind [i]mplementations" })
+vim.keymap.set("n", "gr", builtin.lsp_references)
+vim.keymap.set("n", "gi", builtin.lsp_implementations)
+vim.keymap.set("n", "gd", builtin.lsp_definitions)
+vim.keymap.set("n", "go", builtin.lsp_type_definitions)
+vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Fuzzy [f]ind [d]iagnostics" })
 vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Fuzzy [f]ind [s]ymbols in document" })
 vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "Fuzzy [f]ind symbols in [w]orkspace" })
-vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Fuzzy [f]ind [d]iagnostics" })
 
 -- dap
 local dapui = require("dapui")
-vim.keymap.set("n", "<leader>dd", dapui.toggle, { desc = "Toggle [D]AP window" })
+vim.keymap.set("n", "<leader>D", dapui.toggle, { desc = "Toggle [D]AP window" })
 
 local dap = require("dap")
 vim.keymap.set("n", "<F5>", dap.continue)
 vim.keymap.set("n", "<F10>", dap.step_over)
 vim.keymap.set("n", "<F11>", dap.step_into)
 vim.keymap.set("n", "<F12>", dap.step_out)
-vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint)
-vim.keymap.set("n", "<Leader>B", function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
+vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, {desc = "toggle [b]reakpoint"})
+vim.keymap.set("n", "<Leader>B", function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, {desc = "toggle conditional [B]reakpoint"})
 vim.keymap.set("n", "<Leader>lp", function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
 vim.keymap.set("n", "<Leader>dr", dap.repl.open)
 vim.keymap.set("n", "<Leader>dl", dap.run_last)
@@ -183,32 +185,36 @@ vim.keymap.set("n", "<leader>ws", ":OpenInScim<CR>")
 
 -- .tex
 vim.cmd[[autocmd Filetype tex nnoremap <localleader>wc :!detex % \| wc -w<CR>]]
-vim.cmd[[autocmd Filetype tex set wrap spell]]
-vim.cmd[[autocmd Filetype tex set conceallevel=1]]
+vim.cmd[[autocmd Filetype tex setlocal wrap spell]]
+vim.cmd[[autocmd Filetype tex setlocal conceallevel=1]]
 
 -- markdown
-vim.cmd[[autocmd Filetype markdown set nowrap spell]]
+vim.cmd[[autocmd Filetype markdown setlocal nowrap spell]]
 
 -- python
 vim.cmd[[autocmd Filetype python nnoremap <localleader>x :w<bar>!python %<CR>]]
-vim.cmd[[autocmd Filetype python set textwidth=79]]
+vim.cmd[[autocmd Filetype python setlocal textwidth=79]]
 
 -- bash
 vim.cmd[[autocmd Filetype sh nnoremap <localleader>x :w<bar>!bash %<CR>]]
 
 -- lua
--- vim.cmd[[autocmd Filetype lua set shiftwidth=2]]
--- vim.cmd[[autocmd Filetype lua set tabstop=2]]
+vim.cmd[[autocmd Filetype lua setlocal shiftwidth=2]]
+vim.cmd[[autocmd Filetype lua setlocal tabstop=2]]
 vim.cmd[[autocmd Filetype lua nnoremap <localleader>x :source %<CR>]]
 
 -- yaml
-vim.cmd[[autocmd Filetype yaml set shiftwidth=2]]
-vim.cmd[[autocmd Filetype yaml set tabstop=2]]
+vim.cmd[[autocmd Filetype yaml setlocal shiftwidth=2]]
+vim.cmd[[autocmd Filetype yaml setlocal tabstop=2]]
 
 -- config
-vim.cmd[[autocmd BufEnter sxhkdrc set ft=sxhkdrc]]
+vim.cmd[[autocmd BufEnter sxhkdrc setlocal ft=sxhkdrc]]
 
 -- iron
-vim.cmd[[autocmd BufNewFile,BufRead *.sage,*.sage.python,*python :set filetype=sage]]
+-- vim.cmd[[autocmd BufNewFile,BufRead *.sage,*.sage.python,*python :setlocal filetype=sage]]
+
+-- r
+vim.cmd[[autocmd Filetype r setlocal shiftwidth=2]]
+vim.cmd[[autocmd Filetype r setlocal tabstop=2]]
 
 -- }}}

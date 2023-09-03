@@ -6,7 +6,7 @@ lsp.preset({
   name  = 'recommended',
   suggest_lsp_servers = false,
   set_lsp_keymaps = {
-    omit = {'<C-k>'},
+    omit = {'<C-k>', 'gd', 'go', 'gr', 'gi', },
     preserve_mappings = false
   },
 })
