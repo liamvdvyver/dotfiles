@@ -8,7 +8,7 @@ require'nvim-treesitter.configs'.setup {
     "css", "html", "http",
     "r", "sql",
     "json", "yaml", "sxhkdrc",
-    "vim", "help",
+    "vim",
     "markdown", "markdown_inline",
     "git_rebase", "gitattributes", "gitcommit", "gitignore", "diff"
   },

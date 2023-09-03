@@ -62,6 +62,9 @@ cmp.setup({
         return vim_item
       end
     })
+  },
+  window = {
+    documentation = cmp.config.window.bordered(),
   }
 })
 
