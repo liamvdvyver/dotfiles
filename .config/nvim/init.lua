@@ -40,7 +40,6 @@ vim.o.backspace = "eol,start,indent"
 vim.o.scrolloff = 8
 vim.o.fdm = "marker"
 vim.o.wrap = false
-vim.o.formatoptions = true
 vim.o.showmode = false
 vim.o.background = "dark"
 vim.o.list = true
@@ -124,6 +123,7 @@ vim.cmd[[autocmd Filetype tex setlocal conceallevel=1]]
 
 -- markdown
 vim.cmd[[autocmd Filetype markdown setlocal nowrap spell]]
+vim.cmd[[autocmd Filetype markdown setlocal formatoptions -=t]]
 
 -- python
 vim.cmd[[autocmd Filetype python nnoremap <localleader>x :w<bar>!python %<CR>]]
