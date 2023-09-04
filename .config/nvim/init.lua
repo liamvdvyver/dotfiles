@@ -5,6 +5,7 @@
 -- (_)_/ |_|_| |_| |_|_|  \___|
 --
 
+vim.g.mapleader = " "
 require("plugins")
 
 vim.cmd.syntax("enable")
@@ -32,7 +33,7 @@ vim.o.tabstop = 4
 vim.o.expandtab = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 vim.o.incsearch = true
 vim.o.showmatch = true
 vim.o.backspace = "eol,start,indent"
@@ -48,7 +49,6 @@ vim.o.list = true
 
 -- MAPS --------------------------------------------------------------------- {{{
 
-vim.g.mapleader = " "
 vim.keymap.set("i", "<c-c>", "<esc>", { desc = "Escape" })
 
 -- normal
@@ -64,19 +64,20 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center after scroll down" })
 vim.keymap.set("n", "n", "nzzzv", { desc = "Center after [n]ext result" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Center after previous result" })
 
+-- left and right
 vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", "L", "$")
 
 -- clipboard
-vim.keymap.set("n", "<leader>y", "\"+y", { desc = "[y]ank to clipboard" })
-vim.keymap.set("v", "<leader>y", "\"+y", { desc = "[y]ank visual to clipboard" })
+vim.keymap.set("n", "<leader>y", "\"+y",  { desc = "[y]ank to clipboard" })
+vim.keymap.set("v", "<leader>y", "\"+y",  { desc = "[y]ank visual to clipboard" })
 vim.keymap.set("n", "<leader>Y", "\"+Y$", { desc = "[Y]ank till $ to clipboard" })
-vim.keymap.set("n", "<leader>d", "\"+d", { desc = "[d]elete to clipboard" })
-vim.keymap.set("v", "<leader>d", "\"+d", { desc = "[d]elete visual to clipboard" })
-vim.keymap.set("n", "<leader>D", "\"+D", { desc = "[D]elete till $ to clipboard" })
-vim.keymap.set("n", "<leader>p", "\"+p", { desc = "[p]aste to clipboard" })
-vim.keymap.set("v", "<leader>p", "\"+p", { desc = "[p]aste visual to clipboard" })
-vim.keymap.set("n", "<leader>P", "\"+P", { desc = "[P]aste till $ to clipboard" })
+vim.keymap.set("n", "<leader>d", "\"+d",  { desc = "[d]elete to clipboard" })
+vim.keymap.set("v", "<leader>d", "\"+d",  { desc = "[d]elete visual to clipboard" })
+vim.keymap.set("n", "<leader>D", "\"+D",  { desc = "[D]elete till $ to clipboard" })
+vim.keymap.set("n", "<leader>p", "\"+p",  { desc = "[p]aste to clipboard" })
+vim.keymap.set("v", "<leader>p", "\"+p",  { desc = "[p]aste visual to clipboard" })
+vim.keymap.set("n", "<leader>P", "\"+P",  { desc = "[P]aste till $ to clipboard" })
 
 -- find and replace word/selection
 vim.keymap.set("n", "<c-s>", [[:%s/\(<C-r><C-w>\)//gI<Left><Left><Left>]], { desc = "[s]earch and replace word under cursor" })
@@ -97,87 +98,20 @@ vim.keymap.set("n", "<leader>s", ":!", { desc = "Begin [s]hell command" })
 vim.keymap.set("n", "<leader>S", ":source $MYVIMRC<CR>", { desc = "[S]ource config file" })
 vim.keymap.set("n", "<leader>x", ":! chmod +x %<CR>", { desc = "Add e[x]ecute mode to current file" })
 vim.keymap.set("n", "<leader>ze", ":!s eval $(emacs %)&<CR>")
-vim.keymap.set("n", "<leader>.", ":Ex<CR>")
 
--- plugin maps
--- vim.keymap.set("n", "<leader>n", ":NERDTreeToggle %:p:h<CR>", { desc = 'Toggle [n]ERDTree' })
+-- navigation
+vim.keymap.set("n", "<leader>.", ":Ex<CR>")
 vim.keymap.set("n", "<leader>n", ":Lex<CR>", { desc = 'Toggle [n]etrw' })
 vim.keymap.set("n", "<leader>U", ":Sex $XDG_STATE_HOME/nvim/swap/<CR>", { desc = 'Toggle [n]etrw' })
-vim.keymap.set("n", "<leader>t", ":TagbarToggle<CR>", { desc = "Toggle [t]agbar" })
-vim.keymap.set("n", "<leader>c", ":ColorToggle<CR>", { desc = "Toggle html [c]olours" })
-vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { desc = "Toggle [u]ndotree" })
-vim.keymap.set("n", "<leader>r", ":lua vim.lsp.buf.rename()<CR>")
-vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", { desc = "Open diagnostics" })
-vim.keymap.set("n", "<M-h>", ":BufferLineCyclePrev<CR>")
-vim.keymap.set("n", "<M-l>", ":BufferLineCycleNext<CR>")
-vim.keymap.set("n", "<M-,>", ":BufferLineMovePrev<CR>")
-vim.keymap.set("n", "<M-.>", ":BufferLineMoveNext<CR>")
-vim.keymap.set("n", "<leader>k", ":bd<CR>", {desc = "[k]ill buffer"})
 
-vim.keymap.set("n", "<M-C-h>", ":tabprevious<CR>") -- tab management
+-- buffer/tab management
+vim.keymap.set("n", "<leader>k", ":bd<CR>", {desc = "[k]ill buffer"})
+vim.keymap.set("n", "<M-C-h>", ":tabprevious<CR>")
 vim.keymap.set("n", "<M-C-l>", ":tabnext<CR>")
 vim.keymap.set("n", "<M-C-,>", ":-tabmove<CR>")
 vim.keymap.set("n", "<M-C-.>", ":+tabmove<CR>")
 vim.keymap.set("n", "<leader>N", ":tabnew<CR>", {desc = "[N]ew tab"})
 vim.keymap.set("n", "<leader>K", ":tabclose<CR>", {desc = "[K]ill tab"})
-
-vim.keymap.set("n", "<leader>T", ":TSPlaygroundToggle<CR>", {desc = "Toggle [T]reesitter playground"})
-vim.keymap.set("n", "[g", ":Gitsigns prev_hunk<CR>", {desc = "Previous git hunk"})
-vim.keymap.set("n", "]g", ":Gitsigns next_hunk<CR>", {desc = "Next git hunk"})
-
--- telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set("n", "<leader>fl", builtin.find_files, { desc = "Fuzzy [f]ind fules in [l]ocal directory" })
-vim.keymap.set("n", "<leader>f.", function()
-    builtin.find_files({ search_dirs = {"~/.local/state/nvim/swap/"}})
-end, { desc = "Fuzzy [f]ind [s]wap files" })
-vim.keymap.set("n", "<leader>fp", builtin.git_files, { desc = "Fuzzy [f]ind files in git [p]roject" })
-vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Fuzzy [f]ind [b]uffers" })
-vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Fuzzy find in current buffer" })
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Fuzzy [f]ind [h]elp tags" })
-vim.keymap.set("n", "<leader>fm", builtin.keymaps, { desc = "Fuzzy [f]ind key[m]aps" })
-vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Fuzzy [f]ind [old] files" })
-vim.keymap.set("n", "<leader>gl", builtin.live_grep, { desc = "[g]rep through files in [l]ocal directory" })
-vim.keymap.set("n", "<leader>8", builtin.grep_string, { desc = "grep word under cursor in working directory" })
-
-vim.keymap.set("n", "<leader>ft", ":Telescope bibtex<CR>", { desc = "Fuzzy [f]ind bib[t]ex references"})
-
--- harpoon
-vim.keymap.set("n", "<Leader>m", function() require("harpoon.ui").toggle_quick_menu() end, {desc = "View project [m]arks"})
-vim.keymap.set("n", "<Leader>M", function() require("harpoon.mark").add_file() end, {desc = "Add project [M]arks"})
-vim.keymap.set("n", "gh", function() require("harpoon.ui").nav_file(1) end, {desc = "Open primary file"})
-vim.keymap.set("n", "gj", function() require("harpoon.ui").nav_file(2) end, {desc = "Open secondary file"})
-vim.keymap.set("n", "gk", function() require("harpoon.ui").nav_file(3) end, {desc = "Open tertiary file"})
-
--- lsp
-vim.keymap.set("n", "gr", builtin.lsp_references)
-vim.keymap.set("n", "gi", builtin.lsp_implementations)
-vim.keymap.set("n", "gd", builtin.lsp_definitions)
-vim.keymap.set("n", "go", builtin.lsp_type_definitions)
-vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Fuzzy [f]ind [d]iagnostics" })
-vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Fuzzy [f]ind [s]ymbols in document" })
-vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "Fuzzy [f]ind symbols in [w]orkspace" })
-
--- dap
-local dapui = require("dapui")
-vim.keymap.set("n", "<leader>D", dapui.toggle, { desc = "Toggle [D]AP window" })
-
-local dap = require("dap")
-vim.keymap.set("n", "<F5>", dap.continue)
-vim.keymap.set("n", "<F10>", dap.step_over)
-vim.keymap.set("n", "<F11>", dap.step_into)
-vim.keymap.set("n", "<F12>", dap.step_out)
-vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, {desc = "toggle [b]reakpoint"})
-vim.keymap.set("n", "<Leader>B", function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, {desc = "toggle conditional [B]reakpoint"})
-vim.keymap.set("n", "<Leader>lp", function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
-vim.keymap.set("n", "<Leader>dr", dap.repl.open)
-vim.keymap.set("n", "<Leader>dl", dap.run_last)
-
--- wiki.vim
-vim.keymap.set("n", "<leader>wp", ":WikiPages<CR>")
-vim.keymap.set("n", "<leader>wt", ":WikiTags<CR>")
-vim.keymap.set("n", "<leader>wv", ":MarkdownPreviewToggle<CR>")
-vim.keymap.set("n", "<leader>ws", ":OpenInScim<CR>")
 
 -- }}}
 
@@ -209,9 +143,6 @@ vim.cmd[[autocmd Filetype yaml setlocal tabstop=2]]
 
 -- config
 vim.cmd[[autocmd BufEnter sxhkdrc setlocal ft=sxhkdrc]]
-
--- iron
--- vim.cmd[[autocmd BufNewFile,BufRead *.sage,*.sage.python,*python :setlocal filetype=sage]]
 
 -- r
 vim.cmd[[autocmd Filetype r setlocal shiftwidth=2]]
