@@ -11,7 +11,6 @@ return {
       "<Leader>M", function() require("harpoon.mark").add_file() end,
       {desc = "Add project [M]arks"}
     )
-    -- FIX: This shit don't work
     vim.keymap.set(
       "n",
       "gh", function() require("harpoon.ui").nav_file(1) end,

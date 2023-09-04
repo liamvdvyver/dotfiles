@@ -24,7 +24,7 @@ end
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.termguicolors = true
-vim.o.autochdir = true
+vim.o.autochdir = false
 vim.o.signcolumn = "yes"
 vim.o.textwidth = 80
 vim.o.cursorline = true
