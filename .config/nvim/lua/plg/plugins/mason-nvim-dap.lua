@@ -1,5 +1,6 @@
 return {
   "jay-babu/mason-nvim-dap.nvim",
+  lazy = true, event = "VeryLazy",
   dependencies = {"mason.nvim"},
   after = {"mason.nvim"},
   opts = {

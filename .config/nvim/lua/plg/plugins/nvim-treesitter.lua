@@ -16,7 +16,7 @@ return {
         "r", "sql",
         "json", "yaml", "sxhkdrc",
         "vim",
-        "markdown", "markdown_inline",
+        "markdown", "markdown_inline", "org",
         "git_rebase", "gitattributes", "gitcommit", "gitignore", "diff"
       },
 

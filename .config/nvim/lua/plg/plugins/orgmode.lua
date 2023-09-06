@@ -1,5 +1,6 @@
 return {
   'nvim-orgmode/orgmode',
+  lazy = true, event = "VeryLazy",
   opts = {
     org_default_notes_file = '~/Documents/org/refile.org',
     org_agenda_files = '~/Documents/org/*.org',

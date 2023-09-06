@@ -12,11 +12,11 @@ vim.cmd.syntax("enable")
 vim.cmd.colorscheme("gruvbox")
 
 P = function(v)
-    print(vim.inspect(v))
+  print(vim.inspect(v))
 end
 
 Pm = function(v)
-    print(vim.inspect(getmetatable(v)))
+  print(vim.inspect(getmetatable(v)))
 end
 
 -- NETRW -------------------------------------------------------------------- {{{
@@ -85,22 +85,23 @@ vim.keymap.set("n", "n", "nzzzv", { desc = "Center after [n]ext result" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Center after previous result" })
 
 -- left and right
-vim.keymap.set("n", "H", "^")
-vim.keymap.set("n", "L", "$")
+vim.keymap.set("n", "H", "^", { desc = "Start of line" })
+vim.keymap.set("n", "L", "$", { desc = "End of line" })
 
 -- clipboard
-vim.keymap.set("n", "<leader>y", "\"+y",  { desc = "[y]ank to clipboard" })
-vim.keymap.set("v", "<leader>y", "\"+y",  { desc = "[y]ank visual to clipboard" })
+vim.keymap.set("n", "<leader>y", "\"+y", { desc = "[y]ank to clipboard" })
+vim.keymap.set("v", "<leader>y", "\"+y", { desc = "[y]ank visual to clipboard" })
 vim.keymap.set("n", "<leader>Y", "\"+Y$", { desc = "[Y]ank till $ to clipboard" })
-vim.keymap.set("n", "<leader>d", "\"+d",  { desc = "[d]elete to clipboard" })
-vim.keymap.set("v", "<leader>d", "\"+d",  { desc = "[d]elete visual to clipboard" })
-vim.keymap.set("n", "<leader>D", "\"+D",  { desc = "[D]elete till $ to clipboard" })
-vim.keymap.set("n", "<leader>p", "\"+p",  { desc = "[p]aste to clipboard" })
-vim.keymap.set("v", "<leader>p", "\"+p",  { desc = "[p]aste visual to clipboard" })
-vim.keymap.set("n", "<leader>P", "\"+P",  { desc = "[P]aste till $ to clipboard" })
+vim.keymap.set("n", "<leader>d", "\"+d", { desc = "[d]elete to clipboard" })
+vim.keymap.set("v", "<leader>d", "\"+d", { desc = "[d]elete visual to clipboard" })
+vim.keymap.set("n", "<leader>D", "\"+D", { desc = "[D]elete till $ to clipboard" })
+vim.keymap.set("n", "<leader>p", "\"+p", { desc = "[p]aste to clipboard" })
+vim.keymap.set("v", "<leader>p", "\"+p", { desc = "[p]aste visual to clipboard" })
+vim.keymap.set("n", "<leader>P", "\"+P", { desc = "[P]aste till $ to clipboard" })
 
 -- find and replace word/selection
-vim.keymap.set("n", "<c-s>", [[:%s/\(<C-r><C-w>\)//gI<Left><Left><Left>]], { desc = "[s]earch and replace word under cursor" })
+vim.keymap.set("n", "<c-s>", [[:%s/\(<C-r><C-w>\)//gI<Left><Left><Left>]],
+  { desc = "[s]earch and replace word under cursor" })
 vim.keymap.set("v", "<c-s>", [["hy:%s/\(<C-r>h\)//gI<Left><Left><Left>]], { desc = "[s]earch and replace visual" })
 
 -- visual
@@ -116,7 +117,6 @@ vim.keymap.set("n", "<leader>h", ":noh<CR>", { desc = "[c]lear [h]ighlight" })
 vim.keymap.set("n", "<leader>s", ":!", { desc = "Begin [s]hell command" })
 vim.keymap.set("n", "<leader>S", ":source $MYVIMRC<CR>", { desc = "[S]ource config file" })
 vim.keymap.set("n", "<leader>x", ":! chmod +x %<CR>", { desc = "Add e[x]ecute mode to current file" })
-vim.keymap.set("n", "<leader>ze", ":!s eval $(emacs %)&<CR>")
 
 -- spelling
 vim.keymap.set("n", "<leader>o", ":set spell!<CR>", { desc = "Toggle [o]rthography (spelling)" })
@@ -129,48 +129,56 @@ vim.keymap.set("n", "<leader>.", ":Lex %:p:h<CR>", { desc = "Open [.] in netrw" 
 vim.keymap.set("n", "<leader>%", ":tcd %:h<CR>", { desc = 'Set tab directory to open file' })
 
 -- buffer/tab management
-vim.keymap.set("n", "<leader>k", ":bd<CR>", {desc = "[k]ill buffer"})
+vim.keymap.set("n", "<leader>k", ":bd<CR>", { desc = "[k]ill buffer" })
 vim.keymap.set("n", "<M-C-h>", ":tabprevious<CR>")
 vim.keymap.set("n", "<M-C-l>", ":tabnext<CR>")
 vim.keymap.set("n", "<M-C-,>", ":-tabmove<CR>")
 vim.keymap.set("n", "<M-C-.>", ":+tabmove<CR>")
-vim.keymap.set("n", "<leader>N", ":tabnew<CR>", {desc = "[N]ew tab"})
-vim.keymap.set("n", "<leader>K", ":tabclose<CR>", {desc = "[K]ill tab"})
+vim.keymap.set("n", "<leader>N", ":tabnew<CR>", { desc = "[N]ew tab" })
+vim.keymap.set("n", "<leader>K", ":tabclose<CR>", { desc = "[K]ill tab" })
+
+-- brackets and lists
+vim.keymap.set("n", "[l", ":lprev<CR>zz", { desc = "Previous [l]ocation" })
+vim.keymap.set("n", "]l", ":lnext<CR>zz", { desc = "Next [l]ocation" })
+vim.keymap.set("n", "[q", ":cprev<CR>zz", { desc = "Previous [q]uickfix item" })
+vim.keymap.set("n", "]q", ":cnext<CR>zz", { desc = "Next [q]uickfix item" })
+vim.keymap.set("n", "<leader>q", ":cclose<CR>", { desc = "close [q]uickfix list" })
+vim.keymap.set("n", "<leader>Q", ":cwindow<CR>", { desc = "show [q]uickfix list" })
 
 -- }}}
 
 -- AUTOCMDS  ---------------------------------------------------------------- {{{
 
 -- .tex
-vim.cmd[[autocmd Filetype tex nnoremap <localleader>wc :!detex % \| wc -w<CR>]]
-vim.cmd[[autocmd Filetype tex setlocal wrap spell]]
-vim.cmd[[autocmd Filetype tex setlocal conceallevel=1]]
+vim.cmd([[autocmd Filetype tex nnoremap <localleader>wc :!detex % \| wc -w<CR>]])
+vim.cmd([[autocmd Filetype tex setlocal wrap spell]])
+vim.cmd([[autocmd Filetype tex setlocal conceallevel=1]])
 
 -- markdown
-vim.cmd[[autocmd Filetype markdown setlocal nowrap spell]]
-vim.cmd[[autocmd Filetype markdown setlocal formatoptions -=t]]
+vim.cmd([[autocmd Filetype markdown setlocal nowrap spell]])
+vim.cmd([[autocmd Filetype markdown setlocal formatoptions -=t]])
 
 -- python
-vim.cmd[[autocmd Filetype python nnoremap <localleader>x :w<bar>!python %<CR>]]
-vim.cmd[[autocmd Filetype python setlocal textwidth=79]]
+vim.cmd([[autocmd Filetype python nnoremap <localleader>x :w<bar>!python %<CR>]])
+vim.cmd([[autocmd Filetype python setlocal textwidth=79]])
 
 -- bash
-vim.cmd[[autocmd Filetype sh nnoremap <localleader>x :w<bar>!bash %<CR>]]
+vim.cmd([[autocmd Filetype sh nnoremap <localleader>x :w<bar>!bash %<CR>]])
 
 -- lua
-vim.cmd[[autocmd Filetype lua setlocal shiftwidth=2]]
-vim.cmd[[autocmd Filetype lua setlocal tabstop=2]]
-vim.cmd[[autocmd Filetype lua nnoremap <localleader>x :source %<CR>]]
+vim.cmd([[autocmd Filetype lua setlocal shiftwidth=2]])
+vim.cmd([[autocmd Filetype lua setlocal tabstop=2]])
+vim.cmd([[autocmd Filetype lua nnoremap <localleader>x :source %<CR>]])
 
 -- yaml
-vim.cmd[[autocmd Filetype yaml setlocal shiftwidth=2]]
-vim.cmd[[autocmd Filetype yaml setlocal tabstop=2]]
+vim.cmd([[autocmd Filetype yaml setlocal shiftwidth=2]])
+vim.cmd([[autocmd Filetype yaml setlocal tabstop=2]])
 
 -- config
-vim.cmd[[autocmd BufEnter sxhkdrc setlocal ft=sxhkdrc]]
+vim.cmd([[autocmd BufEnter sxhkdrc setlocal ft=sxhkdrc]])
 
 -- r
-vim.cmd[[autocmd Filetype r setlocal shiftwidth=2]]
-vim.cmd[[autocmd Filetype r setlocal tabstop=2]]
+vim.cmd([[autocmd Filetype r setlocal shiftwidth=2]])
+vim.cmd([[autocmd Filetype r setlocal tabstop=2]])
 
 -- }}}

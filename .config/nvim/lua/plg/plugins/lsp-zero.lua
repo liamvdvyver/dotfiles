@@ -1,31 +1,24 @@
 return {
   'VonHeikemen/lsp-zero.nvim',
+  lazy = true, event = "VimEnter", -- HACK: This is ~50ms slower but using "VeryLazy" breaks start screen
   dependencies = {
     -- LSP Support
-    {'neovim/nvim-lspconfig'},
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
+    { 'neovim/nvim-lspconfig' },
+    { 'williamboman/mason.nvim' },
+    { 'williamboman/mason-lspconfig.nvim' },
     -- Autocompletion
-    {'hrsh7th/nvim-cmp'},
-    {'hrsh7th/cmp-buffer'},
-    {'hrsh7th/cmp-path'},
-    {'saadparwaiz1/cmp_luasnip'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/cmp-nvim-lua'},
-    {'hrsh7th/cmp-cmdline'},
+    { 'hrsh7th/nvim-cmp' },
+    { 'hrsh7th/cmp-buffer' },
+    { 'hrsh7th/cmp-path' },
+    { 'saadparwaiz1/cmp_luasnip' },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/cmp-nvim-lua' },
+    { 'hrsh7th/cmp-cmdline' },
     -- {'jalvesaq/cmp-nvim-r'},
-    {dir = '~/git/cmp-nvim-r/', dev = true},
-    {'onsails/lspkind.nvim'},
+    { dir = '~/git/cmp-nvim-r/', dev = true },
+    { 'onsails/lspkind.nvim' },
     -- Snippets
-    {
-      'L3MON4D3/LuaSnip',
-      dependencies = 'rafamadriz/friendly-snippets'
-    },
-    -- Snippet Collection (Optional)
-    {
-      'rafamadriz/friendly-snippets',
-      config = function() require("luasnip.loaders.from_vscode").lazy_load() end
-    },
+    { 'L3MON4D3/LuaSnip' },
   },
   config = function()
 
@@ -37,10 +30,10 @@ return {
     local ls = require('luasnip')
 
     lsp.preset({
-      name  = 'recommended',
+      name                = 'recommended',
       suggest_lsp_servers = false,
-      set_lsp_keymaps = {
-        omit = {'<C-k>', 'gd', 'go', 'gr', 'gi', },
+      set_lsp_keymaps     = {
+        omit = { '<C-k>', 'gd', 'go', 'gr', 'gi', },
         preserve_mappings = false
       },
     })
@@ -61,11 +54,11 @@ return {
 
     cmp.setup({
       sources = {
-        {name = 'luasnip'   , priority = 8},
-        {name = 'nvim_lsp'  , priority = 5},
-        {name = 'nvim_lua'  , priority = 5},
-        {name = 'path'      , priority = 1},
-        {name = 'cmp_nvim_r', priority = 9},
+        { name = 'luasnip',    priority = 8 },
+        { name = 'nvim_lsp',   priority = 5 },
+        { name = 'nvim_lua',   priority = 5 },
+        { name = 'path',       priority = 1 },
+        { name = 'cmp_nvim_r', priority = 9 },
         -- {name = 'omni'},
       },
       -- preselect = 'Item',
@@ -74,7 +67,7 @@ return {
       },
       mapping = {
         ['<C-Space>'] = cmp.mapping.complete(),
-        ['<Tab>'] = cmp.mapping.confirm({select = true}),
+        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
       },
       formatting = {
         format = lspkind.cmp_format({
@@ -91,8 +84,8 @@ return {
 
           -- The function below will be called before any actual modifications from lspkind
           -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-          before = function (entry, vim_item)
-            TESTING = {entry, vim_item}
+          before = function(entry, vim_item)
+            TESTING = { entry, vim_item }
             return vim_item
           end
         })
@@ -121,12 +114,12 @@ return {
     ls.filetype_extend("markdown", { "tex" })
 
     local builtin = require('telescope.builtin')
-    vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end)
+    vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, { desc = "[r]ename under cursor" })
     vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, { desc = "Open diagnostics" })
-    vim.keymap.set("n", "gr", builtin.lsp_references)
-    vim.keymap.set("n", "gi", builtin.lsp_implementations)
-    vim.keymap.set("n", "gd", builtin.lsp_definitions)
-    vim.keymap.set("n", "go", builtin.lsp_type_definitions)
+    vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "[g]oto references" })
+    vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "[g]oto implementations" })
+    vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "[g]oto definition" })
+    vim.keymap.set("n", "go", builtin.lsp_type_definitions, { desc = "[g]oto type definition" })
     vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Fuzzy [f]ind [d]iagnostics" })
     vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Fuzzy [f]ind [s]ymbols in document" })
     vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "Fuzzy [f]ind symbols in [w]orkspace" })
