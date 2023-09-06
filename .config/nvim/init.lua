@@ -19,6 +19,26 @@ Pm = function(v)
     print(vim.inspect(getmetatable(v)))
 end
 
+-- NETRW -------------------------------------------------------------------- {{{
+
+vim.g.netrw_keepdir = 1
+vim.g.netrw_winsize = 25
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
+
+-- use <C-l> to move windows without opening duplicate netrw
+vim.cmd([[
+function! NetrwMapping()
+    silent! unmap <buffer> <C-l>
+endfunction
+augroup netrw_mapping
+    autocmd!
+    autocmd filetype netrw call NetrwMapping()
+augroup END
+]])
+
+-- }}}
+
 -- SETS --------------------------------------------------------------------- {{{
 
 vim.o.number = true
@@ -99,9 +119,10 @@ vim.keymap.set("n", "<leader>x", ":! chmod +x %<CR>", { desc = "Add e[x]ecute mo
 vim.keymap.set("n", "<leader>ze", ":!s eval $(emacs %)&<CR>")
 
 -- navigation
-vim.keymap.set("n", "<leader>.", ":Ex<CR>")
 vim.keymap.set("n", "<leader>n", ":Lex<CR>", { desc = 'Toggle [n]etrw' })
-vim.keymap.set("n", "<leader>U", ":Sex $XDG_STATE_HOME/nvim/swap/<CR>", { desc = 'Toggle [n]etrw' })
+vim.keymap.set("n", "<leader>U", ":Lex $XDG_STATE_HOME/nvim/swap/<CR>", { desc = 'Open netrw (swapfiles)' })
+vim.keymap.set("n", "<leader>.", ":Lex %:p:h<CR>", { desc = "Open [.] in netrw" })
+vim.keymap.set("n", "<leader>%", ":tcd %:h<CR>", { desc = 'Set tab directory to open file' })
 
 -- buffer/tab management
 vim.keymap.set("n", "<leader>k", ":bd<CR>", {desc = "[k]ill buffer"})
