@@ -63,6 +63,7 @@ vim.o.wrap = false
 vim.o.showmode = false
 vim.o.background = "dark"
 vim.o.list = true
+vim.o.spelllang = "en_au"
 
 -- }}}
 
@@ -112,11 +113,14 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Auto indent block on move
 vim.keymap.set("n", "<leader>W", ":set wrap!<CR>", { desc = "Toggle [w]rap" })
 vim.keymap.set("n", "<leader>L", ':execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>', { desc = "Toggle [l]ine at textwidth" })
 vim.keymap.set("n", "<leader>h", ":noh<CR>", { desc = "[c]lear [h]ighlight" })
-vim.keymap.set("n", "<leader>o", ":set spell!<CR>", { desc = "Toggle [o]rthography (spelling)" })
 vim.keymap.set("n", "<leader>s", ":!", { desc = "Begin [s]hell command" })
 vim.keymap.set("n", "<leader>S", ":source $MYVIMRC<CR>", { desc = "[S]ource config file" })
 vim.keymap.set("n", "<leader>x", ":! chmod +x %<CR>", { desc = "Add e[x]ecute mode to current file" })
 vim.keymap.set("n", "<leader>ze", ":!s eval $(emacs %)&<CR>")
+
+-- spelling
+vim.keymap.set("n", "<leader>o", ":set spell!<CR>", { desc = "Toggle [o]rthography (spelling)" })
+vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Fix last spelling mistake" })
 
 -- navigation
 vim.keymap.set("n", "<leader>n", ":Lex<CR>", { desc = 'Toggle [n]etrw' })
