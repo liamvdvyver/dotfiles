@@ -5,6 +5,9 @@
 #(_)_|____/_/ \___\___/|_| |_|_| |_|\__, |
 #                                   |___/
 
+# Testing:
+for_window [class="Zathura"] layout stacking
+
 # Temporary fix:
 for_window [class=".*"] border pixel 3
 
@@ -199,10 +202,13 @@ floating_modifier $mod
 
 # change focus
 focus_follows_mouse no
-bindsym $mod+h focus left
+bindsym $mod+h focus parent; focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+l focus parent; focus right
+
+bindsym $mod+mod1+h focus left
+bindsym $mod+mod1+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
