@@ -61,9 +61,8 @@ alias cln='rm -r ~/.Rhistory ~/.pki ~/.subversion ~/.npm'
 
 # tmux
 alias s='tmux-sessioniser'
-alias ty='tmux new -s yadm "yadm enter nvim"'
-alias tn='tmux new -s ncspot "ncspot"'
-alias tw='tmux new -s pkb "nvim ~/Documents/pkb/index.md"'
+alias tf='tmuxifier'
+alias ts='tmux at -t $(tmux list-sessions | cut -f 1 -d : | fzf)'
 
 # my scripts
 alias wp='pape -i ~/Pictures/papes/'
