@@ -84,7 +84,7 @@ super + v
 # Dmenu -------------------------------------------------------------------- {{{
 
 super + d
-    dmenu_run -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
+    rofi -show-icons -show drun
 
 super + p
     passmenu --type -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
@@ -97,6 +97,9 @@ super + t
 
 super + shift + v
     autorandr -c "$(autorandr --list | dmenu -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)")"
+
+alt + Tab
+    rofi -show-icons -show window
 
 # }}}
 
