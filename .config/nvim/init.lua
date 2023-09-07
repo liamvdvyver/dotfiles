@@ -156,6 +156,7 @@ vim.cmd([[autocmd TextYankPost * silent! lua vim.highlight.on_yank {on_visual=fa
 vim.cmd([[autocmd Filetype tex nnoremap <localleader>wc :!detex % \| wc -w<CR>]])
 vim.cmd([[autocmd Filetype tex setlocal wrap spell]])
 vim.cmd([[autocmd Filetype tex setlocal conceallevel=1]])
+vim.cmd([[autocmd Filetype tex setlocal formatoptions -=t]])
 
 -- markdown
 vim.cmd([[autocmd Filetype markdown setlocal nowrap spell]])
