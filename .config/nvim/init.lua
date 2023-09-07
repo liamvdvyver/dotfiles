@@ -149,6 +149,9 @@ vim.keymap.set("n", "<leader>Q", ":cwindow<CR>", { desc = "show [q]uickfix list"
 
 -- AUTOCMDS  ---------------------------------------------------------------- {{{
 
+-- general
+vim.cmd([[autocmd TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false}]])
+
 -- .tex
 vim.cmd([[autocmd Filetype tex nnoremap <localleader>wc :!detex % \| wc -w<CR>]])
 vim.cmd([[autocmd Filetype tex setlocal wrap spell]])
