@@ -54,11 +54,11 @@ return {
 
     cmp.setup({
       sources = {
-        { name = 'luasnip',    priority = 8 },
-        { name = 'nvim_lsp',   priority = 5 },
-        { name = 'nvim_lua',   priority = 5 },
-        { name = 'path',       priority = 1 },
-        { name = 'cmp_nvim_r', priority = 9 },
+        { name = 'cmp_nvim_r', priority = 5 },
+        { name = 'nvim_lsp',   priority = 4 },
+        { name = 'nvim_lua',   priority = 3 },
+        { name = 'path',       priority = 2 },
+        { name = 'luasnip',    priority = 1 },
         -- {name = 'omni'},
       },
       -- preselect = 'Item',
@@ -67,7 +67,20 @@ return {
       },
       mapping = {
         ['<C-Space>'] = cmp.mapping.complete(),
-        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          local col = vim.fn.col('.') - 1
+          if cmp.get_active_entry() then
+            cmp.confirm()
+          elseif require('luasnip').expand_or_jumpable() then
+            require('luasnip').expand_or_jump()
+          elseif cmp.visible() then
+            cmp.confirm({ select = true })
+          elseif col ~= 0 and vim.fn.getline('.'):sub(col, col):match('%s') == nil then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
       },
       formatting = {
         format = lspkind.cmp_format({
