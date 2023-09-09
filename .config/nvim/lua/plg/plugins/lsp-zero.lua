@@ -1,6 +1,6 @@
 return {
   'VonHeikemen/lsp-zero.nvim',
-  lazy = true, event = "VimEnter", -- HACK: This is ~50ms slower but using "VeryLazy" breaks start screen
+  -- lazy = true, event = "VeryLazy", -- HACK: This is ~50ms slower but using "VeryLazy" breaks start screen
   dependencies = {
     -- LSP Support
     { 'neovim/nvim-lspconfig' },
