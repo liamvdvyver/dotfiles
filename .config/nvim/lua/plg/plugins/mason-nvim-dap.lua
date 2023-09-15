@@ -4,7 +4,7 @@ return {
   dependencies = {"mason.nvim"},
   after = {"mason.nvim"},
   opts = {
-    ensure_installed = { "python", "bash" },
+    ensure_installed = { "python", "bash", "codelldb" },
     handlers = {}
   },
   config = function(_, opts)

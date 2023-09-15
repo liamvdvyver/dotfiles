@@ -64,6 +64,8 @@ vim.o.showmode = false
 vim.o.background = "dark"
 vim.o.list = true
 vim.o.spelllang = "en_au"
+vim.o.splitbelow = true
+vim.o.splitright = true
 
 -- }}}
 
@@ -184,5 +186,9 @@ vim.cmd([[autocmd BufEnter sxhkdrc setlocal ft=sxhkdrc]])
 -- r
 vim.cmd([[autocmd Filetype r setlocal shiftwidth=2]])
 vim.cmd([[autocmd Filetype r setlocal tabstop=2]])
+
+-- c
+vim.cmd([[autocmd Filetype c nnoremap <localleader>x :make %:r<CR>]])
+vim.cmd([[autocmd Filetype c nnoremap <localleader>X :split<CR>:terminal ./%:r<CR>i]])
 
 -- }}}

@@ -45,6 +45,7 @@ return {
       'texlab',
       'r_language_server',
       'marksman',
+      'clangd',
     })
 
     -- Configure lua language server for neovim
