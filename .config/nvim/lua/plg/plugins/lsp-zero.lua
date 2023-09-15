@@ -73,7 +73,7 @@ return {
           local col = vim.fn.col('.') - 1
           if cmp.get_active_entry() then
             cmp.confirm()
-          elseif require('luasnip').expand_or_jumpable() then
+          elseif require('luasnip').expand_or_locally_jumpable() then
             require('luasnip').expand_or_jump()
           elseif cmp.visible() then
             cmp.confirm({ select = true })
