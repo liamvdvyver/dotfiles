@@ -45,6 +45,7 @@ return {
       'texlab',
       'r_language_server',
       'marksman',
+      'efm',
       'clangd',
     })
 
@@ -137,6 +138,9 @@ return {
     vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Fuzzy [f]ind [d]iagnostics" })
     vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Fuzzy [f]ind [s]ymbols in document" })
     vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "Fuzzy [f]ind symbols in [w]orkspace" })
+    vim.keymap.set("n", "<leader>F", function() vim.lsp.buf.format() end, { desc = "Format buffer" })
+    vim.keymap.set("v", "<leader>F", function() vim.lsp.buf.format() end, { desc = "Format buffer" })
+    vim.keymap.set("n", "ga", function() vim.lsp.buf.code_action() end, { desc = "Code [a]ctions" })
 
   end
 }
