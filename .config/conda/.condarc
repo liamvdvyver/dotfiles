@@ -7,3 +7,5 @@ create_default_packages:
   - jupyter
   - matplotlib
   - statsmodels
+  - flake8
+  - black

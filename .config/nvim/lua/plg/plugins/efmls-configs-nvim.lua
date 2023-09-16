@@ -19,6 +19,7 @@ return {
     })
 
     languages.sh[1].formatCommand = languages.sh[1].formatCommand .. "i 4 -"
+    languages.python[2].formatCommand = languages.python[2].formatCommand .. "l 71 -"
     T = languages
 
     local efmls_config = {
