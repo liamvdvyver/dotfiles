@@ -73,3 +73,5 @@ alias fb='fzf-calibre'
 # clean up dotfiles
 alias gcalcli='gcalcli --config-folder ~/.config/gcalcli'
 alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
+alias mc="mincraft-launcher --workDir ~/.local/share/minecraft"
+alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
