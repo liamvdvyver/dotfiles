@@ -13,7 +13,7 @@ super + alt + j
     joplin-desktop
 
 super + alt + r
-    rstudio-bin --no-sandbox
+    rstudio
 
 super + alt + v
     virt-manager
