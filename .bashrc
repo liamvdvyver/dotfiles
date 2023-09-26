@@ -10,13 +10,12 @@
 # source files
 . ~/.config/shell/profile
 . ~/.config/shell/aliases
-. ~/.config/shell/git-prompt.sh
 
 # prompt
 if [[ ${EUID} == 0 ]] ; then
     PS1='\[\e[0m\]\W\[\e[1;31m\] \$\[\e[0m\] '
 else
-    PS1='\[\e[0;34m\]\W\[\e[1;36m\] $(__git_ps1 "(%s) ")\$\[\e[0m\] '
+    PS1='\[\e[0;34m\]\W\[\e[1;36m\] \$\[\e[0m\] '
     PS2='\[\e[1;36m\]> \[\e[0m\] '
 fi
 

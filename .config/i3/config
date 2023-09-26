@@ -6,7 +6,7 @@
 #                                   |___/
 
 # Testing:
-for_window [class="Zathura"] layout stacking
+# for_window [class="Zathura"] layout stacking
 
 # Temporary fix:
 for_window [class=".*"] border pixel 3

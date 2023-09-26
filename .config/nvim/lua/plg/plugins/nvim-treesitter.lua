@@ -46,7 +46,6 @@ return {
           node_incremental = "]n",
           node_decremental = "[n",
           scope_incremental = "]s",
-          scope_decremental = "[s",
         }
       }
     }
