@@ -10,16 +10,21 @@ return {
     -- selecting presets
     languages = vim.tbl_extend("force", languages, {
       python = {
-        require("efmls-configs.linters.flake8"),   -- install with pacman
-        require("efmls-configs.formatters.black"), -- install with pacman
+        require("efmls-configs.linters.flake8"),   -- install with pacman/conda
+        require("efmls-configs.formatters.black"), -- install with pacman/conda
       },
-      sh = {
+      sh = { -- shellcheck included with LSP
         require("efmls-configs.formatters.shfmt"), -- install with pacman
       },
+      lua = { -- TODO: automate installation
+        require("efmls-configs.linters.luacheck"), -- install with mason
+        require("efmls-configs.formatters.stylua") -- install with mason
+      }
     })
 
-    languages.sh[1].formatCommand = languages.sh[1].formatCommand .. "i 4 -"
-    languages.python[2].formatCommand = languages.python[2].formatCommand .. "l 71 -"
+    languages.sh[1].formatCommand = languages.sh[1].formatCommand .. "i 4 -" -- use 4 space indents
+    languages.python[2].formatCommand = languages.python[2].formatCommand .. "l 71 -" -- black match flake8 line length
+    languages.lua[2].formatCommand = languages.lua[2].formatCommand .. "-search-parent-directories -"
 
     local efmls_config = {
       filetypes = vim.tbl_keys(languages),
