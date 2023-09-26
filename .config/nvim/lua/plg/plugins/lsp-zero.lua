@@ -16,6 +16,14 @@ return {
     { 'hrsh7th/cmp-cmdline' },
     -- {'jalvesaq/cmp-nvim-r'},
     { dir = '~/git/cmp-nvim-r/', dev = true },
+    {
+      dir = '~/git/cmp-bibtex/',
+      dev = true,
+      opts = {
+        files = { "~/Documents/zotero/bib.bib" },
+        filetypes = { "markdown" }
+      }
+    },
     { 'onsails/lspkind.nvim' },
     -- Snippets
     { 'L3MON4D3/LuaSnip' },
@@ -61,6 +69,7 @@ return {
         { name = 'nvim_lua',   priority = 3 },
         { name = 'path',       priority = 2 },
         { name = 'luasnip',    priority = 1 },
+        { name = 'bibtex' },
         -- {name = 'omni'},
       },
       -- preselect = 'Item',
