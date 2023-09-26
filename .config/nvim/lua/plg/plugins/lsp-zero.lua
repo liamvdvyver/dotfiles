@@ -82,8 +82,8 @@ return {
           local col = vim.fn.col('.') - 1
           if cmp.get_active_entry() then
             cmp.confirm()
-          elseif require('luasnip').expand_or_locally_jumpable() then
-            require('luasnip').expand_or_jump()
+          elseif require('luasnip').expandable() then
+            require('luasnip').expand()
           elseif cmp.visible() then
             cmp.confirm({ select = true })
           elseif col ~= 0 and vim.fn.getline('.'):sub(col, col):match('%s') == nil then
@@ -137,6 +137,11 @@ return {
     ls.filetype_extend("markdown", { "tex" })
 
     local builtin = require('telescope.builtin')
+    local function filter_formatters(client)
+      local format_servers = {efm = true, clangd = true}
+      return not not format_servers[client.name]
+    end
+
     vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, { desc = "[r]ename under cursor" })
     vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, { desc = "Open diagnostics" })
     vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "[g]oto references" })
@@ -146,8 +151,8 @@ return {
     vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Fuzzy [f]ind [d]iagnostics" })
     vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Fuzzy [f]ind [s]ymbols in document" })
     vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "Fuzzy [f]ind symbols in [w]orkspace" })
-    vim.keymap.set("n", "<leader>F", function() vim.lsp.buf.format() end, { desc = "Format buffer" })
-    vim.keymap.set("v", "<leader>F", function() vim.lsp.buf.format() end, { desc = "Format buffer" })
+    vim.keymap.set("n", "<leader>F", function() vim.lsp.buf.format({ filter = filter_formatters }) end, { desc = "[F]ormat buffer" })
+    vim.keymap.set("v", "<leader>F", function() vim.lsp.buf.format({ filter = filter_formatters }) end, { desc = "[F]ormat buffer" })
     vim.keymap.set("n", "ga", function() vim.lsp.buf.code_action() end, { desc = "Code [a]ctions" })
 
   end
