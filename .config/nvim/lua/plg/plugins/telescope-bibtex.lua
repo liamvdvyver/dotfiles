@@ -1,24 +1,24 @@
 return {
-  'nvim-telescope/telescope-bibtex.nvim',
-  dependencies = {'nvim-telescope/telescope.nvim'},
+  "nvim-telescope/telescope-bibtex.nvim",
+  dependencies = { "nvim-telescope/telescope.nvim" },
   lazy = true,
-  keys = {{
+  keys = { {
     "<leader>fz",
     ":Telescope bibtex<CR>",
-    desc = "Fuzzy [f]ind bibtex ([z]otero) references"
-  }},
+    desc = "Fuzzy [f]ind bibtex ([z]otero) references",
+  } },
   -- after = {'telescope.nvim'},
   opts = {
     extensions = {
       bibtex = {
         -- context = true,
         -- context_fallback = false
-        global_files = {'~/Documents/zotero/bib.bib'},
-      }
-    }
+        global_files = { "~/Documents/zotero/bib.bib" },
+      },
+    },
   },
   config = function(_, opts)
     require("telescope").setup(opts)
     require("telescope").load_extension("bibtex")
-  end
+  end,
 }

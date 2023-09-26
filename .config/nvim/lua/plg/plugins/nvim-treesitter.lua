@@ -1,23 +1,39 @@
 return {
-  'nvim-treesitter/nvim-treesitter',
+  "nvim-treesitter/nvim-treesitter",
   build = function()
-    require('nvim-treesitter.install').update({with_sync = true})
+    require("nvim-treesitter.install").update({ with_sync = true })
   end,
   config = function()
-
-    require'nvim-treesitter.configs'.setup {
+    require("nvim-treesitter.configs").setup({
       -- A list of parser names, or "all"
       ignore_install = { "latex" },
       ensure_installed = {
-        "c", "lua", "rust", "python",
-        "bash", "awk", "regex", "perl",
+        "c",
+        "lua",
+        "rust",
+        "python",
+        "bash",
+        "awk",
+        "regex",
+        "perl",
         -- "bibtex", "latex",
-        "css", "html", "http",
-        "r", "sql",
-        "json", "yaml", "sxhkdrc",
+        "css",
+        "html",
+        "http",
+        "r",
+        "sql",
+        "json",
+        "yaml",
+        "sxhkdrc",
         "vim",
-        "markdown", "markdown_inline", "org",
-        "git_rebase", "gitattributes", "gitcommit", "gitignore", "diff"
+        "markdown",
+        "markdown_inline",
+        "org",
+        "git_rebase",
+        "gitattributes",
+        "gitcommit",
+        "gitignore",
+        "diff",
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -38,7 +54,7 @@ return {
         additional_vim_regex_highlighting = false,
       },
 
-      indent = {enable = true},
+      indent = { enable = true },
       incremental_selection = {
         enable = true,
         keymaps = {
@@ -46,9 +62,8 @@ return {
           node_incremental = "]n",
           node_decremental = "[n",
           scope_incremental = "]s",
-        }
-      }
-    }
-
-  end
+        },
+      },
+    })
+  end,
 }

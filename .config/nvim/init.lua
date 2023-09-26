@@ -91,19 +91,23 @@ vim.keymap.set("n", "H", "^", { desc = "Start of line" })
 vim.keymap.set("n", "L", "$", { desc = "End of line" })
 
 -- clipboard
-vim.keymap.set("n", "<leader>y", "\"+y", { desc = "[y]ank to clipboard" })
-vim.keymap.set("v", "<leader>y", "\"+y", { desc = "[y]ank visual to clipboard" })
-vim.keymap.set("n", "<leader>Y", "\"+Y$", { desc = "[Y]ank till $ to clipboard" })
-vim.keymap.set("n", "<leader>d", "\"+d", { desc = "[d]elete to clipboard" })
-vim.keymap.set("v", "<leader>d", "\"+d", { desc = "[d]elete visual to clipboard" })
-vim.keymap.set("n", "<leader>D", "\"+D", { desc = "[D]elete till $ to clipboard" })
-vim.keymap.set("n", "<leader>p", "\"+p", { desc = "[p]aste to clipboard" })
-vim.keymap.set("v", "<leader>p", "\"+p", { desc = "[p]aste visual to clipboard" })
-vim.keymap.set("n", "<leader>P", "\"+P", { desc = "[P]aste till $ to clipboard" })
+vim.keymap.set("n", "<leader>y", '"+y', { desc = "[y]ank to clipboard" })
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "[y]ank visual to clipboard" })
+vim.keymap.set("n", "<leader>Y", '"+Y$', { desc = "[Y]ank till $ to clipboard" })
+vim.keymap.set("n", "<leader>d", '"+d', { desc = "[d]elete to clipboard" })
+vim.keymap.set("v", "<leader>d", '"+d', { desc = "[d]elete visual to clipboard" })
+vim.keymap.set("n", "<leader>D", '"+D', { desc = "[D]elete till $ to clipboard" })
+vim.keymap.set("n", "<leader>p", '"+p', { desc = "[p]aste to clipboard" })
+vim.keymap.set("v", "<leader>p", '"+p', { desc = "[p]aste visual to clipboard" })
+vim.keymap.set("n", "<leader>P", '"+P', { desc = "[P]aste till $ to clipboard" })
 
 -- find and replace word/selection
-vim.keymap.set("n", "<c-s>", [[:%s/\(<C-r><C-w>\)//gI<Left><Left><Left>]],
-  { desc = "[s]earch and replace word under cursor" })
+vim.keymap.set(
+  "n",
+  "<c-s>",
+  [[:%s/\(<C-r><C-w>\)//gI<Left><Left><Left>]],
+  { desc = "[s]earch and replace word under cursor" }
+)
 vim.keymap.set("v", "<c-s>", [["hy:%s/\(<C-r>h\)//gI<Left><Left><Left>]], { desc = "[s]earch and replace visual" })
 
 -- visual
@@ -114,7 +118,12 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Auto indent block on move
 
 -- leaders
 vim.keymap.set("n", "<leader>W", ":set wrap!<CR>", { desc = "Toggle [w]rap" })
-vim.keymap.set("n", "<leader>L", ':execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>', { desc = "Toggle [l]ine at textwidth" })
+vim.keymap.set(
+  "n",
+  "<leader>L",
+  ':execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>',
+  { desc = "Toggle [l]ine at textwidth" }
+)
 vim.keymap.set("n", "<leader>h", ":noh<CR>", { desc = "[c]lear [h]ighlight" })
 vim.keymap.set("n", "<leader>s", ":!", { desc = "Begin [s]hell command" })
 vim.keymap.set("n", "<leader>S", ":source $MYVIMRC<CR>", { desc = "[S]ource config file" })
@@ -125,10 +134,10 @@ vim.keymap.set("n", "<leader>o", ":set spell!<CR>", { desc = "Toggle [o]rthograp
 vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Fix last spelling mistake" })
 
 -- navigation
-vim.keymap.set("n", "<leader>n", ":Lex<CR>", { desc = 'Toggle [n]etrw' })
-vim.keymap.set("n", "<leader>U", ":Lex $XDG_STATE_HOME/nvim/swap/<CR>", { desc = 'Open netrw (swapfiles)' })
+vim.keymap.set("n", "<leader>n", ":Lex<CR>", { desc = "Toggle [n]etrw" })
+vim.keymap.set("n", "<leader>U", ":Lex $XDG_STATE_HOME/nvim/swap/<CR>", { desc = "Open netrw (swapfiles)" })
 vim.keymap.set("n", "<leader>.", ":Lex %:p:h<CR>", { desc = "Open [.] in netrw" })
-vim.keymap.set("n", "<leader>%", ":tcd %:h<CR>", { desc = 'Set tab directory to open file' })
+vim.keymap.set("n", "<leader>%", ":tcd %:h<CR>", { desc = "Set tab directory to open file" })
 
 -- buffer/tab management
 vim.keymap.set("n", "<leader>k", ":bd<CR>", { desc = "[k]ill buffer" })

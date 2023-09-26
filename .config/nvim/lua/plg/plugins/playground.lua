@@ -1,6 +1,6 @@
 return {
-  'nvim-treesitter/playground',
+  "nvim-treesitter/playground",
   dependencies = "nvim-treesitter",
   lazy = true,
-  keys = {{"<leader>T", ":TSPlaygroundToggle<CR>", desc = "Toggle [T]reesitter playground"}},
+  keys = { { "<leader>T", ":TSPlaygroundToggle<CR>", desc = "Toggle [T]reesitter playground" } },
 }

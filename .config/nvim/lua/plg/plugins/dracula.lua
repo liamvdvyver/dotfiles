@@ -1,3 +1,5 @@
 return {
-  'dracula/vim', name = 'dracula', lazy = false
+  "dracula/vim",
+  name = "dracula",
+  lazy = false,
 }

@@ -1,11 +1,11 @@
 return {
-  'akinsho/bufferline.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons', name = 'tree-nvim-web-devicons' },
+  "akinsho/bufferline.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons", name = "tree-nvim-web-devicons" },
   opts = {
     options = {
       buffer_close_icon = "",
       close_icon = "",
-    }
+    },
   },
   config = function(_, opts)
     require("bufferline").setup(opts)
@@ -13,5 +13,5 @@ return {
     vim.keymap.set("n", "<M-l>", ":BufferLineCycleNext<CR>")
     vim.keymap.set("n", "<M-,>", ":BufferLineMovePrev<CR>")
     vim.keymap.set("n", "<M-.>", ":BufferLineMoveNext<CR>")
-  end
+  end,
 }

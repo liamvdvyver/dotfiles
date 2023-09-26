@@ -1,5 +1,5 @@
 return {
-  'lervag/wiki.vim',
+  "lervag/wiki.vim",
   -- lazy = true, ft = {'markdown'},
   -- FIX: Lazy loading this breaks Enter, BS, TAB, etc. tag navigation
   config = function()
@@ -9,7 +9,7 @@ return {
       toc = require("wiki.telescope").toc,
     }
     -- TODO: do this in lua
-    vim.cmd[[
+    vim.cmd([[
       let g:wiki_root = '~/Documents/pkb/'
       let g:wiki_filetypes = ['md', 'org', 'tex']
       let g:wiki_link_extension = ''
@@ -27,8 +27,8 @@ return {
       \   'parse': {x -> split(matchstr(x, '^tags:\zs.*'), '[ ,]\+')},
       \   'make':  {t, x -> 'tags: ' . empty(t) ? '' : join(t, ', ')}}
       \]
-      ]]
+      ]])
     vim.keymap.set("n", "<leader>wp", ":WikiPages<CR>")
     vim.keymap.set("n", "<leader>wt", ":WikiTags<CR>")
-  end
+  end,
 }

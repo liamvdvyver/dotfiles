@@ -1,8 +1,8 @@
 return {
-  'mipmip/vim-scimark',
+  "mipmip/vim-scimark",
   lazy = true,
-  keys = {{"<leader>ws", ":OpenInScim<CR>", { desc = "Edit table in [s]c-im" }}},
+  keys = { { "<leader>ws", ":OpenInScim<CR>", { desc = "Edit table in [s]c-im" } } },
   config = function()
-    vim.g.scimCommand = 'sc-im'
-  end
+    vim.g.scimCommand = "sc-im"
+  end,
 }

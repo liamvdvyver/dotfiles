@@ -10,7 +10,7 @@ return {
     -- selecting presets
     languages = vim.tbl_extend("force", languages, {
       python = {
-        require("efmls-configs.linters.flake8"),   -- install with pacman/conda
+        require("efmls-configs.linters.flake8"), -- install with pacman/conda
         require("efmls-configs.formatters.black"), -- install with pacman/conda
       },
       sh = { -- shellcheck included with LSP
@@ -18,8 +18,8 @@ return {
       },
       lua = { -- TODO: automate installation
         require("efmls-configs.linters.luacheck"), -- install with mason
-        require("efmls-configs.formatters.stylua") -- install with mason
-      }
+        require("efmls-configs.formatters.stylua"), -- install with mason
+      },
     })
 
     languages.sh[1].formatCommand = languages.sh[1].formatCommand .. "i 4 -" -- use 4 space indents

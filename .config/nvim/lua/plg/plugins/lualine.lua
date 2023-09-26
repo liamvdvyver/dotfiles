@@ -10,29 +10,33 @@ local function diff_source()
 end
 
 return {
-  'nvim-lualine/lualine.nvim',
+  "nvim-lualine/lualine.nvim",
   dependencies = {
-    { 'kyazdani42/nvim-web-devicons', name = 'nvim-web-devicons-lualine' },
-    { 'WhoIsSethDaniel/lualine-lsp-progress.nvim' },
+    { "kyazdani42/nvim-web-devicons", name = "nvim-web-devicons-lualine" },
+    { "WhoIsSethDaniel/lualine-lsp-progress.nvim" },
   },
   opts = {
     options = {
-      theme = 'gruvbox',
-      section_separators = '',
-      component_separators = ''
+      theme = "gruvbox",
+      section_separators = "",
+      component_separators = "",
     },
     sections = {
       lualine_b = {
         { "b:gitsigns_head", icon = "" },
         { "diff", source = diff_source },
-        { "diagnostics", sources = { "nvim_lsp" } }
+        { "diagnostics", sources = { "nvim_lsp" } },
       },
       lualine_c = {
-        'filename', 'lsp_progress'
+        "filename",
+        "lsp_progress",
       },
       lualine_x = {
-        'encoding', 'fileformat', 'filetype',
-        { "swenv", icon = "v", color = { fg = "" } } }
+        "encoding",
+        "fileformat",
+        "filetype",
+        { "swenv", icon = "v", color = { fg = "" } },
+      },
     },
-  }
+  },
 }

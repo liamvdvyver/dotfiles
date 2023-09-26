@@ -1,9 +1,11 @@
 return {
- 'jbyuki/nabla.nvim',
+  "jbyuki/nabla.nvim",
   lazy = true,
-  keys = {{
+  keys = { {
     "<leader>we",
-    function() require('nabla').popup() end,
-    desc = "preview [e]quation"
-  }}
+    function()
+      require("nabla").popup()
+    end,
+    desc = "preview [e]quation",
+  } },
 }

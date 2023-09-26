@@ -1,3 +1,4 @@
 return {
-  'arcticicestudio/nord-vim', lazy = false
+  "arcticicestudio/nord-vim",
+  lazy = false,
 }

@@ -1,5 +1,5 @@
 return {
-  'mbbill/undotree',
+  "mbbill/undotree",
   lazy = true,
-  keys = {{"<leader>u", ":UndotreeToggle<CR>", desc = "Toggle [u]ndotree" }}
+  keys = { { "<leader>u", ":UndotreeToggle<CR>", desc = "Toggle [u]ndotree" } },
 }

@@ -1,3 +1,4 @@
 return {
-  'morhetz/gruvbox', lazy = false
+  "morhetz/gruvbox",
+  lazy = false,
 }

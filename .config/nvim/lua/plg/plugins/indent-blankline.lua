@@ -7,5 +7,5 @@ return {
     vim.keymap.set("n", "zo", "zo:IndentBlanklineRefresh<CR>")
     vim.keymap.set("n", "zM", "zM:IndentBlanklineRefresh<CR>")
     vim.keymap.set("n", "zR", "zR:IndentBlanklineRefresh<CR>")
-  end
+  end,
 }
