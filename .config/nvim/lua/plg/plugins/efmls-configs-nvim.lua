@@ -3,23 +3,44 @@ return {
   dependencies = {
     "VonHeikemen/lsp-zero.nvim",
     "neovim/nvim-lspconfig",
+    "mason.nvim",
   },
+  lazy = true,
+  event = "VeryLazy",
 
   config = function()
     local languages = {}
 
+    -- ensure installed
+    local mason = require("mason-registry")
+    local mason_ensure_installed = {
+      "flake8",
+      "black",
+      "luacheck",
+      "stylua",
+      "shfmt",
+      "shellcheck",
+    }
+
+    for _, v in ipairs(mason_ensure_installed) do
+      if not mason.is_installed(v) then
+        vim.cmd("MasonInstall " .. v)
+      end
+    end
+
     -- selecting presets
     languages = vim.tbl_extend("force", languages, {
       python = {
-        require("efmls-configs.linters.flake8"), -- install with mason
-        require("efmls-configs.formatters.black"), -- install with mason
+        require("efmls-configs.linters.flake8"),
+        require("efmls-configs.formatters.black"),
       },
       sh = { -- shellcheck included with LSP
-        require("efmls-configs.formatters.shfmt"), -- install with pacman
+        require("efmls-configs.formatters.shfmt"),
+        -- require("efmls-configs.linters.shellcheck"), -- bash-language-server handles this if installed
       },
       lua = { -- TODO: automate installation
-        require("efmls-configs.linters.luacheck"), -- install with mason
-        require("efmls-configs.formatters.stylua"), -- install with mason
+        require("efmls-configs.linters.luacheck"),
+        require("efmls-configs.formatters.stylua"),
       },
     })
 
