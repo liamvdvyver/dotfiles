@@ -1,6 +1,9 @@
 return {
   "creativenull/efmls-configs-nvim",
-  dependencies = { "neovim/nvim-lspconfig" },
+  dependencies = {
+    "neovim/nvim-lspconfig",
+    "VonHeikemen/lsp-zero.nvim",
+  },
   -- define overrides here
   opts = nil,
   config = function(_, opts)
@@ -28,10 +31,7 @@ return {
 
     local efmls_config = {
       filetypes = vim.tbl_keys(languages),
-      settings = {
-        rootMarkers = { ".git/" },
-        languages = languages,
-      },
+      settings = { rootMarkers = { ".git/" }, languages = languages },
       init_options = {
         documentFormatting = true,
         documentRangeFormatting = true,
