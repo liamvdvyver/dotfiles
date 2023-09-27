@@ -147,6 +147,7 @@ vim.keymap.set("n", "<M-C-,>", ":-tabmove<CR>")
 vim.keymap.set("n", "<M-C-.>", ":+tabmove<CR>")
 vim.keymap.set("n", "<leader>N", ":tabnew<CR>", { desc = "[N]ew tab" })
 vim.keymap.set("n", "<leader>K", ":tabclose<CR>", { desc = "[K]ill tab" })
+vim.keymap.set("n", "<C-w>h", "<C-W>s")
 
 -- brackets and lists
 vim.keymap.set("n", "[l", ":lprev<CR>zz", { desc = "Previous [l]ocation" })
