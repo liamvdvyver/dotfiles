@@ -1,15 +1,13 @@
 return {
   "creativenull/efmls-configs-nvim",
   dependencies = {
-    "neovim/nvim-lspconfig",
     "VonHeikemen/lsp-zero.nvim",
+    "neovim/nvim-lspconfig",
   },
-  -- define overrides here
-  opts = nil,
-  config = function(_, opts)
-    -- default settings
-    -- local languages = require("efmls-configs.defaults").languages()
+
+  config = function()
     local languages = {}
+
     -- selecting presets
     languages = vim.tbl_extend("force", languages, {
       python = {
@@ -29,7 +27,7 @@ return {
     languages.python[2].formatCommand = languages.python[2].formatCommand .. "l 71 -" -- black match flake8 line length
     languages.lua[2].formatCommand = languages.lua[2].formatCommand .. "-search-parent-directories -"
 
-    local efmls_config = {
+    local opts = {
       filetypes = vim.tbl_keys(languages),
       settings = { rootMarkers = { ".git/" }, languages = languages },
       init_options = {
@@ -37,6 +35,7 @@ return {
         documentRangeFormatting = true,
       },
     }
-    require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, opts))
+
+    require("lspconfig").efm.setup(opts)
   end,
 }
