@@ -11,8 +11,8 @@ return {
     -- selecting presets
     languages = vim.tbl_extend("force", languages, {
       python = {
-        require("efmls-configs.linters.flake8"), -- install with pacman/conda
-        require("efmls-configs.formatters.black"), -- install with pacman/conda
+        require("efmls-configs.linters.flake8"), -- install with mason
+        require("efmls-configs.formatters.black"), -- install with mason
       },
       sh = { -- shellcheck included with LSP
         require("efmls-configs.formatters.shfmt"), -- install with pacman
