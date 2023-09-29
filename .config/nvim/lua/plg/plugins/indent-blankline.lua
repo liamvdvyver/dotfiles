@@ -1,8 +1,8 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  opts = { show_current_context = true },
+  opts = {},
   config = function(_, opts)
-    require("indent_blankline").setup(opts)
+    require("ibl").setup(opts)
     vim.keymap.set("n", "zc", "zc:IndentBlanklineRefresh<CR>")
     vim.keymap.set("n", "zo", "zo:IndentBlanklineRefresh<CR>")
     vim.keymap.set("n", "zM", "zM:IndentBlanklineRefresh<CR>")
