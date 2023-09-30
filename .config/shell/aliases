@@ -2,7 +2,7 @@
 alias :q='exit'
 alias q='exit'
 alias x='startx $XINITRC'
-alias gh='cd ~'
+# alias gh='cd ~'
 alias ls='ls --color=auto'
 alias l='exa --group-directories-first --icons'
 alias la='l -a'
