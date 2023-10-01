@@ -3,7 +3,7 @@ return {
   lazy = true,
   dependencies = { "mason.nvim" },
   opts = {
-    ensure_installed = { "bash", "codelldb" },
+    ensure_installed = { "bash", "codelldb", "python" },
     handlers = {
       function(config)
         -- all sources with no handler get passed here
