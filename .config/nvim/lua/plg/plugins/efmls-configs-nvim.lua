@@ -4,6 +4,7 @@ return {
     "VonHeikemen/lsp-zero.nvim",
     "neovim/nvim-lspconfig",
     "mason.nvim",
+    "mfussenegger/nvim-ansible",
   },
   lazy = true,
   event = "VeryLazy",
@@ -20,6 +21,8 @@ return {
       "stylua",
       "shfmt",
       "shellcheck",
+      "prettier",
+      "ansible-lint",
     }
 
     for _, v in ipairs(mason_ensure_installed) do
@@ -42,7 +45,13 @@ return {
         require("efmls-configs.linters.luacheck"),
         require("efmls-configs.formatters.stylua"),
       },
+      yaml = {
+        require("efmls-configs.linters.ansible_lint"),
+        require("efmls-configs.formatters.prettier"),
+      },
     })
+
+    L = languages
 
     languages.sh[1].formatCommand = languages.sh[1].formatCommand .. "i 4 -" -- use 4 space indents
     languages.python[2].formatCommand = languages.python[2].formatCommand .. "l 71 -" -- black match flake8 line length

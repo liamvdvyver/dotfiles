@@ -7,6 +7,7 @@ return {
     "neovim/nvim-lspconfig",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
+    "mfussenegger/nvim-ansible",
   },
 
   config = function()
@@ -26,6 +27,7 @@ return {
         "marksman",
         "efm",
         "clangd",
+        "ansiblels"
       },
       handlers = { lsp.default_setup },
     })
