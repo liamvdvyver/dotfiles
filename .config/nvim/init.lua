@@ -134,9 +134,6 @@ vim.keymap.set("n", "<leader>o", ":set spell!<CR>", { desc = "Toggle [o]rthograp
 vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Fix last spelling mistake" })
 
 -- navigation
-vim.keymap.set("n", "<leader>n", ":Lex<CR>", { desc = "Toggle [n]etrw" })
-vim.keymap.set("n", "<leader>U", ":Lex $XDG_STATE_HOME/nvim/swap/<CR>", { desc = "Open netrw (swapfiles)" })
-vim.keymap.set("n", "<leader>.", ":Lex %:p:h<CR>", { desc = "Open [.] in netrw" })
 vim.keymap.set("n", "<leader>%", ":tcd %:h<CR>", { desc = "Set tab directory to open file" })
 
 -- buffer/tab management
