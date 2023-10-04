@@ -4,11 +4,10 @@
 [alias]
     s = status
     c = commit
-    ca = commit -a
+    ca = commit --amend
     a = add
     co = checkout
     d = diff
-    pl = log
     p = push
     pl = pull
     f = fetch

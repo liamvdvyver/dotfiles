@@ -1,11 +1,7 @@
 auto_activate_base: false
+channels:
+  - defaults
+  - conda-forge
+solver: libmamba
 create_default_packages:
   - pip
-  - numpy
-  - pandas
-  - notebook
-  - jupyter
-  - matplotlib
-  - statsmodels
-  - flake8
-  - black
