@@ -16,5 +16,6 @@ emacs --daemon &
 syncthingtray &
 xfce4-power-manager &
 blueman-applet &
+kmonad ~/.config/kmonad/default.kbd &
 
 exec i3
