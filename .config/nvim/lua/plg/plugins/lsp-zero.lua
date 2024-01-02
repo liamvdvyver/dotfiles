@@ -27,7 +27,8 @@ return {
         "marksman",
         "efm",
         "clangd",
-        "ansiblels"
+        "ansiblels",
+        "hls"
       },
       handlers = { lsp.default_setup },
     })

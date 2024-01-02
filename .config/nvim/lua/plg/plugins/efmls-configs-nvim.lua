@@ -23,6 +23,7 @@ return {
       "shellcheck",
       "prettier",
       "ansible-lint",
+      "fourmolu",
     }
 
     for _, v in ipairs(mason_ensure_installed) do
@@ -48,6 +49,9 @@ return {
       yaml = {
         require("efmls-configs.linters.ansible_lint"),
         require("efmls-configs.formatters.prettier"),
+      },
+      haskell = {
+        require("efmls-configs.formatters.fourmolu"),
       },
     })
 
