@@ -42,7 +42,6 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Documents/org")
 (setq org-default-notes-file "~/Documents/org/refile.org")
-
 (after! org
     (setq org-capture-templates
           '(

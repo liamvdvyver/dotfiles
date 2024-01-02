@@ -1,4 +1,4 @@
-return {
+return { -- FIX: Breaks splash screen
   "catppuccin/nvim",
   name = "catppuccin",
   lazy = false,
