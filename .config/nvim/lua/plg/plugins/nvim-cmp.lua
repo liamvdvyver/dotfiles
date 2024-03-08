@@ -51,8 +51,8 @@ return {
           local col = vim.fn.col(".") - 1
           if cmp.get_active_entry() then
             cmp.confirm()
-          elseif require("luasnip").expand_or_locally_jumpable() then
-            require("luasnip").expand_or_jump()
+          elseif require("luasnip").expandable() then
+            require("luasnip").expand()
           elseif cmp.visible() then
             cmp.confirm({ select = true })
           elseif col ~= 0 and vim.fn.getline("."):sub(col, col):match("%s") == nil then
@@ -61,6 +61,16 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+        ["<C-j>"] = cmp.mapping(function()
+          if require("luasnip").jumpable() then
+            require("luasnip").jump(1)
+          end
+        end, {"i", "s"}),
+        ["<C-k>"] = cmp.mapping(function()
+          if require("luasnip").jumpable(-1) then
+            require("luasnip").jump(-1)
+          end
+        end, {"i", "s"}),
       }),
 
       formatting = {
