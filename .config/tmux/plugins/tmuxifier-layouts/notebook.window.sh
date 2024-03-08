@@ -1,6 +1,7 @@
 new_window "notebook"
 
-split_v 20
+split_v
+tmux resize-pane -y 40 -t 0
 
 run_cmd "conda activate emet" 1
 run_cmd "jupyter notebook" 1
