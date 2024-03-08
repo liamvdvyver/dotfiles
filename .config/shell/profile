@@ -11,7 +11,7 @@ export EDITOR=$VISUAL
 export BROWSER=qutebrowser
 export TERMINAL=kitty
 #export TERM=xterm-kitty
-export PATH=~/git/scripts:~/.local/bin:~/.config/emacs/bin:/usr/local/stata17:~/.config/tmux/plugins/tmuxifier/bin:/usr/lib/rstudio:~/.ghcup/bin:$PATH
+export PATH=~/git/scripts:~/.local/bin:~/.config/emacs/bin:/usr/local/stata17:~/.config/tmux/plugins/tmuxifier/bin:/usr/lib/rstudio:~/.ghcup/bin:~/.cabal/bin:$PATH
 
 # Application config
 export RANGER_LOAD_DEFAULT_RC=FALSE
@@ -54,3 +54,5 @@ export PYTHONSTARTUP="/etc/python/pythonrc"
 export IPYTHONDIR="$XDG_CONFIG_HOME"/ipython
 export GOPATH="$XDG_DATA_HOME"/go
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+# export CABAL_CONFIG="XDG_CONFIG_HOME"/cabal/config
+# export CABAL_DIR="XDG_DATA_HOME"/cabal

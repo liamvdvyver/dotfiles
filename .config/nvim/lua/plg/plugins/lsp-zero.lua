@@ -28,7 +28,7 @@ return {
         "efm",
         "clangd",
         "ansiblels",
-        "hls"
+        "hls",
       },
       handlers = { lsp.default_setup },
     })

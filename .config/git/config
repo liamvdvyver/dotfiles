@@ -15,3 +15,6 @@
     ri = rebase -i
     b = branch
     l = log
+
+[includeIf "gitdir:~/git/school/"]
+    path = ~/.config/git/uni

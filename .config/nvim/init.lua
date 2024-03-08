@@ -198,4 +198,7 @@ vim.cmd([[autocmd Filetype r setlocal tabstop=2]])
 vim.cmd([[autocmd Filetype c nnoremap <localleader>x :make %:r<CR>]])
 vim.cmd([[autocmd Filetype c nnoremap <localleader>X :split<CR>:terminal ./%:r<CR>i]])
 
+-- haskell
+vim.cmd([[autocmd Filetype haskell nnoremap <localleader>t :w<bar>!doctest %<CR>]])
+
 -- }}}
