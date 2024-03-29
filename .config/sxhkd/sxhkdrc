@@ -3,37 +3,7 @@
 super + Return
     $TERMINAL
 
-super + alt + w
-    qutebrowser
-
-super + alt + e
-    emacsclient -c -a 'emacs'
-
-super + alt + j
-    joplin-desktop
-
-super + alt + r
-    rstudio
-
-super + alt + v
-    virt-manager
-
-super + alt + c
-    calibre --with-library=~/Documents/calibre/
-
-super + alt + z
-    zotero
-
-super + alt + s
-    xstata-mp
-
-super + alt + g
-    gimp
-
-super + alt + d
-    discord
-
-super + alt + Return
+super + shift + Return
     $TERMINAL --name __scratchpad
 
 super + shift + a
@@ -42,8 +12,8 @@ super + shift + a
 super + shift + b
     blueman-manager
 
-super + shift + t
-    tlpui
+super + shift + w
+    qutebrowser
 
 # }}}
 
@@ -52,54 +22,42 @@ super + shift + t
 Print
     flameshot gui
 
-super + shift+grave
-    scr
-
 super + shift + m
     notify-send "Syncing mail" && mw -Y && notify-send "Synced mail"
-
-super + shift + w
-    cat ~/.config/rice/pape | xargs pape
-
-super + shift + s
-    hsetroot -solid "$(xrdb -query | grep '^\*background' | cut -f 2)"
-
-super + shift + Prior
-    picom-trans -c +5
-
-super + shift + Next
-    picom-trans -c -5
-
-super + shift + Delete
-    picom-trans -c 100
 
 super + shift + x
     xkill
 
-super + v
+super + shift + d
     autorandr --change docked
 
 # }}}
 
 # Dmenu -------------------------------------------------------------------- {{{
 
-super + d
+super +  d
     rofi -show-icons -show drun
 
-super + p
-    passmenu --type -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
-
 super + shift + p
-    usermenu --type -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)"
+    passmenu --type
 
-super + t
-    rice "$(rice --list | dmenu -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)")"
+super + shift + u
+    usermenu --type
 
 super + shift + v
-    autorandr -c "$(autorandr --list | dmenu -nb "$(xrdb -query | grep '^\*background:' | cut -f 2)" -nf "$(xrdb -query | grep '^\*foreground:' | cut -f 2)" -sb "$(xrdb -query | grep '^rice\.background\.focused:' | cut -f 2)" -sf "$(xrdb -query | grep '^rice\.foreground\.focused:' | cut -f 2)")"
+    autorandr -c "$(autorandr --list | dmenu)"
 
-super + w
-    qutebrowser "$(cat ~/.config/qutebrowser/quickmarks | dmenu | cut -f 2 -d ' ')"
+super + shift + o
+    web-open
+
+super + shift + n
+    kmonad-selector
+
+super + shift + s
+    system-menu
+
+super + shift + r
+    rice-menu
 
 # }}}
 
@@ -119,26 +77,13 @@ XF86AudioMute
 XF86AudioMicMute
     pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-# Volume
-
-super + Prior
-    pactl set-sink-volume @DEFAULT_SINK@ +5%
-
-super + Next
-    pactl set-sink-volume @DEFAULT_SINK@ -5%
-
-super + Delete
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-# MPRIS
-
-super + backslash
+XF86AudioPlay
     playerctl play-pause
 
-super + bracketright
+XF86AudioNext
     playerctl next
 
-super + bracketleft
+XF86AudioPrev
     playerctl previous
 
 # }}}

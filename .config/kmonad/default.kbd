@@ -1,6 +1,6 @@
 (defcfg
   ;; For Linux
-  input  (device-file "/dev/input/by-id/usb-SONiX_USB_DEVICE-event-kbd")
+  input  (device-file "$KBD_DEV")
   output (uinput-sink "My KMonad output"
     ;; To understand the importance of the following line, see the section on
     ;; Compose-key sequences at the near-bottom of this file.
@@ -21,53 +21,35 @@
 
 (deflayer default
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-    tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+    tab  q    w    e    r    t    y    u    i    o    p    _    ]    \
     caps a    s    d    f    g    h    j    k    l    ;    '    ret
     lsft z    x    c    v    b    n    m    ,    .    /    rsft
-    lctl lmet lalt           spc            @l_activate rmet cmp  rctl
+    lctl lmet lalt           spc            @hr rmet cmp  rctl
 )
 
-(defalias l_activate (layer-toggle l_activate))
-
-(deflayer l_activate
-  _             _      _      _       _      _    _    _     _      _  _             _    _    _
-  _             _      _      _       _      _    _    _     _      _  _             _    _    _
-  _             _      _      _       _      _    @hr  _     _      _  _             _    _
-  _             _      _      _       _      @bm  _    _     _      _  _             _
-  _             _      _                     _               _      _  _             @l_deactivate
-)
-
-(defalias hr (layer-add homerowmods))
-(defalias bm (layer-add bettermods))
-(defalias l_deactivate (layer-toggle l_deactivate))
-
-(deflayer l_deactivate
-  _             _      _      _       _      _      _      _     _      _      _      _    _    @bm_d
-  _             _      _      _       _      _      _      _     _      _      _      _    _    _
-  _             _      _      _       _      _      @hr_d  _     _      _      _      _    _
-  _             _      _      _       _      @bm_d  _      _     _      _      _      _
-  _             _      _                     _                   _      _      _      _
-)
-
-(defalias hr_d (layer-rem homerowmods))
-(defalias bm_d (layer-rem bettermods))
+(defalias hr (layer-add homerowmods)
+          hr_d (layer-rem homerowmods))
 
 (deflayer homerowmods
   _        _      _      _       _      _  _    _     _      _      _      _    _    _
   _        _      _      _       _      _  _    _     _      _      _      _    _    _
-  @num_esc @met_a @alt_s @ctl_d  @sft_f g  h   @sft_j @ctl_k @alt_l @met_; @nav_'    _
-  _        _      _      _       _      _  _   _      _      _      _      @media_bspc
-  _        _      @hr_d                 @sym_spc      _      _      _      _
+  @num_esc @met_a @alt_s @ctl_d  @sft_f g  h   @sft_j @ctl_k @alt_l @met_; @media_'    _
+  @nav_un  _      _      _       _      _  _   _      _      _      _      @sft_bspc
+  _        _      _                     @sym_spc      @hr_d  _      _      _
 )
-
 
 (defalias
 
-  num_esc (tap-hold-next-release 200 esc (layer-toggle numbers))
-  sym (layer-toggle symbols)
+  num   (layer-toggle numbers)
+  sym   (layer-toggle symbols)
   media (layer-toggle media)
-  sym_spc (tap-hold-next-release 200 space (layer-toggle symbols))
-  media_bspc (tap-hold-next-release 200 bspc (layer-toggle media))
+  nav   (layer-toggle nav)
+
+  num_esc  (tap-hold-next-release 200 esc   @num)
+  media_'  (tap-hold-next-release 200 '     @media)
+  sym_spc  (tap-hold-next-release 200 space @sym)
+  sft_bspc (tap-hold-next-release 200 bspc  rsft)
+  nav_un   (tap-hold-next-release 200 \_    @nav)
 
   ;; homerow mods
   met_a (tap-hold-next-release 200 a lmet)
@@ -80,21 +62,6 @@
   alt_l (tap-hold-next-release 200 l lalt)
   met_; (tap-hold-next-release 200 ; rmet)
 
-  nav_' (tap-hold-next-release 200 ' (layer-toggle nav))
-
-)
-
-(deflayer bettermods
-  _        _      _      _       _      _  _    _     _      _      _      _    _    _
-  _        _      _      _       _      _  _    _     _      _      _      _    _    _
-  @num_esc _      _      _       _      _  _    _     _      _      _      _    _
-  _        _      _      _       _      _  _    _     _      _      _      @alt_bspc
-  _        _      _                     _             _      _      _      _
-)
-
-(defalias
-  ctl_esc (tap-hold-next-release 200 esc lctl)
-  alt_bspc (tap-hold-next-release 200 bspc lalt)
 )
 
 (deflayer numbers
@@ -109,8 +76,8 @@
 
 (deflayer symbols
   _    _    _    _    _    _     _    _    _    _    _    _    _    _
-  _    _    _    =    %    ~     _    ]    [    -    +    _    _    _
-  _    @    *    $   \_    >     #    }    {    <    _    `    _
+  _    _    _    =    %    ~     #    ]    [    -    +    _    _    _
+  _    @    *    $   \_    <     >    }    {    _    _    `    _
   _    _    _    ^    |    !     &   \)   \(    _    \    _
   _    _    _               _              _    _    _    _
 )
@@ -128,7 +95,7 @@
   _    _    _    _    _              _   _        volu _    _    previoussong    _    _    _
   _    _    _    vold _              _   _        _    _    _    _               _    _
   _    _    _    _    _              _   nextsong mute _    _    _               _
-  _    _    _              playpause              _    _    _    _ ;; TODO: fix this
+  _    _    _              play                   _    _    _    _ ;; TODO: fix this
 )
 
 (deflayer nav

@@ -14,6 +14,8 @@ for_window [class=".*"] border pixel 3
 exec --no-startup-id pactl load-module module-bluetooth-policy
 exec --no-startup-id pactl load-module module-bluetooth-discover
 
+bindsym $mod+shift+w exec web-open
+
 # BINDS -------------------------------------------------------------------- {{{
 
 # Scratchpad
@@ -33,10 +35,10 @@ bindsym $mod+period move workspace to output right
 bindsym $mod+comma move workspace to output left
 # bindsym $mod+Mod1+Left move workspace to output left
 # bindsym $mod+Mod1+Right move workspace to output right
-bindsym $mod+Shift+y resize shrink width 20 px or 20 ppt
-bindsym $mod+Shift+u resize grow height 20 px or 20 ppt
-bindsym $mod+Shift+i resize shrink height 20 px or 20 ppt
-bindsym $mod+Shift+o resize grow width 20 px or 20 ppt
+bindsym $mod+y resize shrink width 20 px or 20 ppt
+bindsym $mod+u resize grow height 20 px or 20 ppt
+bindsym $mod+i resize shrink height 20 px or 20 ppt
+bindsym $mod+o resize grow width 20 px or 20 ppt
 
 # }}}
 
@@ -44,12 +46,12 @@ bindsym $mod+Shift+o resize grow width 20 px or 20 ppt
 
 # Manjaro-i3:
 
-#smart_gaps on
-#smart_borders on
+smart_gaps on
+smart_borders on
 
 # hide/unhide i3status bar
 
-gaps inner 6
+gaps inner 0
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 
@@ -60,14 +62,13 @@ default_floating_border pixel 3
 hide_edge_borders none
 
 # change borders
-bindsym $mod+u border none
-bindsym $mod+y border pixel 3
-bindsym $mod+Shift+Mod1+y border normal
+# bindsym $mod+u border none
+# bindsym $mod+y border pixel 3
+# bindsym $mod+Shift+Mod1+y border normal
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
 bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+Tab+n move container to workspace back_and_forth; workspace back_and_forth
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -77,47 +78,8 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 #navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+l workspace next
-bindsym $mod+Ctrl+h workspace prev
-
-# }}}
-
-# SYSTEM MODE -------------------------------------------------------------- {{{
-
-# Set shut down, restart and locking features
-bindsym Ctrl+Mod1+Delete mode "$mode_system"
-set $mode_system (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id i3lock -c 000000, mode "default"
-    bindsym s exec --no-startup-id i3lock -c 000000 && systemctl suspend, mode "default"
-    bindsym e exec --no-startup-id i3 exit, mode "default"
-    bindsym r exec --no-startup-id reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id shutdown now, mode "default"
-
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-# }}}
-
-# RICE MODE --------------------------------------------------------------- {{{
-
-bindsym $mod+r mode "$mode_rice"
-set $mode_rice rice: (l)ight, (d)ark, (t)oggle | picom: (o)n, o(f)f
-mode "$mode_rice" {
-    bindsym l exec --no-startup-id rice --light, mode "default"
-    bindsym d exec --no-startup-id rice --dark, mode "default"
-    bindsym t exec --no-startup-id rice --toggle, mode "default"
-    bindsym o exec --no-startup-id picom -c, mode "default"
-    bindsym f exec --no-startup-id killall picom, mode "default"
-
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
 
 # }}}
 
@@ -207,32 +169,14 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus parent; focus right
 
-bindsym $mod+mod1+h focus left
-bindsym $mod+mod1+l focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+mod1+h focus left
+# bindsym $mod+mod1+l focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-#bindsym $mod+h split h
-
-# split in vertical orientation
-#bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -255,10 +199,10 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -292,16 +236,16 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
-bindsym $mod+Ctrl+1 move container to workspace number $ws1
-bindsym $mod+Ctrl+2 move container to workspace number $ws2
-bindsym $mod+Ctrl+3 move container to workspace number $ws3
-bindsym $mod+Ctrl+4 move container to workspace number $ws4
-bindsym $mod+Ctrl+5 move container to workspace number $ws5
-bindsym $mod+Ctrl+6 move container to workspace number $ws6
-bindsym $mod+Ctrl+7 move container to workspace number $ws7
-bindsym $mod+Ctrl+8 move container to workspace number $ws8
-bindsym $mod+Ctrl+9 move container to workspace number $ws9
-bindsym $mod+Ctrl+0 move container to workspace number $ws10
+# bindsym $mod+Ctrl+1 move container to workspace number $ws1
+# bindsym $mod+Ctrl+2 move container to workspace number $ws2
+# bindsym $mod+Ctrl+3 move container to workspace number $ws3
+# bindsym $mod+Ctrl+4 move container to workspace number $ws4
+# bindsym $mod+Ctrl+5 move container to workspace number $ws5
+# bindsym $mod+Ctrl+6 move container to workspace number $ws6
+# bindsym $mod+Ctrl+7 move container to workspace number $ws7
+# bindsym $mod+Ctrl+8 move container to workspace number $ws8
+# bindsym $mod+Ctrl+9 move container to workspace number $ws9
+# bindsym $mod+Ctrl+0 move container to workspace number $ws10
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace number $ws1; workspace number $ws1
@@ -315,6 +259,30 @@ bindsym $mod+Shift+8 move container to workspace number $ws8; workspace number $
 bindsym $mod+Shift+9 move container to workspace number $ws9; workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws10
 
+# For non-crkbd, use Ctrl like num
+
+bindsym $mod+Ctrl+m      workspace number $ws1
+bindsym $mod+Ctrl+comma  workspace number $ws2
+bindsym $mod+Ctrl+period workspace number $ws3
+bindsym $mod+Ctrl+j      workspace number $ws4
+bindsym $mod+Ctrl+k      workspace number $ws5
+bindsym $mod+Ctrl+l      workspace number $ws6
+bindsym $mod+Ctrl+u      workspace number $ws7
+bindsym $mod+Ctrl+i      workspace number $ws8
+bindsym $mod+Ctrl+o      workspace number $ws9
+bindsym $mod+Ctrl+space  workspace number $ws10
+
+bindsym $mod+Ctrl+Shift+m      move container to workspace number $ws1; workspace number $ws1
+bindsym $mod+Ctrl+Shift+comma  move container to workspace number $ws2; workspace number $ws2
+bindsym $mod+Ctrl+Shift+period move container to workspace number $ws3; workspace number $ws3
+bindsym $mod+Ctrl+Shift+j      move container to workspace number $ws4; workspace number $ws4
+bindsym $mod+Ctrl+Shift+k      move container to workspace number $ws5; workspace number $ws5
+bindsym $mod+Ctrl+Shift+l      move container to workspace number $ws6; workspace number $ws6
+bindsym $mod+Ctrl+Shift+u      move container to workspace number $ws7; workspace number $ws7
+bindsym $mod+Ctrl+Shift+i      move container to workspace number $ws8; workspace number $ws8
+bindsym $mod+Ctrl+Shift+o      move container to workspace number $ws9; workspace number $ws9
+bindsym $mod+Ctrl+Shift+space  move container to workspace number $ws10; workspace number $ws10
+
 # }}}
 
 # I3BAR -------------------------------------------------------------------- {{{
@@ -325,6 +293,7 @@ bar {
     i3bar_command i3bar
     status_command i3status
     position top
+    # mode hide
 
     tray_output primary
 
@@ -350,6 +319,6 @@ bar {
 
 exec_always "autotiling -l 2"
 bindsym $mod+m exec --no-startup-id "$HOME/.config/i3/swapper master"
-bindsym $mod+Shift+q exec --no-startup-id "$HOME/.config/i3/swapper kill"
+bindsym $mod+q exec --no-startup-id "$HOME/.config/i3/swapper kill"
 
 # }}}
