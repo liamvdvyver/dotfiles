@@ -6,7 +6,7 @@ return {
   end,
   keys = {
     {
-      "<leader>j",
+      "<leader>l",
       function()
         vim.notify.dismiss({
           pending = true,

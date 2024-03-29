@@ -19,6 +19,11 @@ Pm = function(v)
   print(vim.inspect(getmetatable(v)))
 end
 
+Run = function(cmd)
+  local vimcmd = "VimuxRunCommand('clear; ' . " .. cmd .. ")"
+  vim.cmd(vimcmd)
+end
+
 -- NETRW -------------------------------------------------------------------- {{{
 
 vim.g.netrw_keepdir = 1
@@ -71,8 +76,6 @@ vim.o.splitright = true
 
 -- MAPS --------------------------------------------------------------------- {{{
 
-vim.keymap.set("i", "<c-c>", "<esc>", { desc = "Escape" })
-
 -- normal
 vim.keymap.set("n", "j", "gj", { desc = "[j] through wrap" })
 vim.keymap.set("n", "k", "gk", { desc = "[k] through wrap" })
@@ -124,26 +127,18 @@ vim.keymap.set(
   ':execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>',
   { desc = "Toggle [l]ine at textwidth" }
 )
-vim.keymap.set("n", "<leader>h", ":noh<CR>", { desc = "[c]lear [h]ighlight" })
-vim.keymap.set("n", "<leader>s", ":!", { desc = "Begin [s]hell command" })
 vim.keymap.set("n", "<leader>S", ":source $MYVIMRC<CR>", { desc = "[S]ource config file" })
-vim.keymap.set("n", "<leader>x", ":! chmod +x %<CR>", { desc = "Add e[x]ecute mode to current file" })
 
 -- spelling
-vim.keymap.set("n", "<leader>o", ":set spell!<CR>", { desc = "Toggle [o]rthography (spelling)" })
+vim.keymap.set("n", "<leader>O", ":set spell!<CR>", { desc = "Toggle [o]rthography (spelling)" })
 vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Fix last spelling mistake" })
-
--- navigation
-vim.keymap.set("n", "<leader>%", ":tcd %:h<CR>", { desc = "Set tab directory to open file" })
 
 -- buffer/tab management
 vim.keymap.set("n", "<leader>k", ":bd<CR>", { desc = "[k]ill buffer" })
-vim.keymap.set("n", "<M-C-h>", ":tabprevious<CR>")
-vim.keymap.set("n", "<M-C-l>", ":tabnext<CR>")
-vim.keymap.set("n", "<M-C-,>", ":-tabmove<CR>")
-vim.keymap.set("n", "<M-C-.>", ":+tabmove<CR>")
-vim.keymap.set("n", "<leader>N", ":tabnew<CR>", { desc = "[N]ew tab" })
-vim.keymap.set("n", "<leader>K", ":tabclose<CR>", { desc = "[K]ill tab" })
+vim.keymap.set("n", "<leader>P", ":tabprevious<CR>")
+vim.keymap.set("n", "<leader>N", ":tabnext<CR>")
+vim.keymap.set("n", "<leader>C", ":tabnew<CR>", { desc = "[N]ew tab" })
+vim.keymap.set("n", "<leader>X", ":tabclose<CR>", { desc = "[K]ill tab" })
 vim.keymap.set("n", "<C-w>h", "<C-W>s")
 
 -- brackets and lists
