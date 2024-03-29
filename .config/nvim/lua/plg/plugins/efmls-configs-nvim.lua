@@ -24,6 +24,7 @@ return {
       "prettier",
       "ansible-lint",
       "fourmolu",
+      "google-java-format"
     }
 
     for _, v in ipairs(mason_ensure_installed) do
@@ -53,6 +54,9 @@ return {
       haskell = {
         require("efmls-configs.formatters.fourmolu"),
       },
+      java = {
+        require("efmls-configs.formatters.google_java_format")
+      }
     })
 
     L = languages

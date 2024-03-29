@@ -34,6 +34,8 @@ return {
         "gitcommit",
         "gitignore",
         "diff",
+        "java",
+        "haskell"
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)

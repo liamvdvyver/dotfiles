@@ -40,6 +40,7 @@ return {
         "clangd",
         "ansiblels",
         "hls",
+        "jdtls"
       },
       handlers = { lsp.default_setup },
     })
