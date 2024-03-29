@@ -87,3 +87,6 @@ fi
 # FZF
 source /usr/share//fzf/key-bindings.zsh
 source /usr/share//fzf/completion.zsh
+
+# Zoxide
+eval "$(zoxide init zsh)"
