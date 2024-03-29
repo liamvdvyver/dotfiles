@@ -6,7 +6,7 @@ return {
     "mason.nvim",
     "mfussenegger/nvim-ansible",
   },
-  lazy = true,
+  lazy = false,
   event = "VeryLazy",
 
   config = function()

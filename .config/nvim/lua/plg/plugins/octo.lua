@@ -7,5 +7,9 @@ return {
       "nvim-telescope/telescope.nvim",
     },
   },
-  opts = {}
+  opts = {
+    suppress_missing_scope = {
+      projects_v2 = true,
+    },
+  },
 }
