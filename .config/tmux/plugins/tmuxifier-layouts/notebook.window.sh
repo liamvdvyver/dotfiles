@@ -1,12 +1,13 @@
+new_window "nvim"
+
+run_cmd "conda activate emet"
+run_cmd "nvim"
+
 new_window "notebook"
 
-split_v
-tmux resize-pane -y 40 -t 0
+run_cmd "conda activate emet"
+run_cmd "jupyter notebook"
 
-run_cmd "conda activate emet" 1
-run_cmd "jupyter notebook" 1
+select_window "notebook"
 
-run_cmd "conda activate emet" 0
-run_cmd "nvim" 0
-
-select_pane 0
+select_window "nvim"

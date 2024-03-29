@@ -5,9 +5,9 @@ echo window
 
 new_window "dev"
 
-split_v
-tmux resize-pane -y 40 -t 0
+# split_v
+# tmux resize-pane -y 40 -t 0
 
 run_cmd "nvim" 0
 
-select_pane 0
+# select_pane 0
