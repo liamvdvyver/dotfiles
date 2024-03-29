@@ -2,8 +2,8 @@ xrdb ~/.config/X11/Xresources
 xset s off &
 xset -dpms &
 
-picom -c &
-cat ~/.config/rice/pape | xargs pape &
+picom &
+pape -s &
 
 sxhkd &
 mpd &
@@ -16,6 +16,5 @@ emacs --daemon &
 syncthingtray &
 xfce4-power-manager &
 blueman-applet &
-kmonad ~/.config/kmonad/default.kbd &
 
 exec i3
