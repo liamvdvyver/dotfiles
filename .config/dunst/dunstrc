@@ -1,20 +1,20 @@
 # FOLLOWING LINES WILL BE OVERWRITTEN
 
 [global]
-icon_theme = "gruvbox-dark-icons-gtk"
+icon_theme = "Papirus-Dark"
 enable_recursive_icon_lookup = "true"
 
 [urgency_low]
-background = "#282828"
-foreground = "#ebdbb2"
-frame_color = "#3c3836"
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#45475a"
 
 [urgency_normal]
-background = "#282828"
-foreground = "#ebdbb2"
-frame_color = "#a89984"
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#89b4fa"
 
 [urgency_critical]
-background = "#282828"
-foreground = "#ebdbb2"
-frame_color = "#fb4934"
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#f38ba8"

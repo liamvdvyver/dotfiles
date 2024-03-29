@@ -1,10 +1,10 @@
 * { 
-    foreground: #ebdbb2; //fg
-    foreground-alt: #928374; //fl
-    background: #282828; //bg
-    border: #a89984; //bd
-    active-foreground: #282828; //fa
-    active-background: #a89984; //ba
+    foreground: #cdd6f4; //fg
+    foreground-alt: #45475a; //fl
+    background: #1e1e2e; //bg
+    border: #89b4fa; //bd
+    active-foreground: #1e1e2e; //fa
+    active-background: #89b4fa; //ba
 
     normal-foreground:           var(foreground);
     lightfg:                     var(foreground-alt);

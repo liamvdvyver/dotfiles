@@ -9,7 +9,7 @@ rice.gtk.light: Adwaita
 rice.icon.dark: Papirus-Dark
 rice.icon.light: Papirus-Light
 
-#include "/home/lvdv/.config/rice/themes/gruvbox-dark"
+#include "/home/lvdv/.config/rice/themes/catppuccin"
 
 ! URXVT -------------------------------------------------------------------- {{{
 

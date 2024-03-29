@@ -9,7 +9,7 @@ vim.g.mapleader = " "
 require("plugins")
 
 vim.cmd.syntax("enable")
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("catppuccin")
 
 P = function(v)
   print(vim.inspect(v))
