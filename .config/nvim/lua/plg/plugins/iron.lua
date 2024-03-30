@@ -1,5 +1,6 @@
 return {
   "https://github.com/Vigemus/iron.nvim",
+  enabled = false,
   lazy = true,
   keys = {
     -- similar to nvim-r
