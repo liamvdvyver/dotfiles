@@ -8,12 +8,10 @@ return {
     {
       "<leader>l",
       function()
-        vim.notify.dismiss({
-          pending = true,
-          silent = true,
-        })
+        vim.notify.dismiss({ pending = true, silent = true })
         vim.cmd([[noh]])
       end,
+      desc = "c[l]ear highlights/notifications",
     },
   },
 }

@@ -134,11 +134,11 @@ vim.keymap.set("n", "<leader>O", ":set spell!<CR>", { desc = "Toggle [o]rthograp
 vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Fix last spelling mistake" })
 
 -- buffer/tab management
-vim.keymap.set("n", "<leader>k", ":bd<CR>", { desc = "[k]ill buffer" })
-vim.keymap.set("n", "<leader>P", ":tabprevious<CR>")
-vim.keymap.set("n", "<leader>N", ":tabnext<CR>")
-vim.keymap.set("n", "<leader>C", ":tabnew<CR>", { desc = "[N]ew tab" })
-vim.keymap.set("n", "<leader>X", ":tabclose<CR>", { desc = "[K]ill tab" })
+vim.keymap.set("n", "<leader>x", ":bd<CR>", { desc = "Close buffer" })
+vim.keymap.set("n", "<leader>P", ":tabprevious<CR>", {desc = "[P]revious tab"})
+vim.keymap.set("n", "<leader>N", ":tabnext<CR>", {desc = "[N]ext tab"})
+vim.keymap.set("n", "<leader>C", ":tabnew<CR>", { desc = "[C]reate tab" })
+vim.keymap.set("n", "<leader>X", ":tabclose<CR>", { desc = "Close tab" })
 vim.keymap.set("n", "<C-w>h", "<C-W>s")
 
 -- brackets and lists
@@ -146,8 +146,8 @@ vim.keymap.set("n", "[l", ":lprev<CR>zz", { desc = "Previous [l]ocation" })
 vim.keymap.set("n", "]l", ":lnext<CR>zz", { desc = "Next [l]ocation" })
 vim.keymap.set("n", "[q", ":cprev<CR>zz", { desc = "Previous [q]uickfix item" })
 vim.keymap.set("n", "]q", ":cnext<CR>zz", { desc = "Next [q]uickfix item" })
-vim.keymap.set("n", "<leader>q", ":cclose<CR>", { desc = "close [q]uickfix list" })
-vim.keymap.set("n", "<leader>Q", ":cwindow<CR>", { desc = "show [q]uickfix list" })
+vim.keymap.set("n", "<leader>Q", ":cclose<CR>", { desc = "close [q]uickfix list" })
+vim.keymap.set("n", "<leader>q", ":cwindow<CR>", { desc = "show [q]uickfix list" })
 
 -- }}}
 

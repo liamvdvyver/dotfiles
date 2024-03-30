@@ -11,7 +11,7 @@ return {
       function()
         require("dapui").toggle()
       end,
-      { desc = "Toggle [D]AP [w]indow" },
+      desc = "Toggle [D]AP [w]indow",
     },
   },
   opts = {},

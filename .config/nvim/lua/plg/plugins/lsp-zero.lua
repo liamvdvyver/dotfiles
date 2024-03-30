@@ -8,17 +8,7 @@ return {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "mfussenegger/nvim-ansible",
-    {
-      "rmagatti/goto-preview",
-      config = { default_mappings = true },
-      keys = {
-        {
-          "gk",
-          "<cmd>lua require('goto-preview').goto_preview_defintion()<CR>",
-          desc = "[g]oto preview defintion",
-        },
-      },
-    },
+    { "rmagatti/goto-preview", opts = { default_mappings = true } },
   },
 
   config = function()
@@ -40,7 +30,7 @@ return {
         "clangd",
         "ansiblels",
         "hls",
-        "jdtls"
+        "jdtls",
       },
       handlers = { lsp.default_setup },
     })
