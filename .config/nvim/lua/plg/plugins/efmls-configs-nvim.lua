@@ -57,6 +57,9 @@ return {
       java = {
         require("efmls-configs.formatters.google_java_format"),
       },
+      html = {
+        require("efmls-configs.formatters.prettier"),
+      }
     })
 
     L = languages
