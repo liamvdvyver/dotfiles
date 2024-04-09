@@ -31,11 +31,11 @@ return {
       desc = "[V]imux: send <C-[c]>",
     },
     {
-      "<leader>vl",
+      "<leader>v.",
       function()
         vim.cmd([[VimuxRunLastCommand]])
       end,
-      desc = "[V]imux: run [l]ast command",
+      desc = "[V]imux: run last command",
     },
   },
 }
