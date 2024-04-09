@@ -28,9 +28,6 @@ super + shift + m
 super + shift + x
     xkill
 
-super + shift + d
-    autorandr --change docked
-
 # }}}
 
 # Dmenu -------------------------------------------------------------------- {{{
@@ -58,6 +55,9 @@ super + shift + s
 
 super + shift + r
     rice-menu
+
+super + shift + d
+    doramenu.sh
 
 # }}}
 

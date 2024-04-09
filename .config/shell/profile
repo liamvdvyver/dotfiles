@@ -11,7 +11,7 @@ export EDITOR=$VISUAL
 export BROWSER=qutebrowser
 export TERMINAL=kitty
 #export TERM=xterm-kitty
-export PATH=~/git/scripts:~/.local/bin:~/.config/emacs/bin:/usr/local/stata17:~/.config/tmux/plugins/tmuxifier/bin:/usr/lib/rstudio:~/.ghcup/bin:~/.cabal/bin:$PATH
+export PATH=~/git/scripts:~/.local/bin:~/.config/emacs/bin:/usr/local/stata17:~/.config/tmux/plugins/tmuxifier/bin:/usr/lib/rstudio:~/.ghcup/bin:~/.cabal/bin:~/git/dora/build:~/git/dora/scripts:$PATH
 
 # Application config
 export RANGER_LOAD_DEFAULT_RC=FALSE

@@ -21,6 +21,7 @@ general {
         color_degraded = "#DC322F"
 }
 
+order += "read_file dora_state"
 order += "cpu_usage"
 order += "memory"
 order += "volume master"
@@ -46,4 +47,9 @@ memory {
 
 tztime local {
         format = "  %a %b %d, %I:%M:%S %p "
+}
+
+read_file dora_state {
+    path = "~/.local/state/dora_state"
+    format = " %content "
 }
