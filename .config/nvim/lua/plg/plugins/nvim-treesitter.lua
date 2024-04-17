@@ -35,7 +35,8 @@ return {
         "gitignore",
         "diff",
         "java",
-        "haskell"
+        "haskell",
+        "typescript",
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)

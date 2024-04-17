@@ -25,6 +25,7 @@ return {
       "ansible-lint",
       "fourmolu",
       "google-java-format",
+      "eslint-lsp",
     }
 
     for _, v in ipairs(mason_ensure_installed) do
@@ -58,6 +59,10 @@ return {
         require("efmls-configs.formatters.google_java_format"),
       },
       html = {
+        require("efmls-configs.formatters.prettier"),
+      },
+      typescript = {
+        require("efmls-configs.linters.eslint"),
         require("efmls-configs.formatters.prettier"),
       }
     })

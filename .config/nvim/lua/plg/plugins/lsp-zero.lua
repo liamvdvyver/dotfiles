@@ -31,6 +31,7 @@ return {
         "ansiblels",
         "hls",
         "jdtls",
+        "tsserver",
       },
       handlers = { lsp.default_setup },
     })
