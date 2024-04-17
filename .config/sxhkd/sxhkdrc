@@ -1,10 +1,10 @@
 # Applications ------------------------------------------------------------  {{{
 
 super + Return
-    $TERMINAL
+    $TERMINAL --name __tmux -e tmux-sessioniser
 
 super + shift + Return
-    $TERMINAL --name __scratchpad
+    $TERMINAL --name __scratchpad -e tmux-sessioniser
 
 super + shift + a
     pavucontrol
