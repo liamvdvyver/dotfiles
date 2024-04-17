@@ -76,6 +76,8 @@ vim.o.splitright = true
 
 -- MAPS --------------------------------------------------------------------- {{{
 
+-- breaking bad habits
+vim.keymap.set("i", "<C-c>", function() vim.notify("BRUH XDDDDD") end)
 -- normal
 vim.keymap.set("n", "j", "gj", { desc = "[j] through wrap" })
 vim.keymap.set("n", "k", "gk", { desc = "[k] through wrap" })
@@ -86,12 +88,10 @@ vim.keymap.set("n", "<A-i>", "<c-w>-", { desc = "Shrink split vertically" })
 vim.keymap.set("n", "<A-o>", "<c-w>>", { desc = "Grow split horizontally" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Center after scroll up" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center after scroll down" })
+vim.keymap.set("n", "}", "}zz", { desc = "Center after scroll up" })
+vim.keymap.set("n", "{", "{zz", { desc = "Center after scroll down" })
 vim.keymap.set("n", "n", "nzzzv", { desc = "Center after [n]ext result" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Center after previous result" })
-
--- left and right
-vim.keymap.set("n", "H", "^", { desc = "Start of line" })
-vim.keymap.set("n", "L", "$", { desc = "End of line" })
 
 -- clipboard
 vim.keymap.set("n", "<leader>y", '"+y', { desc = "[y]ank to clipboard" })
@@ -135,8 +135,8 @@ vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Fix last spe
 
 -- buffer/tab management
 vim.keymap.set("n", "<leader>x", ":bd<CR>", { desc = "Close buffer" })
-vim.keymap.set("n", "<leader>P", ":tabprevious<CR>", {desc = "[P]revious tab"})
-vim.keymap.set("n", "<leader>N", ":tabnext<CR>", {desc = "[N]ext tab"})
+vim.keymap.set("n", "<leader>P", ":tabprevious<CR>", { desc = "[P]revious tab" })
+vim.keymap.set("n", "<leader>N", ":tabnext<CR>", { desc = "[N]ext tab" })
 vim.keymap.set("n", "<leader>C", ":tabnew<CR>", { desc = "[C]reate tab" })
 vim.keymap.set("n", "<leader>X", ":tabclose<CR>", { desc = "Close tab" })
 vim.keymap.set("n", "<C-w>h", "<C-W>s")
