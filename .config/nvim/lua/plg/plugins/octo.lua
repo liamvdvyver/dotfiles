@@ -1,6 +1,6 @@
 return {
   "pwntester/octo.nvim",
-  enabled = true,
+  enabled = false,
   dependencies = {
     { "nvim-tree/nvim-web-devicons", name = "tree-nvim-web-devicons" },
     "nvim-lua/plenary.nvim",

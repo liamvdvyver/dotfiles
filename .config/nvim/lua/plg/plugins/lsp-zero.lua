@@ -8,7 +8,7 @@ return {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "mfussenegger/nvim-ansible",
-    { "rmagatti/goto-preview", opts = { default_mappings = true } },
+    { "rmagatti/goto-preview", opts = { default_mappings = true }, enabled = false },
   },
 
   config = function()
