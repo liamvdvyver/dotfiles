@@ -27,6 +27,14 @@ for_window [class="R_x11"] move scratchpad
 for_window [class="R_x11"] scratchpad show
 for_window [class="Blueman-manager"] move scratchpad
 for_window [class="Blueman-manager"] scratchpad show
+ 
+# Specific workspaces
+assign [instance="__tmux"] $ws1
+assign [class="qutebrowser"] $ws2
+assign [class="Zotero"] $ws3
+assign [class="calibre"] $ws3
+assign [class="PrismLauncher"] $ws10
+assign [class="VSCodium"] $ws4
 
 # Controls
 bindsym $mod+period move workspace to output right
@@ -210,10 +218,10 @@ bindsym $mod+r restart
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
+set $ws1 "1 "
+set $ws2 "2 󰌀"
+set $ws3 "3 "
+set $ws4 "4 "
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"

@@ -76,8 +76,8 @@
 
 (deflayer symbols
   _    _    _    _    _    _     _    _    _    _    _    _    _    _
-  _    _    _    =    %    ~     #    ]    [    -    +    _    _    _
-  _    @    *    $   \_    <     >    }    {    _    _    `    _
+  _    _    _    =    %    ~     _    ]    [    -    +    _    _    _
+  _    @    *    $   \_    >     #    }    {    <    :    `    _
   _    _    _    ^    |    !     &   \)   \(    _    \    _
   _    _    _               _              _    _    _    _
 )
@@ -101,7 +101,7 @@
 (deflayer nav
   _    _    _      _      _              _   _    _    _     _     _  _  _    _
   _    _    _      enter  _              tab _    _    pgup  _     _  _  _    _
-  _    _    sysrq  pgdn   tab            _   left down up    right _  _  _
+  _    _    sysrq  pgdn   _              _   left down up    right _  _  _
   _    _    delete _      _              _   _    _    _     _     _  _
   _    _    _                  enter              _    _     _     _
 )

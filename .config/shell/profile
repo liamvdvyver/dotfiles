@@ -9,6 +9,7 @@
 export VISUAL=nvim
 export EDITOR=$VISUAL
 export BROWSER=qutebrowser
+export PAGER='bat --theme=base16'
 export TERMINAL=kitty
 #export TERM=xterm-kitty
 export PATH=~/git/scripts:~/.local/bin:~/.config/emacs/bin:/usr/local/stata17:~/.config/tmux/plugins/tmuxifier/bin:/usr/lib/rstudio:~/.ghcup/bin:~/.cabal/bin:~/git/dora/build:~/git/dora/scripts:$PATH
