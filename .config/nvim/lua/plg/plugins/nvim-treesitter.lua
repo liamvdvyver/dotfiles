@@ -38,6 +38,7 @@ return {
         "java",
         "haskell",
         "typescript",
+        "javascript",
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)

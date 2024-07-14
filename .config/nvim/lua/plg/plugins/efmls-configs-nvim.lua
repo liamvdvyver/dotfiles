@@ -64,6 +64,10 @@ return {
       typescript = {
         require("efmls-configs.linters.eslint"),
         require("efmls-configs.formatters.prettier"),
+      },
+      javascript = {
+        require("efmls-configs.linters.eslint"),
+        require("efmls-configs.formatters.prettier"),
       }
     })
 

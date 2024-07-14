@@ -6,7 +6,7 @@ picom &
 pape -s &
 
 sxhkd &
-mpd &
+if [ -z $(pgrep mpd) ]; then mpd; fi &
 mpDris2 &
 playerctld daemon &
 flameshot &
@@ -15,6 +15,7 @@ nm-applet &
 emacs --daemon &
 syncthingtray &
 xfce4-power-manager &
+dbus-update-activation-environment --systemd --all &
 blueman-applet &
 
 exec i3

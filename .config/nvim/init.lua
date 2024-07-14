@@ -20,8 +20,18 @@ Pm = function(v)
 end
 
 Run = function(cmd)
-  local vimcmd = "VimuxRunCommand('clear; ' . " .. cmd .. ")"
+  cmd = cmd:gsub("'", "'..\"'\"..'")
+  local vimcmd = "VimuxRunCommand('" .. cmd .. "')"
   vim.cmd(vimcmd)
+end
+
+Cwd_matches = function(query)
+  local dir = vim.fn.getcwd()
+  local p = io.popen('find "' .. dir .. '" -maxdepth 1 -type f -name "' .. query ..'"')
+  for file in p:lines() do
+    P(file)
+    return not not file
+  end
 end
 
 -- NETRW -------------------------------------------------------------------- {{{
@@ -156,44 +166,7 @@ vim.keymap.set("n", "<leader>q", ":cwindow<CR>", { desc = "show [q]uickfix list"
 -- general
 vim.cmd([[autocmd TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false}]])
 
--- .tex
-vim.cmd([[autocmd Filetype tex nnoremap <localleader>wc :!detex % \| wc -w<CR>]])
-vim.cmd([[autocmd Filetype tex setlocal wrap spell]])
-vim.cmd([[autocmd Filetype tex setlocal conceallevel=1]])
-vim.cmd([[autocmd Filetype tex setlocal formatoptions -=t]])
-
--- markdown
-vim.cmd([[autocmd Filetype markdown setlocal nowrap spell]])
-vim.cmd([[autocmd Filetype markdown setlocal formatoptions -=t]])
-
--- python
-vim.cmd([[autocmd Filetype python nnoremap <localleader>x :w<bar>!python %<CR>]])
-vim.cmd([[autocmd Filetype python setlocal textwidth=79]])
-
--- bash
-vim.cmd([[autocmd Filetype sh nnoremap <localleader>x :w<bar>!bash %<CR>]])
-
--- lua
-vim.cmd([[autocmd Filetype lua setlocal shiftwidth=2]])
-vim.cmd([[autocmd Filetype lua setlocal tabstop=2]])
-vim.cmd([[autocmd Filetype lua nnoremap <localleader>x :source %<CR>]])
-
--- yaml
-vim.cmd([[autocmd Filetype yaml setlocal shiftwidth=2]])
-vim.cmd([[autocmd Filetype yaml setlocal tabstop=2]])
-
 -- config
 vim.cmd([[autocmd BufEnter sxhkdrc setlocal ft=sxhkdrc]])
-
--- r
-vim.cmd([[autocmd Filetype r setlocal shiftwidth=2]])
-vim.cmd([[autocmd Filetype r setlocal tabstop=2]])
-
--- c
-vim.cmd([[autocmd Filetype c nnoremap <localleader>x :make %:r<CR>]])
-vim.cmd([[autocmd Filetype c nnoremap <localleader>X :split<CR>:terminal ./%:r<CR>i]])
-
--- haskell
-vim.cmd([[autocmd Filetype haskell nnoremap <localleader>t :w<bar>!doctest %<CR>]])
 
 -- }}}

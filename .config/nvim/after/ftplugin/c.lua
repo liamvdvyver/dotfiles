@@ -1,0 +1,10 @@
+vim.keymap.set("n", "<localleader>B", function()
+  Run("'make'")
+end)
+vim.keymap.set("n", "<localleader>b", function()
+  Run("'make ' .expand('%')")
+end)
+vim.keymap.set("n", "<localleader>x", function()
+  Run("'./' .expand('%:r')")
+end)
+

@@ -70,7 +70,7 @@ alias wp='pape -i ~/Pictures/papes/'
 alias mmd='find . -regex '\''.*\.\(flac\|mp3\|dsf\)'\'' -exec musmv {} \;'
 alias mms='muscf; musc; rm -d source/; rm -d other/; mmd'
 alias fb='fzf-calibre'
-alias sb='tmux new-session -s update "cd ~/git/strapbook/; ansible-playbook -K --ask-vault-pass run.yml"'
+alias sb='cd ~/git/strapbook/; ansible-playbook -K --ask-vault-pass run.yml'
 
 # clean up dotfiles
 alias gcalcli='gcalcli --config-folder ~/.config/gcalcli'

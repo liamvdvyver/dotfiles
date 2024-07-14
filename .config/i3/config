@@ -23,28 +23,44 @@ for_window [class="KeePassXC"] move scratchpad
 for_window [class="KeePassXC"] scratchpad show
 for_window [class="Pavucontrol"] move scratchpad
 for_window [class="Pavucontrol"] scratchpad show
-for_window [class="R_x11"] move scratchpad
-for_window [class="R_x11"] scratchpad show
 for_window [class="Blueman-manager"] move scratchpad
 for_window [class="Blueman-manager"] scratchpad show
  
 # Specific workspaces
+
+## terminal
 assign [instance="__tmux"] $ws1
+
+## browser
 assign [class="qutebrowser"] $ws2
+
+## reference
 assign [class="Zotero"] $ws3
 assign [class="calibre"] $ws3
-assign [class="PrismLauncher"] $ws10
+assign [class="obsidian"] $ws3
+
+## assorted gui apps
 assign [class="VSCodium"] $ws4
+assign [class="rstudio"] $ws4
+for_window [instance="libreoffice"] move container to workspace $ws4
+assign [class="MuseScore4"] $ws4
+
+## output
+assign [class="R_x11"] $ws5
+assign [class="Brave-browser"] $ws5
+
+## time wasting
+assign [class="PrismLauncher"] $ws10
 
 # Controls
 bindsym $mod+period move workspace to output right
 bindsym $mod+comma move workspace to output left
 # bindsym $mod+Mod1+Left move workspace to output left
 # bindsym $mod+Mod1+Right move workspace to output right
-bindsym $mod+y resize shrink width 20 px or 20 ppt
-bindsym $mod+u resize grow height 20 px or 20 ppt
-bindsym $mod+i resize shrink height 20 px or 20 ppt
-bindsym $mod+o resize grow width 20 px or 20 ppt
+bindsym $mod+y resize shrink width 10 px or 10 ppt
+bindsym $mod+u resize grow height 10 px or 10 ppt
+bindsym $mod+i resize shrink height 10 px or 10 ppt
+bindsym $mod+o resize grow width 10 px or 10 ppt
 
 # }}}
 
@@ -82,10 +98,6 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
-
-#navigate workspaces next / previous
-bindsym $mod+n workspace next
-bindsym $mod+p workspace prev
 
 # }}}
 
@@ -171,12 +183,9 @@ floating_modifier $mod
 # change focus
 focus_follows_mouse no
 bindsym $mod+h focus parent; focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
+bindsym $mod+j exec --no-startup-id "$HOME/.config/i3/focuser down"
+bindsym $mod+k exec --no-startup-id "$HOME/.config/i3/focuser up"
 bindsym $mod+l focus parent; focus right
-
-# bindsym $mod+mod1+h focus left
-# bindsym $mod+mod1+l focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -189,7 +198,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout default
 
 # toggle tiling / floating
@@ -222,12 +231,12 @@ set $ws1 "1 "
 set $ws2 "2 󰌀"
 set $ws3 "3 "
 set $ws4 "4 "
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws5 "5 󱃸"
+set $ws6 "6 "
+set $ws7 "7 "
+set $ws8 "8 "
+set $ws9 "9 "
+set $ws10 "10 󰍳"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1

@@ -1,0 +1,69 @@
+#!/usr/bin/python3
+
+import time
+
+start = time.time()
+
+import argparse
+import i3ipc
+
+print(f'imported: {time.time()  - start}')
+
+parser = argparse.ArgumentParser()
+parser.add_argument("action")
+arg = parser.parse_args().action
+
+def find_parent(con, workspace):
+    parent = None
+    for candidate in [workspace] + workspace.descendants():
+        for dsc in candidate.descendants():
+            if dsc.id == con.id:
+                parent = candidate
+
+    return parent
+
+
+def get_vars():
+    # Initiate i3ipc library.
+    global i3
+    i3 = i3ipc.Connection()
+
+    # We need tree of containers to find focused and the biggest one.
+    global tree
+    tree = i3.get_tree()
+
+    # Class of currently focused container.
+    global focused
+    focused = tree.find_focused()
+
+    global workspace
+    workspace = focused.workspace()
+
+    print(f'getting parent: {time.time()  - start}')
+
+    global parent
+    parent = find_parent(focused, workspace)
+
+    print(f'gotten parent: {time.time()  - start}')
+
+    global layout
+    layout = parent.layout
+
+print(f'getting vars: {time.time()  - start}')
+
+get_vars()
+
+
+if arg == "down":
+    if layout == "tabbed":
+        i3.command("focus left")
+    else:
+        i3.command("focus down")
+
+if arg == "up":
+    if layout == "tabbed":
+        i3.command("focus right")
+    else:
+        i3.command("focus up")
+
+print(f'done: {time.time()  - start}')

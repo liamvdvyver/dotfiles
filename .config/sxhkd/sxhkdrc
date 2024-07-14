@@ -1,10 +1,10 @@
 # Applications ------------------------------------------------------------  {{{
 
 super + Return
-    $TERMINAL --name __tmux -e tmux-sessioniser
+    $TERMINAL --name __tmux -e tmux-sessioniser default
 
 super + shift + Return
-    $TERMINAL --name __scratchpad -e tmux-sessioniser
+    $TERMINAL --name __scratchpad -e tmux-sessioniser default
 
 super + shift + a
     pavucontrol
@@ -12,8 +12,11 @@ super + shift + a
 super + shift + b
     blueman-manager
 
-super + shift + w
+super + w
     qutebrowser
+
+super + shift + w
+    brave --password-store=basic
 
 # }}}
 

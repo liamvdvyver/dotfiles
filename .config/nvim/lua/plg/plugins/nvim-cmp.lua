@@ -17,7 +17,7 @@ return {
       dev = true,
       opts = {
         files = { "~/Documents/zotero/bib.bib" },
-        filetypes = { "markdown" },
+        filetypes = { "markdown", "tex" },
       },
     },
   },

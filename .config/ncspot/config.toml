@@ -1,4 +1,4 @@
 [keybindings]
 "Ctrl+f" = "focus search"
 "Ctrl+q" = "focus queue"
-"Ctrl+l" = "focus library"
+"Ctrl+b" = "focus library"

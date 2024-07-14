@@ -32,6 +32,7 @@ return {
         "hls",
         "jdtls",
         "tsserver",
+        "emmet_language_server",
       },
       handlers = { lsp.default_setup },
     })
