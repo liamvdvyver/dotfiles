@@ -19,7 +19,7 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 export QT_QPA_PLATFORMTHEME=gtk2
 export CALIBRE_USE_SYSTEM_THEME=1
 export FZF_DEFAULT_COMMAND='fd -L -tf'
-export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/plugins/tmuxifier-layouts/"
+export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/tmuxifier-layouts"
 
 # Pfetch config
 export PF_INFO="ascii os kernel uptime pkgs shell wm editor palette"
