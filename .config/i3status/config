@@ -21,7 +21,8 @@ general {
         color_degraded = "#DC322F"
 }
 
-order += "read_file dora_state"
+# order += "read_file dora_state"
+order += "battery all"
 order += "cpu_usage"
 order += "memory"
 order += "volume master"
@@ -52,4 +53,17 @@ tztime local {
 read_file dora_state {
     path = "~/.local/state/dora_state"
     format = " %content "
+}
+
+battery all {
+        format = " %status %percentage (%remaining) "
+        format_down = " 󱟨"
+        status_chr = " 󰂄"
+        status_bat = " 󰁹"
+        status_unk = " 󰂑"
+        status_full = " 󱟢"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        # low_threshold = 20
+        hide_seconds = true
+        integer_battery_capacity = true
 }
