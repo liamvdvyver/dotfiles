@@ -13,7 +13,7 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
     { "kyazdani42/nvim-web-devicons", name = "nvim-web-devicons-lualine" },
-    { "WhoIsSethDaniel/lualine-lsp-progress.nvim" },
+    { "WhoIsSethDaniel/lualine-lsp-progress.nvim", enabled = false },
   },
   opts = {
     options = {

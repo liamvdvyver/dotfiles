@@ -1,5 +1,5 @@
 return {
-  dir = "~/git/R_nvim/",
+  -- dir = "~/git/R_nvim/",
   "R-nvim/R.nvim",
   lazy = false,
   opts = {
