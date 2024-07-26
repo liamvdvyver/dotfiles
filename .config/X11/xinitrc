@@ -13,7 +13,7 @@ flameshot &
 dunst &
 nm-applet &
 emacs --daemon &
-syncthingtray &
+syncthingtray-qt6 &
 xfce4-power-manager &
 dbus-update-activation-environment --systemd --all &
 blueman-applet &
