@@ -45,7 +45,7 @@ super + shift + u
     usermenu --type
 
 super + shift + v
-    autorandr -c "$(autorandr --list | dmenu)"
+    autorandr clone-largest
 
 super + shift + o
     web-open
