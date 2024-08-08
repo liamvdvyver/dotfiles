@@ -10,7 +10,7 @@ super + shift + a
     pavucontrol
 
 super + shift + b
-    blueman-manager
+    rofi-bluetooth
 
 super + w
     qutebrowser
@@ -50,7 +50,7 @@ super + shift + v
 super + shift + o
     web-open
 
-super + shift + n
+super + shift + i
     kmonad-selector
 
 super + shift + s
@@ -61,6 +61,9 @@ super + shift + r
 
 super + shift + d
     doramenu.sh
+
+super + shift + n
+    networkmanager_dmenu
 
 # }}}
 
