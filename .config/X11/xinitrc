@@ -8,10 +8,7 @@ pape -s &
 sxhkd &
 mpDris2 &
 dunst &
-nm-applet &
-#syncthingtray-qt6 &
 xfce4-power-manager &
 dbus-update-activation-environment --systemd --all &
-#blueman-applet &
 
 exec i3
