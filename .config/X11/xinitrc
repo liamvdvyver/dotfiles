@@ -9,7 +9,6 @@ sxhkd &
 if [ -z $(pgrep mpd) ]; then mpd; fi &
 mpDris2 &
 playerctld daemon &
-flameshot &
 dunst &
 nm-applet &
 emacs --daemon &

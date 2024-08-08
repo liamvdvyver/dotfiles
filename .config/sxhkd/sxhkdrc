@@ -23,7 +23,7 @@ super + shift + w
 # Shortcuts ---------------------------------------------------------------- {{{
 
 Print
-    flameshot gui
+    flameshot gui && killall flameshot
 
 super + shift + m
     notify-send "Syncing mail" && mw -Y && notify-send "Synced mail"
