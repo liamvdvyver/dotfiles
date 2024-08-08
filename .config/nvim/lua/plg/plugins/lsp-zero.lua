@@ -34,7 +34,10 @@ return {
         "tsserver",
         "emmet_language_server",
       },
-      handlers = { lsp.default_setup },
+      handlers = {
+        lsp.default_setup,
+        jdtls = function() end,
+      },
     })
 
     require("lspconfig").lua_ls.setup({})
