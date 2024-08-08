@@ -11,8 +11,8 @@
 # Temporary fix:
 for_window [class=".*"] border pixel 3
 
-exec --no-startup-id pactl load-module module-bluetooth-policy
-exec --no-startup-id pactl load-module module-bluetooth-discover
+# exec --no-startup-id pactl load-module module-bluetooth-policy
+# exec --no-startup-id pactl load-module module-bluetooth-discover
 
 # BINDS -------------------------------------------------------------------- {{{
 
