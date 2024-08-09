@@ -9,6 +9,7 @@
 
   ;; This option tells KMonad to let non-configured keys act normal
   fallthrough true
+  allow-cmd true
 )
 
 (defsrc
@@ -24,11 +25,12 @@
     tab  q    w    e    r    t    y    u    i    o    p    _    ]    \
     caps a    s    d    f    g    h    j    k    l    ;    '    ret
     lsft z    x    c    v    b    n    m    ,    .    /    rsft
-    lctl lmet lalt           spc            @hr rmet cmp  rctl
+    lctl lmet lalt           spc            @hr rmet cmp  @ex
 )
 
 (defalias hr (layer-add homerowmods)
-          hr_d (layer-rem homerowmods))
+          hr_d (layer-rem homerowmods)
+          ex (cmd-button "killall kmonad"))
 
 (deflayer homerowmods
   _        _      _      _       _      _  _    _     _      _      _      _    _    _
