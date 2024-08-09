@@ -21,8 +21,8 @@ for_window [instance="__scratchpad"] move scratchpad
 for_window [instance="__scratchpad"] scratchpad show
 for_window [class="KeePassXC"] move scratchpad
 for_window [class="KeePassXC"] scratchpad show
-for_window [class="Pavucontrol"] move scratchpad
-for_window [class="Pavucontrol"] scratchpad show
+for_window [class="pavucontrol"] move scratchpad
+for_window [class="pavucontrol"] scratchpad show
 for_window [class="Blueman-manager"] move scratchpad
 for_window [class="Blueman-manager"] scratchpad show
  
@@ -44,10 +44,14 @@ assign [class="VSCodium"] $ws4
 assign [class="rstudio"] $ws4
 for_window [instance="libreoffice"] move container to workspace $ws4
 assign [class="MuseScore4"] $ws4
+assign [class="jetbrains-idea-ce"] $ws4
 
 ## output
 assign [class="R_x11"] $ws5
 assign [class="Brave-browser"] $ws5
+
+## VMs
+assign [class="Virt-manager"] $ws6
 
 ## time wasting
 assign [class="PrismLauncher"] $ws10
