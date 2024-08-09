@@ -11,4 +11,7 @@ dunst &
 xfce4-power-manager &
 dbus-update-activation-environment --systemd --all &
 
+# Without this running, SSO through openconnect doesn't work
+nm-applet &
+
 exec i3
