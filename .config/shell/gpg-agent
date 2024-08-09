@@ -1,0 +1,16 @@
+#!/bin/sh
+# Running this will setup gpg-agent for ssh
+# This should be used to launch gpg-agent
+# If gpg-agent or ssh-agent are already running,
+# I do not know if it will work
+
+if [ -n "$(pgrep ssh-agent)" ]; then killall ssh-agent; fi
+unset SSH_AGENT_PID
+
+GPG_TTY="$(tty)"
+SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
+export GPG_TTY="$GPG_TTY"
+export SSH_AUTH_SOCK="$SSH_AUTH_SOCK"
+
+gpgconf --launch gpg-agent 

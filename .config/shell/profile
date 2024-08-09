@@ -36,8 +36,6 @@ export XDG_STATE_HOME=$HOME/.local/state
 
 # GPG
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
-export GPG_TTY=$(tty)
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 # Clean up dotfiles
 export PASSWORD_STORE_DIR=~/git/password-store

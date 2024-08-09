@@ -90,3 +90,6 @@ source /usr/share//fzf/completion.zsh
 
 # Zoxide
 eval "$(zoxide init zsh)"
+
+# Setup gpg-agent
+. "$XDG_CONFIG_HOME/shell/gpg-agent"
