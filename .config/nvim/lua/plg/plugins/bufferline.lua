@@ -10,9 +10,9 @@ return {
   },
   config = function(_, opts)
     require("bufferline").setup(opts)
-    vim.keymap.set("n", "<M-h>", ":BufferLineCyclePrev<CR>")
-    vim.keymap.set("n", "<M-l>", ":BufferLineCycleNext<CR>")
-    vim.keymap.set("n", "<M-,>", ":BufferLineMovePrev<CR>")
-    vim.keymap.set("n", "<M-.>", ":BufferLineMoveNext<CR>")
+    vim.keymap.set("n", "<M-h>", "<cmd>BufferLineCyclePrev<CR>")
+    vim.keymap.set("n", "<M-l>", "<cmd>BufferLineCycleNext<CR>")
+    vim.keymap.set("n", "<M-,>", "<cmd>BufferLineMovePrev<CR>")
+    vim.keymap.set("n", "<M-.>", "<cmd>BufferLineMoveNext<CR>")
   end,
 }

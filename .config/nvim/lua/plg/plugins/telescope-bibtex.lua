@@ -4,7 +4,7 @@ return {
   lazy = true,
   keys = { {
     "<leader>fz",
-    ":Telescope bibtex<CR>",
+    "<cmd>Telescope bibtex<CR>",
     desc = "Fuzzy [f]ind bibtex ([z]otero) references",
   } },
   -- after = {'telescope.nvim'},

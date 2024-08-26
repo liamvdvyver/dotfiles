@@ -28,7 +28,7 @@ return {
       \   'make':  {t, x -> 'tags: ' . empty(t) ? '' : join(t, ', ')}}
       \]
       ]])
-    vim.keymap.set("n", "<leader>wp", ":WikiPages<CR>")
-    vim.keymap.set("n", "<leader>wt", ":WikiTags<CR>")
+    vim.keymap.set("n", "<leader>wp", "<cmd>WikiPages<CR>")
+    vim.keymap.set("n", "<leader>wt", "<cmd>WikiTags<CR>")
   end,
 }

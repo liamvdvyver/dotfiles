@@ -11,6 +11,6 @@ return {
     vim.g.mkdp_theme = "dark"
     vim.g.mkdp_auto_start = 0
     vim.g.mkdp_auto_close = 0
-    vim.keymap.set("n", "<leader>wv", ":MarkdownPreviewToggle<CR>")
+    vim.keymap.set("n", "<leader>wv", "<cmd>MarkdownPreviewToggle<CR>")
   end,
 }

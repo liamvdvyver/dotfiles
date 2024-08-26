@@ -3,7 +3,7 @@ return {
   lazy = true,
   ft = { "markdown" },
   keys = {
-    { "<localleader>p", ":call mdip#MarkdownClipboardImage() <CR><CR><BS><ESC>" },
+    { "<localleader>p", "<cmd>call mdip#MarkdownClipboardImage() <CR><CR><BS><ESC>" },
   },
   config = function()
     -- vim.cmd([[

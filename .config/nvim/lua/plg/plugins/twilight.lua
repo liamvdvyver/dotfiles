@@ -4,6 +4,6 @@ return {
   lazy = true,
   opts = {},
   keys = {
-    { "<leader>t", ":Twilight<CR>", { desc = "Toggle [t]wilight" } },
+    { "<leader>t", "<cmd>Twilight<CR>", { desc = "Toggle [t]wilight" } },
   },
 }

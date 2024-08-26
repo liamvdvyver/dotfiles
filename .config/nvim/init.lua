@@ -126,38 +126,38 @@ vim.keymap.set("v", "<c-s>", [["hy:%s/\(<C-r>h\)//gI<Left><Left><Left>]], { desc
 -- visual
 vim.keymap.set("v", "<", "<gv", { desc = "Reselect visual after [<]" })
 vim.keymap.set("v", ">", ">gv", { desc = "Reselect visual after [>]" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Auto indent block on move up" })
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Auto indent block on move down" })
+vim.keymap.set("v", "K", "<cmd>m '<-2<CR>gv=gv", { desc = "Auto indent block on move up" })
+vim.keymap.set("v", "J", "<cmd>m '>+1<CR>gv=gv", { desc = "Auto indent block on move down" })
 
 -- leaders
-vim.keymap.set("n", "<leader>W", ":set wrap!<CR>", { desc = "Toggle [w]rap" })
+vim.keymap.set("n", "<leader>W", "<cmd>set wrap!<CR>", { desc = "Toggle [w]rap" })
 vim.keymap.set(
   "n",
   "<leader>L",
   ':execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>',
   { desc = "Toggle [l]ine at textwidth" }
 )
-vim.keymap.set("n", "<leader>S", ":source $MYVIMRC<CR>", { desc = "[S]ource config file" })
+vim.keymap.set("n", "<leader>S", "<cmd>source $MYVIMRC<CR>", { desc = "[S]ource config file" })
 
 -- spelling
-vim.keymap.set("n", "<leader>O", ":set spell!<CR>", { desc = "Toggle [o]rthography (spelling)" })
+vim.keymap.set("n", "<leader>O", "<cmd>set spell!<CR>", { desc = "Toggle [o]rthography (spelling)" })
 vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Fix last spelling mistake" })
 
 -- buffer/tab management
-vim.keymap.set("n", "<leader>x", ":bd<CR>", { desc = "Close buffer" })
-vim.keymap.set("n", "<leader>P", ":tabprevious<CR>", { desc = "[P]revious tab" })
-vim.keymap.set("n", "<leader>N", ":tabnext<CR>", { desc = "[N]ext tab" })
-vim.keymap.set("n", "<leader>C", ":tabnew<CR>", { desc = "[C]reate tab" })
-vim.keymap.set("n", "<leader>X", ":tabclose<CR>", { desc = "Close tab" })
+vim.keymap.set("n", "<leader>x", "<cmd>bd<CR>", { desc = "Close buffer" })
+vim.keymap.set("n", "<leader>P", "<cmd>tabprevious<CR>", { desc = "[P]revious tab" })
+vim.keymap.set("n", "<leader>N", "<cmd>tabnext<CR>", { desc = "[N]ext tab" })
+vim.keymap.set("n", "<leader>C", "<cmd>tabnew<CR>", { desc = "[C]reate tab" })
+vim.keymap.set("n", "<leader>X", "<cmd>tabclose<CR>", { desc = "Close tab" })
 vim.keymap.set("n", "<C-w>h", "<C-W>s")
 
 -- brackets and lists
-vim.keymap.set("n", "[l", ":lprev<CR>zz", { desc = "Previous [l]ocation" })
-vim.keymap.set("n", "]l", ":lnext<CR>zz", { desc = "Next [l]ocation" })
-vim.keymap.set("n", "[q", ":cprev<CR>zz", { desc = "Previous [q]uickfix item" })
-vim.keymap.set("n", "]q", ":cnext<CR>zz", { desc = "Next [q]uickfix item" })
-vim.keymap.set("n", "<leader>Q", ":cclose<CR>", { desc = "close [q]uickfix list" })
-vim.keymap.set("n", "<leader>q", ":cwindow<CR>", { desc = "show [q]uickfix list" })
+vim.keymap.set("n", "[l", "<cmd>lprev<CR>zz", { desc = "Previous [l]ocation" })
+vim.keymap.set("n", "]l", "<cmd>lnext<CR>zz", { desc = "Next [l]ocation" })
+vim.keymap.set("n", "[q", "<cmd>cprev<CR>zz", { desc = "Previous [q]uickfix item" })
+vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz", { desc = "Next [q]uickfix item" })
+vim.keymap.set("n", "<leader>Q", "<cmd>cclose<CR>", { desc = "close [q]uickfix list" })
+vim.keymap.set("n", "<leader>q", "<cmd>cwindow<CR>", { desc = "show [q]uickfix list" })
 
 -- }}}
 

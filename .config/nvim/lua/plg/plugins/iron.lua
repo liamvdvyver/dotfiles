@@ -4,8 +4,8 @@ return {
   lazy = true,
   keys = {
     -- similar to nvim-r
-    { "<localleader>rf", ":IronRepl<CR>", { desc = "Open repl" } },
-    { "<localleader>rf", ":IronRepl<CR>", { desc = "Open repl" } },
+    { "<localleader>rf", "<cmd>IronRepl<CR>", { desc = "Open repl" } },
+    { "<localleader>rf", "<cmd>IronRepl<CR>", { desc = "Open repl" } },
   },
   opts = {
     config = {
