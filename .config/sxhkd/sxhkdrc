@@ -4,7 +4,7 @@ super + Return
     $TERMINAL --name __tmux -e tmux-sessioniser default
 
 super + shift + Return
-    $TERMINAL --name __scratchpad -e tmux-sessioniser default
+    $TERMINAL --name __tmux -e tmux-sessioniser
 
 super + shift + a
     pavucontrol
