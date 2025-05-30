@@ -32,8 +32,11 @@ return {
     },
     {
       "<leader>v.",
-      function()
-        vim.cmd([[VimuxRunLastCommand]])
+      function() vim.cmd([[
+      VimuxOpenRunner
+      call VimuxSendKeys('Up')
+      call VimuxSendKeys('Enter')
+      ]])
       end,
       desc = "[V]imux: run last command",
     },

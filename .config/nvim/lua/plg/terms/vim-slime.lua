@@ -8,6 +8,7 @@ return {
     vim.g.slime_default_config = { socket_name = "default", target_pane = "1" }
     vim.g.slime_dont_ask_default = 1
     vim.g.slime_paste_file = vim.fs.normalize("$XDG_DATA_HOME/nvim/slime_paste")
+    vim.g.slime_bracketed_paste = 1
   end,
   keys = {
     { "<leader>s", "<Plug>SlimeMotionSend", desc = "[S]lime: send motion to repl" },

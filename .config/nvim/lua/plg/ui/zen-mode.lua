@@ -4,8 +4,8 @@ return {
   depencies = { "folke/twilight.nvim" },
   opts = {
     plugins = {
-      tmux = { enabled = true}
-    }
+      tmux = { enabled = true },
+    },
   },
   keys = { { "<leader>z", "<cmd>ZenMode<CR>", { desc = "Toggle [z]en mode" } } },
 }

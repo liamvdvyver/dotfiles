@@ -8,28 +8,28 @@ return {
   lazy = true,
   keys = {
     {
-      "<F5>",
+      "<Leader>dc",
       function()
         require("dap").continue()
       end,
       desc = "DAP: continue"
     },
     {
-      "<F10>",
+      "<Leader>dj",
       function()
         require("dap").step_over()
       end,
       desc = "DAP: step over"
     },
     {
-      "<F11>",
+      "<Leader>di",
       function()
         require("dap").step_into()
       end,
       desc = "DAP: step into"
     },
     {
-      "<F12>",
+      "<Leader>do",
       function()
         require("dap").step_out()
       end,

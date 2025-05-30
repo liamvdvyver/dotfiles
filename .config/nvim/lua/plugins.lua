@@ -11,6 +11,15 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local opts = { dev = { path = "~/git" } }
+-- local opts = { dev = { path = "~/git" } }
 
-require("lazy").setup("plg.plugins", opts)
+local base_dir = vim.fn.stdpath("config") .. "/lua/plg/"
+local all_subdirs = vim.fn.glob(base_dir .. "*")
+
+local specs = {}
+for _, dir in ipairs(vim.fn.split(all_subdirs, '\n')) do
+  local new_entry = {import = "plg." .. dir:gsub(base_dir, "")}
+  table.insert(specs, new_entry)
+end
+
+require("lazy").setup(specs)

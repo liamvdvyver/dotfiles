@@ -29,7 +29,7 @@ return {
         "vim",
         "markdown",
         "markdown_inline",
-        "org",
+        -- "org",
         "git_rebase",
         "gitattributes",
         "gitcommit",

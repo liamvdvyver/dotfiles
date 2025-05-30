@@ -7,4 +7,5 @@ end)
 vim.keymap.set("n", "<localleader>x", function()
   Run("'./' .expand('%:r')")
 end)
+vim.keymap.set("n", "<localleader>h", function() vim.cmd("ClangdSwitchSourceHeader") end)
 

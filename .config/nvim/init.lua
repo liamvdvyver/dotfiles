@@ -6,10 +6,13 @@
 --
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 require("plugins")
 
 vim.cmd.syntax("enable")
 vim.cmd.colorscheme("catppuccin")
+
+-- HELPERS ------------------------------------------------------------------ {{{
 
 P = function(v)
   print(vim.inspect(v))
@@ -19,20 +22,7 @@ Pm = function(v)
   print(vim.inspect(getmetatable(v)))
 end
 
-Run = function(cmd)
-  cmd = cmd:gsub("'", "'..\"'\"..'")
-  local vimcmd = "VimuxRunCommand('" .. cmd .. "')"
-  vim.cmd(vimcmd)
-end
-
-Cwd_matches = function(query)
-  local dir = vim.fn.getcwd()
-  local p = io.popen('find "' .. dir .. '" -maxdepth 1 -type f -name "' .. query ..'"')
-  for file in p:lines() do
-    P(file)
-    return not not file
-  end
-end
+-- }}}
 
 -- NETRW -------------------------------------------------------------------- {{{
 
@@ -86,78 +76,110 @@ vim.o.splitright = true
 
 -- MAPS --------------------------------------------------------------------- {{{
 
--- breaking bad habits
-vim.keymap.set("i", "<C-c>", function() vim.notify("BRUH XDDDDD") end)
--- normal
-vim.keymap.set("n", "j", "gj", { desc = "[j] through wrap" })
-vim.keymap.set("n", "k", "gk", { desc = "[k] through wrap" })
-vim.keymap.set("n", "Y", "y$", { desc = "[Y] like D, C" })
-vim.keymap.set("n", "<A-y>", "<c-w><", { desc = "Shrink split horizontally" })
-vim.keymap.set("n", "<A-u>", "<c-w>+", { desc = "Grow split vertically" })
-vim.keymap.set("n", "<A-i>", "<c-w>-", { desc = "Shrink split vertically" })
-vim.keymap.set("n", "<A-o>", "<c-w>>", { desc = "Grow split horizontally" })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Center after scroll up" })
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center after scroll down" })
-vim.keymap.set("n", "}", "}zz", { desc = "Center after scroll up" })
-vim.keymap.set("n", "{", "{zz", { desc = "Center after scroll down" })
-vim.keymap.set("n", "n", "nzzzv", { desc = "Center after [n]ext result" })
-vim.keymap.set("n", "N", "Nzzzv", { desc = "Center after previous result" })
+-- Disable some maps to break my bad habits
+local bad_str = "BAD!!!!!!"
+local disabled_keys = {
+  i = { "<C-c>" },
+  n = { "{", "}" },
+  v = { "{", "}" },
+}
 
--- clipboard
-vim.keymap.set("n", "<leader>y", '"+y', { desc = "[y]ank to clipboard" })
-vim.keymap.set("v", "<leader>y", '"+y', { desc = "[y]ank visual to clipboard" })
-vim.keymap.set("n", "<leader>Y", '"+Y$', { desc = "[Y]ank till $ to clipboard" })
-vim.keymap.set("n", "<leader>d", '"+d', { desc = "[d]elete to clipboard" })
-vim.keymap.set("v", "<leader>d", '"+d', { desc = "[d]elete visual to clipboard" })
-vim.keymap.set("n", "<leader>D", '"+D', { desc = "[D]elete till $ to clipboard" })
-vim.keymap.set("n", "<leader>p", '"+p', { desc = "[p]aste to clipboard" })
-vim.keymap.set("v", "<leader>p", '"+p', { desc = "[p]aste visual to clipboard" })
-vim.keymap.set("n", "<leader>P", '"+P', { desc = "[P]aste till $ to clipboard" })
+-- Helpers for long commands
+local toggle_column = [[:execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>]]
+local search_replace_norm = [[:%s/\(<C-r><C-w>\)//gI<Left><Left><Left>]]
+local search_replace_visu = [["hy:%s/\(<C-r>h\)//gI<Left><Left><Left>]]
 
--- find and replace word/selection
-vim.keymap.set(
-  "n",
-  "<c-s>",
-  [[:%s/\(<C-r><C-w>\)//gI<Left><Left><Left>]],
-  { desc = "[s]earch and replace word under cursor" }
-)
-vim.keymap.set("v", "<c-s>", [["hy:%s/\(<C-r>h\)//gI<Left><Left><Left>]], { desc = "[s]earch and replace visual" })
+local clear = function()
+  vim.cmd("nohlsearch")
+  vim.notify.dismiss()
+end
 
--- visual
-vim.keymap.set("v", "<", "<gv", { desc = "Reselect visual after [<]" })
-vim.keymap.set("v", ">", ">gv", { desc = "Reselect visual after [>]" })
-vim.keymap.set("v", "K", "<cmd>m '<-2<CR>gv=gv", { desc = "Auto indent block on move up" })
-vim.keymap.set("v", "J", "<cmd>m '>+1<CR>gv=gv", { desc = "Auto indent block on move down" })
+local keymaps = {
 
--- leaders
-vim.keymap.set("n", "<leader>W", "<cmd>set wrap!<CR>", { desc = "Toggle [w]rap" })
-vim.keymap.set(
-  "n",
-  "<leader>L",
-  ':execute "set colorcolumn=" . (&colorcolumn == "" ? "+1" : "")<CR>',
-  { desc = "Toggle [l]ine at textwidth" }
-)
-vim.keymap.set("n", "<leader>S", "<cmd>source $MYVIMRC<CR>", { desc = "[S]ource config file" })
+  -- normal
+  { "n", "j", "gj", "[j] through wrap" },
+  { "n", "k", "gk", "[k] through wrap" },
+  { "n", "Y", "y$", "[Y] like D, C" },
+  { "n", "<A-y>", "<c-w><", "Shrink split horizontally" },
+  { "n", "<A-u>", "<c-w>+", "Grow split vertically" },
+  { "n", "<A-i>", "<c-w>-", "Shrink split vertically" },
+  { "n", "<A-o>", "<c-w>>", "Grow split horizontally" },
+  { "n", "<C-u>", "<C-u>zz", "Center after scroll up" },
+  { "n", "<C-d>", "<C-d>zz", "Center after scroll down" },
+  { "n", "}", "}zz", "Center after scroll up" },
+  { "n", "{", "{zz", "Center after scroll down" },
+  { "n", "n", "nzzzv", "Center after [n]ext result" },
+  { "n", "N", "Nzzzv", "Center after previous result" },
 
--- spelling
-vim.keymap.set("n", "<leader>O", "<cmd>set spell!<CR>", { desc = "Toggle [o]rthography (spelling)" })
-vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { desc = "Fix last spelling mistake" })
+  -- clipboard
+  { "n", "<leader>y", '"+y', "[y]ank to clipboard" },
+  { "v", "<leader>y", '"+y', "[y]ank visual to clipboard" },
+  { "n", "<leader>Y", '"+Y$', "[Y]ank till $ to clipboard" },
+  { "n", "<leader>d", '"+d', "[d]elete to clipboard" },
+  { "v", "<leader>d", '"+d', "[d]elete visual to clipboard" },
+  { "n", "<leader>D", '"+D', "[D]elete till $ to clipboard" },
+  { "n", "<leader>p", '"+p', "[p]aste to clipboard" },
+  { "v", "<leader>p", '"+p', "[p]aste visual to clipboard" },
+  { "n", "<leader>P", '"+P', "[P]aste till $ to clipboard" },
 
--- buffer/tab management
-vim.keymap.set("n", "<leader>x", "<cmd>bd<CR>", { desc = "Close buffer" })
-vim.keymap.set("n", "<leader>P", "<cmd>tabprevious<CR>", { desc = "[P]revious tab" })
-vim.keymap.set("n", "<leader>N", "<cmd>tabnext<CR>", { desc = "[N]ext tab" })
-vim.keymap.set("n", "<leader>C", "<cmd>tabnew<CR>", { desc = "[C]reate tab" })
-vim.keymap.set("n", "<leader>X", "<cmd>tabclose<CR>", { desc = "Close tab" })
-vim.keymap.set("n", "<C-w>h", "<C-W>s")
+  -- find and replace word/selection
+  { "n", "<c-s>", search_replace_norm, "[s]earch and replace word under cursor" },
+  { "v", "<c-s>", search_replace_visu, "[s]earch and replace visual" },
 
--- brackets and lists
-vim.keymap.set("n", "[l", "<cmd>lprev<CR>zz", { desc = "Previous [l]ocation" })
-vim.keymap.set("n", "]l", "<cmd>lnext<CR>zz", { desc = "Next [l]ocation" })
-vim.keymap.set("n", "[q", "<cmd>cprev<CR>zz", { desc = "Previous [q]uickfix item" })
-vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz", { desc = "Next [q]uickfix item" })
-vim.keymap.set("n", "<leader>Q", "<cmd>cclose<CR>", { desc = "close [q]uickfix list" })
-vim.keymap.set("n", "<leader>q", "<cmd>cwindow<CR>", { desc = "show [q]uickfix list" })
+  -- visual
+  { "v", "<", "<gv", "Reselect visual after [<]" },
+  { "v", ">", ">gv", "Reselect visual after [>]" },
+  { "v", "K", ":m '<-2<CR>gv=gv", "Auto indent block on move up" },
+  { "v", "J", ":m '>+1<CR>gv=gv", "Auto indent block on move down" },
+
+  -- leaders
+  { "n", "<leader>W", "<cmd>set wrap!<CR>", "Toggle [w]rap" },
+  { "n", "<leader>L", toggle_column, "Toggle [l]ine at textwidth" },
+  { "n", "<leader>S", "<cmd>source $MYVIMRC<CR>", "[S]ource config file" },
+  { "n", "<leader>a", "ggVG", "select [a]ll" },
+
+  -- spelling
+  { "n", "<leader>O", "<cmd>set spell!<CR>", "Toggle [o]rthography (spelling)" },
+  { "i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", "Fix last spelling mistake" },
+
+  -- buffer/tab management
+  { "n", "<leader>x", "<cmd>bd<CR>", "Close buffer" },
+  { "n", "<leader>P", "<cmd>tabprevious<CR>", "[P]revious tab" },
+  { "n", "<leader>N", "<cmd>tabnext<CR>", "[N]ext tab" },
+  { "n", "<leader>C", "<cmd>tabnew<CR>", "[C]reate tab" },
+  { "n", "<leader>X", "<cmd>tabclose<CR>", "Close tab" },
+  { "n", "<C-w>h", "<C-W>s" },
+
+  -- brackets and lists
+  { "n", "[l", "<cmd>lprev<CR>zz", "Previous [l]ocation" },
+  { "n", "]l", "<cmd>lnext<CR>zz", "Next [l]ocation" },
+  { "n", "[q", "<cmd>cprev<CR>zz", "Previous [q]uickfix item" },
+  { "n", "]q", "<cmd>cnext<CR>zz", "Next [q]uickfix item" },
+  { "n", "<leader>Q", "<cmd>cclose<CR>", "close [q]uickfix list" },
+  { "n", "<leader>q", "<cmd>cwindow<CR>", "show [q]uickfix list" },
+
+  -- testing: from reddit
+  { "n", "yc", "yy<cmd>normal gcc<CR>p", "[y]ank, [c]omment and re-paste line" },
+  { "n", "<C-c>", "ciw", "[C]hange inside word" },
+  { "n", "<leader>qd", vim.diagnostic.setqflist, "[q]uickfix [d]iagnostics" },
+
+  -- clear on escape
+  { "n", "<Esc>", clear, "Clear highlight" },
+}
+
+-- Set the maps
+for _, map in ipairs(keymaps) do
+  vim.keymap.set(map[1], map[2], map[3], { desc = map[4] })
+end
+
+-- Actually disable those keys from earlier
+for mode, keys in pairs(disabled_keys) do
+  for _, key in ipairs(keys) do
+    vim.keymap.set(mode, key, function()
+      vim.notify(bad_str)
+    end, { desc = "disabled" })
+  end
+end
 
 -- }}}
 

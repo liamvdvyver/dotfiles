@@ -1,7 +1,6 @@
 return {
   "creativenull/efmls-configs-nvim",
   dependencies = {
-    "VonHeikemen/lsp-zero.nvim",
     "neovim/nvim-lspconfig",
     "mason.nvim",
     "mfussenegger/nvim-ansible",
@@ -26,6 +25,7 @@ return {
       "fourmolu",
       "google-java-format",
       "eslint-lsp",
+      -- "dprint",
     }
 
     for _, v in ipairs(mason_ensure_installed) do
@@ -68,7 +68,10 @@ return {
       javascript = {
         require("efmls-configs.linters.eslint"),
         require("efmls-configs.formatters.prettier"),
-      }
+      },
+      markdown = {
+        require("efmls-configs.formatters.mdformat"),
+      },
     })
 
     L = languages

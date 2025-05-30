@@ -3,7 +3,7 @@ return {
   lazy = true,
   dependencies = { "mason.nvim" },
   opts = {
-    ensure_installed = { "bash", "codelldb", "python", "haskell", "javadbg", "javatest" },
+    ensure_installed = { "bash", "codelldb", "python", --[[ "haskell", ]]"javadbg", "javatest" },
     handlers = {
       function(config)
         -- all sources with no handler get passed here
@@ -25,7 +25,7 @@ return {
     },
   },
   config = function(_, opts)
-    require("mason").setup()
+    -- require("mason").setup()
     require("mason-nvim-dap").setup(opts)
   end,
 }

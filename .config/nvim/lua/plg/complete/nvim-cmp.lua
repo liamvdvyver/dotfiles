@@ -5,13 +5,14 @@ return {
     { "onsails/lspkind.nvim" },
     { "L3MON4D3/LuaSnip" },
     -- Sources
-    { "hrsh7th/cmp-buffer" },
+    -- { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-path" },
     { "saadparwaiz1/cmp_luasnip" },
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
-    { "hrsh7th/cmp-cmdline" },
-    { "R-nvim/cmp-r"},
+    -- { "hrsh7th/cmp-cmdline" },
+    { "R-nvim/cmp-r" },
+    { "jmbuhr/otter.nvim" },
     {
       dir = "~/git/cmp-bibtex/",
       dev = true,
@@ -37,6 +38,7 @@ return {
         { name = "path", priority = 2 },
         { name = "luasnip", priority = 1 },
         { name = "bibtex" },
+        { name = "otter" },
         -- {name = 'omni'},
       },
 
@@ -65,12 +67,12 @@ return {
           if require("luasnip").jumpable() then
             require("luasnip").jump(1)
           end
-        end, {"i", "s"}),
+        end, { "i", "s" }),
         ["<C-k>"] = cmp.mapping(function()
           if require("luasnip").jumpable(-1) then
             require("luasnip").jump(-1)
           end
-        end, {"i", "s"}),
+        end, { "i", "s" }),
       }),
 
       formatting = {

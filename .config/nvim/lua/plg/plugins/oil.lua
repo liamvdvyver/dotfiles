@@ -2,7 +2,7 @@ return {
   "stevearc/oil.nvim",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
-    name = "tree-nvim-web-devicons",
+    -- name = "tree-nvim-web-devicons",
   },
   lazy = false, -- HACK: Lazy loading breaks splash screen
   event = "VeryLazy",

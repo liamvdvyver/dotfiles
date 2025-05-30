@@ -1,5 +1,6 @@
 return {
   "folke/trouble.nvim",
+  enabled = false,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     name = "tree-nvim-web-devicons",
@@ -16,7 +17,7 @@ return {
     {
       "[t",
       function()
-        require("trouble").previous({ skip_groups = true, jump = true })
+        require("trouble").prev({ skip_groups = true, jump = true })
       end,
       desc = "Previous [t]rouble item",
     },
@@ -37,7 +38,7 @@ return {
     {
       "<leader>td",
       function()
-        require("trouble").toggle("workspace_diagnostics")
+        require("trouble").toggle("diagnostics")
       end,
       desc = "Toggle [t]rouble [d]iagnostics",
     },

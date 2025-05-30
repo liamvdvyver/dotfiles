@@ -6,5 +6,6 @@ return {
   config = function()
     require("todo-comments").setup()
     vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Fuzzy [f]ind [t]ODOs" })
+    vim.keymap.set("n", "<leader>qt", "<cmd>TodoQuickFix<CR>", { desc = "[q]uickfix [t]ODOs" })
   end,
 }
