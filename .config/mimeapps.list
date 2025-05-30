@@ -16,6 +16,7 @@ text/x-shellscript=nvim.desktop
 image/png=sxiv.desktop
 image/jpeg=sxiv.desktop
 inode/x-empty=nvim.desktop
+application/epub+zip=org.pwmt.zathura.desktop
 
 [Added Associations]
 x-scheme-handler/http=qutebrowser.desktop;org.qutebrowser.qutebrowser.desktop;
@@ -34,3 +35,4 @@ image/png=sxiv.desktop;
 image/jpeg=sxiv.desktop;
 application/x-mswinurl=qutebrowser-browser.desktop;
 text/markdown=nvim.desktop
+application/epub+zip=org.pwmt.zathura.desktop

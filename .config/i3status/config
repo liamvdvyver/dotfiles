@@ -56,11 +56,13 @@ read_file dora_state {
 }
 
 battery all {
-        format = " %status %percentage  %remaining_"
+        format = " %status %percentage [%remaining] "
+        # format = " %status %percentage "
         format_down = " 󱟨"
         status_chr = " 󰂄"
         status_bat = " 󰁹"
         status_unk = " 󰂑"
+        status_idle = " 󱟢"
         status_full = " 󱟢"
         path = "/sys/class/power_supply/BAT%d/uevent"
         # low_threshold = 20

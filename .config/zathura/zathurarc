@@ -1,4 +1,4 @@
-set recolor false
+set recolor true
 set recolor-keephue true
 set dbus-service true
 
@@ -23,9 +23,6 @@ set index-fg \#cdd6f4 #fg
 set index-bg \#1e1e2e #bg
 set index-active-fg \#1e1e2e #fg3
 set index-active-bg \#89b4fa #bg3
-
-set highlight-color \#89b4fa #bg3
-set highlight-active-color \#cdd6f4 #fg
 
 set completion-bg \#45475a #bg2
 set completion-fg \#cdd6f4 #fg2

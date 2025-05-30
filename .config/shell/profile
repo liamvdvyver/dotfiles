@@ -21,6 +21,8 @@ export CALIBRE_USE_SYSTEM_THEME=1
 export FZF_DEFAULT_COMMAND='fd -L -tf'
 export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/tmuxifier-layouts"
 
+export PYTHONPATH=~/.config/beets/
+
 # Pfetch config
 export PF_INFO="ascii os kernel uptime pkgs shell wm editor palette"
 export PF_COL1=""

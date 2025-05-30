@@ -13,7 +13,7 @@
 )
 
 (defsrc
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc esc
     tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
     caps a    s    d    f    g    h    j    k    l    ;    '    ret
     lsft z    x    c    v    b    n    m    ,    .    /    rsft
@@ -21,23 +21,11 @@
 )
 
 (deflayer default
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-    tab  q    w    e    r    t    y    u    i    o    p    _    ]    \
-    caps a    s    d    f    g    h    j    k    l    ;    '    ret
-    lsft z    x    c    v    b    n    m    ,    .    /    rsft
-    lctl lmet lalt           spc            @hr rmet cmp  @ex
-)
-
-(defalias hr (layer-add homerowmods)
-          hr_d (layer-rem homerowmods)
-          ex (cmd-button "killall kmonad"))
-
-(deflayer homerowmods
+  _        _      _      _       _      _  _    _     _      _      _      _    _    _  caps
   _        _      _      _       _      _  _    _     _      _      _      _    _    _
-  _        _      _      _       _      _  _    _     _      _      _      _    _    _
-  @num_esc @met_a @alt_s @ctl_d  @sft_f g  h   @sft_j @ctl_k @alt_l @met_; @media_'    _
+  @num_esc @met_a @alt_s @ctl_d  @sft_f g  h   @sft_j @ctl_k @alt_l @met_; @media_'  _
   @nav_un  _      _      _       _      _  _   _      _      _      _      @sft_bspc
-  _        _      _                     @sym_spc      @hr_d  _      _      _
+  _        _      _                     @sym_spc      _      _      _      _
 )
 
 (defalias
@@ -51,6 +39,7 @@
   media_'  (tap-hold-next-release 200 '     @media)
   sym_spc  (tap-hold-next-release 200 space @sym)
   sft_bspc (tap-hold-next-release 200 bspc  rsft)
+  sft_dol (tap-hold-next-release 200 $ rsft)
   nav_un   (tap-hold-next-release 200 \_    @nav)
 
   ;; homerow mods
@@ -67,7 +56,7 @@
 )
 
 (deflayer numbers
-  _    _    _    _    _    _     _   _    _    _    _    _    _    _
+  _    _    _    _    _    _     _   _    _    _    _    _    _    _ _
   _    _    _    _    _    _     _   7    8    9    _    _    _    _
   _    _    _    _    @f   _     _   4    5    6    _    _    _
   _    _    _    _    _    _     _   1    2    3    _    _
@@ -77,7 +66,7 @@
 (defalias f (layer-toggle functions))
 
 (deflayer symbols
-  _    _    _    _    _    _     _    _    _    _    _    _    _    _
+  _    _    _    _    _    _     _    _    _    _    _    _    _    _ _
   _    _    _    =    %    ~     #    ]    [    -    +    _    _    _
   _    @    *    $   \_    _     >    }    {    <    :    `    _
   _    _    _    ^    |    !     &   \)   \(    _    \    _
@@ -85,7 +74,7 @@
 )
 
 (deflayer functions
-  _    _    _    _    _    _   _    _    _    _    _    _    _    _
+  _    _    _    _    _    _   _    _    _    _    _    _    _    _ _
   _    _    _    _    _    _   f12  f7   f8  f9    _    _    _    _
   _    _    _    _    _    _   f11  f4   f5  f6    _    _    _
   _    _    _    _    _    _   f10  f1   f2  f3    _    _
@@ -93,7 +82,7 @@
 )
 
 (deflayer media
-  _    _    _    _    _              _   _        _    _    _    _               _    _    _
+  _    _    _    _    _              _   _        _    _    _    _               _    _    _ _
   _    _    _    _    _              _   _        volu _    _    previoussong    _    _    _
   _    _    _    vold _              _   _        _    _    _    _               _    _
   _    _    _    _    _              _   nextsong mute _    _    _               _
@@ -101,7 +90,7 @@
 )
 
 (deflayer nav
-  _    _    _      _      _              _   _    _    _     _     _  _  _    _
+  _    _    _      _      _              _   _    _    _     _     _  _  _    _ _
   _    _    _      enter  _              tab _    _    pgup  _     _  _  _    _
   _    _    sysrq  pgdn   _              _   left down up    right _  _  _
   _    _    delete _      _              _   _    _    _     _     _  _

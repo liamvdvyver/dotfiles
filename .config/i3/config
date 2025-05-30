@@ -72,20 +72,13 @@ bindsym $mod+o resize grow width 10 px or 10 ppt
 
 # Manjaro-i3:
 
-smart_gaps on
-smart_borders on
-
-# hide/unhide i3status bar
-
-gaps inner 0
-
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 
 default_border pixel 3
 default_floating_border pixel 3
 
 # Hide borders
-hide_edge_borders none
+hide_edge_borders smart
 
 # change borders
 # bindsym $mod+u border none
@@ -308,13 +301,16 @@ bindsym $mod+Ctrl+Shift+space  move container to workspace number $ws10; workspa
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+# bindsym $mod+b bar mode toggle
+bindsym $mod+b bar mode toggle
 bar {
     i3bar_command i3bar
     status_command i3status
     position top
     # mode hide
+    modifier Mod5
 
-    tray_output primary
+    # tray_output all
 
     colors {
         background $bg

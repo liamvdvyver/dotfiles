@@ -7,7 +7,7 @@ super + shift + Return
     $TERMINAL --name __tmux -e tmux-sessioniser
 
 super + shift + a
-    pavucontrol
+    rofi-mixer
 
 super + shift + b
     rofi-bluetooth
@@ -30,6 +30,13 @@ super + shift + m
 
 super + shift + x
     xkill
+
+super + Escape
+    dunstctl close-all
+
+# One button docking
+Alt_R
+    kmonad-selector && autorandr clone-largest
 
 # }}}
 

@@ -2,8 +2,7 @@ xrdb ~/.config/X11/Xresources
 xset s off &
 xset -dpms &
 
-picom &
-pape -s &
+pape -r &
 
 sxhkd &
 mpDris2 &
@@ -14,4 +13,5 @@ dbus-update-activation-environment --systemd --all &
 # Without this running, SSO through openconnect doesn't work
 nm-applet &
 
+autorandr clone-largest
 exec i3

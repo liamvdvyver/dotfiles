@@ -15,7 +15,6 @@ bindkey -v
 source ~/.config/shell/aliases
 
 # Set prompt
-PS1='%B%F{blue}%1~%f %F{cyan}❯%f%b '
 PS2='%B%F{blue}→%f%b '
 
 # Configure history
@@ -60,15 +59,12 @@ source /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh
 autoload -Uz add-zsh-hook vcs_info
 setopt prompt_subst
 add-zsh-hook precmd vcs_info
-PS1='%B%F{blue}%1~%f %F{cyan}${vcs_info_msg_0_}❯%f%b '
+PS1='%B%F{blue}%10~%f %F{cyan}${vcs_info_msg_0_}❯%f%b '
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr ' *'
 zstyle ':vcs_info:*' stagedstr ' +'
 zstyle ':vcs_info:git:*' formats       ' %b%u%c '
 zstyle ':vcs_info:git:*' actionformats ' %b|%a%u%c '
-
-# Rice
-pfetch
 
 # Conda
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
@@ -93,3 +89,7 @@ eval "$(zoxide init zsh)"
 
 # Setup gpg-agent
 . "$XDG_CONFIG_HOME/shell/gpg-agent"
+
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init - zsh)"

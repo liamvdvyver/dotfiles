@@ -1,8 +1,5 @@
 # basic commands
-alias :q='exit'
-alias q='exit'
 alias x='startx $XINITRC'
-# alias gh='cd ~'
 alias ls='ls --color=auto'
 alias l='exa --group-directories-first --icons'
 alias la='l -a'
@@ -30,18 +27,17 @@ alias t='tmux'
 alias v='nvim'
 alias e="emacsclient -c -a 'emacs'"
 alias yt='ytfzf -t'
+alias cm='cmake'
+alias vg='valgrind'
+alias cg='valgrind --tool=callgrind'
+alias pm='pulsemixer'
+alias o='nvim -c Oil'
 
 # git
 alias g='git'
 
 # yadm
 alias y='yadm'
-
-# rclone
-alias rdd='rclone sync -i Drive: ~/drive'
-alias rdu='rclone sync -i ~/drive Drive:'
-alias rmd='rclone sync -i Mega: ~/mega'
-alias rmu='rclone sync -i ~/mega Mega:'
 
 # misc commands
 alias cls='clear && source $ZDOTDIR/.zshrc && source ~/.config/shell/profile && xrdb ~/.config/Xresources 2>/dev/null'
@@ -51,12 +47,10 @@ alias wttr='curl wttr.in'
 alias speed='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 alias umm='sudo umount /media/media && sudo mount /media/media'
 alias xr='xrdb .Xresources'
-alias vr='nvim +:Ranger'
 alias mpw='mpv --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video2'
 alias f='rifle "$(fd . -H -tf | fzf)"'
-alias d='cd "$(fd . -H -td | fzf)"'
-alias fp='xdg-open "$(fd -t f -e pdf . ~/Documents/zotero/storage | fzf -m -d "/" --with-nth=-1)"'
-alias c='yadm list | fzf | xargs yadm enter nvim'
+alias fp='rifle "$(fd . '~/Documents/' -H -tf -e pdf | fzf)"'
+# alias fp='xdg-open "$(fd -t f -e pdf . ~/Documents/zotero/storage | fzf -m -d "/" --with-nth=-1)"'
 alias grades='cd ~/Documents/school/grades && Rscript grades.R'
 alias cln='rm -r ~/.Rhistory ~/.pki ~/.subversion ~/.npm'
 
@@ -66,7 +60,7 @@ alias tf='tmuxifier'
 alias ts='tmux at -t $(tmux list-sessions | cut -f 1 -d : | fzf)'
 
 # my scripts
-alias wp='pape -i ~/Pictures/papes/'
+alias wp='pape -i ~/Documents/papes/'
 alias mmd='find . -regex '\''.*\.\(flac\|mp3\|dsf\)'\'' -exec musmv {} \;'
 alias mms='muscf; musc; rm -d source/; rm -d other/; mmd'
 alias fb='fzf-calibre'

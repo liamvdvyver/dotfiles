@@ -139,7 +139,6 @@ configuration {
 /*	me-select-entry: "MousePrimary";*/
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
-  kb-cancel: "Escape,Control+g,Control+bracketleft,Control+c";
   font: "monospace 11";
   timeout {
     action: "kb-cancel";
