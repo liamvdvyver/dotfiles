@@ -10,6 +10,7 @@ export VISUAL=nvim
 export EDITOR=$VISUAL
 export BROWSER=qutebrowser
 export PAGER='bat --theme=base16'
+export MANPAGER="$PAGER -l man"
 export TERMINAL=kitty
 #export TERM=xterm-kitty
 export PATH=~/git/scripts:~/.local/bin:~/.config/emacs/bin:/usr/local/stata17:~/.config/tmux/plugins/tmuxifier/bin:/usr/lib/rstudio:~/.ghcup/bin:~/.cabal/bin:~/git/dora/build:~/git/dora/scripts:$PATH:/usr/local/bin:~/.config/tmux/plugins/yats/scripts
@@ -20,6 +21,9 @@ export QT_QPA_PLATFORMTHEME=gtk2
 export CALIBRE_USE_SYSTEM_THEME=1
 export FZF_DEFAULT_COMMAND='fd -L -tf'
 export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/tmuxifier-layouts"
+
+export CC=$(which clang)
+export CXX=$(which clang++)
 
 export PYTHONPATH=~/.config/beets/
 
