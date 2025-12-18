@@ -64,9 +64,9 @@ rice.border.focused:      base1
 rice.border.unfocused:    base02
 rice.indicator.focused:   base3
 
-rice.nvim.theme:      solarized8
+rice.nvim.theme:      solarized
 rice.nvim.background: dark
 rice.theme:           solarized
 rice.background:      dark
-rice.lualine.theme:   solarized_dark
+rice.lualine.theme:   solarized
 rice.doom.theme:      doom-solarized-dark

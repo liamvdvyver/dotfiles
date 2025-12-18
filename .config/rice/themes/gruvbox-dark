@@ -75,7 +75,7 @@ rice.border.focused:      fg4
 rice.border.unfocused:    bg1
 rice.indicator.focused:   fg1
 
-rice.nvim.theme:      gruvbox
+rice.nvim.theme:      gruvbox-material
 rice.nvim.background: dark
 rice.theme:           gruvbox
 rice.background:      dark

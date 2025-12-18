@@ -64,9 +64,9 @@ rice.border.focused:      nord8
 rice.border.unfocused:    nord1
 rice.indicator.focused:   nord14
 
-rice.nvim.theme:      nord
+rice.nvim.theme:      nordic
 rice.nvim.background: dark
 rice.theme:           nord
 rice.background:      dark
-rice.lualine.theme:   nord
+rice.lualine.theme:   nordic
 rice.doom.theme:      doom-nord
