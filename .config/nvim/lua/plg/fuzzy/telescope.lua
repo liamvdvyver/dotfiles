@@ -21,8 +21,5 @@ return {
     vim.keymap.set("n", "<leader>fu", builtin.oldfiles, { desc = "Fuzzy [f]ind old files ([u]ndo close)" })
     vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[g]rep through files in local directory" })
     vim.keymap.set("n", "<leader>f*", builtin.grep_string, { desc = "grep word under cursor in working directory" })
-    vim.keymap.set("n", "<leader>f.", function()
-      builtin.find_files({ search_dirs = { "~/.local/state/nvim/swap/" } })
-    end, { desc = "Fuzzy [f]ind [s]wap files" })
   end,
 }

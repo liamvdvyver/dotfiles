@@ -1,5 +1,9 @@
 return {
-  "chrisbra/Colorizer",
+  "norcalli/nvim-colorizer.lua",
   lazy = true,
-  keys = { { "<leader>c", "<cmd>ColorToggle<CR>", desc = "Toggle html [c]olours" } },
+  event = "BufReadPre",
+  config = function(_, _)
+    vim.o.termguicolors = true
+    require("colorizer").setup()
+  end,
 }

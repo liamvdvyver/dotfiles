@@ -32,7 +32,7 @@ return {
     require("telescope").setup(opts)
     require("telescope").load_extension("file_browser")
 
-    vim.keymap.set("n", "<leader>n", function()
+    vim.keymap.set("n", "<leader>.", function()
       require("telescope").extensions.file_browser.file_browser({ path = vim.fn.expand("%:p:h") })
     end, { desc = "Browse files" })
   end,

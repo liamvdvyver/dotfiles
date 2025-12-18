@@ -1,9 +1,8 @@
 return {
   "creativenull/efmls-configs-nvim",
   dependencies = {
-    "neovim/nvim-lspconfig",
-    "mason.nvim",
-    "mfussenegger/nvim-ansible",
+    -- Installs efm language server
+    "mason-org/mason-lspconfig.nvim",
   },
   lazy = false,
   event = "VeryLazy",
@@ -89,6 +88,7 @@ return {
       },
     }
 
-    require("lspconfig").efm.setup(opts)
+    vim.lsp.config("efm", opts)
+    vim.lsp.enable("efm")
   end,
 }

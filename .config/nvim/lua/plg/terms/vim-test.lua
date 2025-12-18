@@ -1,9 +1,10 @@
 return {
-  dir = "~/git/vim-test",
-  dev = true,
+  -- dir = "~/git/vim-test",
+  -- dev = true,
+  "vim-test/vim-test",
   requirements = {
     "vim-dispatch",
-    "vimux"
+    "vimux",
   },
   config = function(_, _)
     vim.cmd([[ let test#strategy = 'dispatch' ]])

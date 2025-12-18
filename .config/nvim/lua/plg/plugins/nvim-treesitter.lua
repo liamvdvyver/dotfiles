@@ -10,14 +10,14 @@ return {
       ignore_install = { "latex" },
       ensure_installed = {
         "c",
-        "lua",
+        "lua", "luadoc",
         "rust",
         "python",
         "bash",
         "awk",
         "regex",
         "perl",
-        -- "bibtex", "latex",
+        "bibtex", "latex",
         "css",
         "html",
         "http",
@@ -70,6 +70,18 @@ return {
         },
       },
       textobjects = {
+        move = {
+            enable = true,
+            set_jumps = false, -- you can change this if you want.
+            goto_next_start = {
+                --- ... other keymaps
+                ["]C"] = { query = "@code_cell.inner", desc = "next code block" },
+            },
+            goto_previous_start = {
+                --- ... other keymaps
+                ["[C"] = { query = "@code_cell.inner", desc = "previous code block" },
+            },
+        },
         select = {
           enable = true,
 
@@ -86,6 +98,8 @@ return {
             ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
             -- You can also use captures from other query groups like `locals.scm`
             ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+            ["iC"] = { query = "@fenced_code_block.inner", desc = "in block" },
+            ["aC"] = { query = "@code_cell.outer", desc = "around block" },
           },
           -- You can choose the select mode (default is charwise 'v')
           --
@@ -109,6 +123,19 @@ return {
           -- * selection_mode: eg 'v'
           -- and should return true or false
           include_surrounding_whitespace = false,
+        },
+        swap = {
+          -- Swap only works with code blocks that are under the same
+          -- markdown header
+          enable = true,
+          swap_next = {
+            --- ... other keymap
+            ["<leader>sbl"] = "@code_cell.outer",
+          },
+          swap_previous = {
+            --- ... other keymap
+            ["<leader>sbh"] = "@code_cell.outer",
+          },
         },
       },
     })

@@ -1,5 +1,6 @@
 vim.keymap.set("n", "<localleader>w", function()
-  Run("'detex ' . expand('%') . ' | wc -w'")
+  local cmd = '!detex ' .. vim.fn.expand('%') .. ' | wc -w'
+  vim.cmd(cmd)
 end)
 vim.o.spell = true
 vim.o.conceallevel = 1

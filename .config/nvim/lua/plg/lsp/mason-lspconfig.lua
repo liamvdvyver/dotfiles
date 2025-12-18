@@ -3,10 +3,9 @@ return {
   -- lazy = true, event = "VeryLazy", -- HACK: This is ~50ms slower but using "VeryLazy" breaks nvim-ansible
   lazy = false,
   dependencies = {
-    "neovim/nvim-lspconfig",
     "mason.nvim",
     "mfussenegger/nvim-ansible",
-    { "rmagatti/goto-preview", opts = { default_mappings = true }, enabled = false },
+    "tjdevries/telescope.nvim",
   },
 
   opts = {
@@ -24,24 +23,24 @@ return {
       "emmet_language_server",
     },
 
-    -- jdtls started with nvim-jdtls
     automatic_enable = {
       exclude = {
+        -- jdtls started with nvim-jdtls
         "jdtls",
+        -- efm has its own config
+        "efm",
       },
-    }
+    },
   },
 
   config = function(opts, _)
     local builtin = require("telescope.builtin")
 
-    vim.inspect(opts)
-
     require("mason-lspconfig").setup(opts)
 
     -- hls installed w/ ghcup
     vim.lsp.enable("hls")
-    require("lspconfig").hls.setup({})
+    -- require("lspconfig").hls.setup({})
 
     local function filter_formatters(client)
       local format_servers = { efm = true, clangd = true }

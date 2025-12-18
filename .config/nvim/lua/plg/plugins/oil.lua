@@ -2,16 +2,24 @@ return {
   "stevearc/oil.nvim",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
-    -- name = "tree-nvim-web-devicons",
   },
-  lazy = false, -- HACK: Lazy loading breaks splash screen
-  event = "VeryLazy",
+  -- I like to open oil directly from within ranger
+  lazy = false,
   keys = {
-    { "-", function() require("oil").open() end, { desc = "Open parent directory" } },
-    { "<leader>U", function() require("oil").open("~/.local/state/nvim/swap") end, { desc = "Open swap directory" } },
+    {
+      "-",
+      function()
+        require("oil").open()
+      end,
+      { desc = "Open parent directory" },
+    },
+    {
+      "<leader>U",
+      function()
+        require("oil").open("~/.local/state/nvim/swap")
+      end,
+      { desc = "Open swap directory" },
+    },
   },
   opts = { default_file_explorer = false },
-  config = function(_, opts)
-    require("oil").setup(opts)
-  end,
 }

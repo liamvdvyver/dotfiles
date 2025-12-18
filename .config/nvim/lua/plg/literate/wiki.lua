@@ -30,5 +30,6 @@ return {
       ]])
     vim.keymap.set("n", "<leader>wp", "<cmd>WikiPages<CR>")
     vim.keymap.set("n", "<leader>wt", "<cmd>WikiTags<CR>")
+    vim.keymap.set("n", "<leader>w<CR>", "<cmd>WikiLinkFollow<CR>")
   end,
 }

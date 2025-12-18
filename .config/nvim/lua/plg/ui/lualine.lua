@@ -35,7 +35,7 @@ return {
         "encoding",
         "fileformat",
         "filetype",
-        { "swenv", icon = "v", color = { fg = "" } },
+        -- { "swenv", icon = "v", color = { fg = "" } },
       },
     },
   },

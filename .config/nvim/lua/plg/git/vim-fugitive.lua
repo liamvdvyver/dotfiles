@@ -6,6 +6,7 @@ return {
     { "<leader>gs", "<cmd>G<CR>", desc = "[g]it [m]ergetool" },
     { "<leader>gm", "<cmd>Git mergetool<CR>", desc = "[g]it [m]ergetool" },
     { "<leader>gv", "<cmd>Gvdiffsplit!<CR>", desc = "open [g]it diff [s]plit" },
-    { "<leader>go", ":diffget", desc = "[g]it [o]btain changes" },
+    { "<leader>gh", "<cmd>diffget //2<CR>", desc = "get changes from left" },
+    { "<leader>gl", "<cmd>diffget //3<CR>", desc = "get changes from right" },
   },
 }

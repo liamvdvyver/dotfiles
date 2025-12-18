@@ -1,7 +1,6 @@
 return {
-  "ghifarit53/tokyonight-vim",
+  "folke/tokyonight.nvim",
   lazy = false,
-  config = function()
-    vim.g.tokyonight_transparent_background = 0
-  end,
+  priotity = 1000,
+  opts = {}
 }

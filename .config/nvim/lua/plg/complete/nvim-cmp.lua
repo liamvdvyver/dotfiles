@@ -10,7 +10,7 @@ return {
     { "saadparwaiz1/cmp_luasnip" },
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
-    -- { "hrsh7th/cmp-cmdline" },
+    { "hrsh7th/cmp-cmdline" },
     { "R-nvim/cmp-r" },
     { "jmbuhr/otter.nvim" },
     {
@@ -29,6 +29,14 @@ return {
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
     local ls = require("luasnip")
 
+    -- hack from https://github.com/hrsh7th/nvim-cmp/issues/1797
+    local function fast_cmp_visible()
+      if not (cmp.core.view and cmp.core.view.custom_entries_view) then
+        return false
+      end
+      return cmp.core.view.custom_entries_view:visible()
+    end
+
     local opts = {
 
       sources = {
@@ -39,38 +47,30 @@ return {
         { name = "luasnip", priority = 1 },
         { name = "bibtex" },
         { name = "otter" },
-        -- {name = 'omni'},
       },
 
       completion = {
-        completeopt = "menu,menuone,noinsert,noselect", -- TODO: Make this work
-        -- autocomplete = true,
+        completeopt = "menu,menuone,noinsert,noselect",
       },
 
       mapping = cmp.mapping.preset.insert({
-        ["<C-Space>"] = cmp.mapping.complete(),
         ["<Tab>"] = cmp.mapping(function(fallback)
-          local col = vim.fn.col(".") - 1
-          if cmp.get_active_entry() then
-            cmp.confirm()
-          elseif require("luasnip").expandable() then
-            require("luasnip").expand()
-          elseif cmp.visible() then
+          if fast_cmp_visible() then
             cmp.confirm({ select = true })
-          elseif col ~= 0 and vim.fn.getline("."):sub(col, col):match("%s") == nil then
-            cmp.complete()
+          elseif ls.expandable() then
+            ls.expand()
           else
             fallback()
           end
         end, { "i", "s" }),
         ["<C-j>"] = cmp.mapping(function()
-          if require("luasnip").jumpable() then
-            require("luasnip").jump(1)
+          if ls.jumpable() then
+            ls.jump(1)
           end
         end, { "i", "s" }),
         ["<C-k>"] = cmp.mapping(function()
-          if require("luasnip").jumpable(-1) then
-            require("luasnip").jump(-1)
+          if ls.jumpable(-1) then
+            ls.jump(-1)
           end
         end, { "i", "s" }),
       }),
@@ -97,8 +97,8 @@ return {
       },
 
       window = {
-        documentation = cmp.config.window.bordered(),
-        completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
+        -- completion = cmp.config.window.bordered(),
       },
     }
 

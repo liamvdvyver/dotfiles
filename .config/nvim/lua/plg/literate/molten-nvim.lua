@@ -11,10 +11,20 @@ return {
         "nvim-treesitter/nvim-treesitter",
       },
     },
+
+    -- "image.nvim",
+    "folke/snacks.nvim",
   },
+  lazy = true,
+  ft = "ipynb",
   init = function()
     -- this is an example, not a default. Please see the readme for more configuration options
-    vim.g.molten_output_win_max_height = 12
+    vim.g.molten_image_provider = "snacks.nvim"
+    vim.g.molten_output_win_max_height = 30
+    vim.g.molten_auto_open_output = false
+    vim.g.molten_virt_text_output = true
+    vim.g.molten_wrap_output = true
+    vim.g.molten_virt_lines_off_by_1 = true
 
     -- FROM: https://github.com/benlubas/molten-nvim/blob/main/docs/Notebook-Setup.md
 
@@ -55,6 +65,7 @@ return {
       callback = function(e)
         if vim.api.nvim_get_vvar("vim_did_enter") ~= 1 then
           imb(e)
+          require("otter").activate()
         end
       end,
     })
@@ -69,18 +80,13 @@ return {
       end,
     })
 
-    vim.keymap.set(
-      "n",
-      "<localleader>e",
-      ":MoltenEvaluateOperator<CR>",
-      { silent = true, desc = "run operator selection" }
-    )
-    vim.keymap.set("n", "<leader>jj", ":MoltenEvaluateLine<CR>", { silent = true, desc = "evaluate line" })
-    vim.keymap.set("n", "<leader>jc", ":MoltenReevaluateCell<CR>", { silent = true, desc = "re-evaluate cell" })
-    vim.keymap.set("n", "<leader>jv", ":MoltenEnterOutput<CR>", { silent = true, desc = "re-evaluate cell" })
+    vim.keymap.set("n", "gj", ":MoltenEvaluateOperator<CR>", { silent = true, desc = "run operator selection" })
+    vim.keymap.set("n", "<localleader>jj", ":MoltenEvaluateLine<CR>", { silent = true, desc = "evaluate line" })
+    vim.keymap.set("n", "<localleader>jc", ":MoltenReevaluateCell<CR>", { silent = true, desc = "re-evaluate cell" })
+    vim.keymap.set("n", "<localleader>jv", ":MoltenEnterOutput<CR>", { silent = true, desc = "re-evaluate cell" })
     vim.keymap.set(
       "v",
-      "<leader>j",
+      "<localleader>j",
       ":<C-u>MoltenEvaluateVisual<CR>gv",
       { silent = true, desc = "evaluate visual selection" }
     )

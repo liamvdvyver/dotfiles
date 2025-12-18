@@ -3,6 +3,7 @@ return {
   dependencies = {
     "mfussenegger/nvim-dap",
     "nvim-neotest/nvim-nio",
+    "Jorenar/nvim-dap-disasm"
   },
   lazy = true,
   keys = {
