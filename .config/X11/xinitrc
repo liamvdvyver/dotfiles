@@ -14,4 +14,10 @@ dbus-update-activation-environment --systemd --all &
 nm-applet &
 
 autorandr clone-largest
-exec i3
+
+if [ -n "$1" ]; then
+    wm="$1"
+else
+    wm=xwmux
+fi
+exec "$wm"
