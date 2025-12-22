@@ -1,5 +1,5 @@
 return {
-  dir = "~/git/disasm_nvim",
+  "liamvdvyver/smarten.nvim",
   lazy = false,
   event = "VeryLazy",
   opts = {},

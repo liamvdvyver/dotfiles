@@ -2,10 +2,19 @@ return {
   "nvim-telescope/telescope.nvim", -- tag = '0.1.0',
   dependencies = {
     { "nvim-lua/plenary.nvim" },
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+
+    -- I don't want to have to build binaries and deal with linkage for a damn
+    -- editor plugin
+    -- { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
   config = function()
-    require("telescope").load_extension("fzf")
+
+    -- require("telescope").setup({
+    --   extensions = {
+    --     fzf = {},
+    --   },
+    -- })
+    -- require("telescope").load_extension("fzf")
 
     local builtin = require("telescope.builtin")
     vim.keymap.set("n", "<leader>fl", function()

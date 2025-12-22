@@ -14,8 +14,7 @@ return {
     { "R-nvim/cmp-r" },
     { "jmbuhr/otter.nvim" },
     {
-      dir = "~/git/cmp-bibtex/",
-      dev = true,
+      "liamvdvyver/cmp-bibtex",
       opts = {
         files = { "~/Documents/zotero/bib.bib" },
         filetypes = { "markdown", "tex" },

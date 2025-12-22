@@ -1,6 +1,5 @@
 return {
-  dir = "~/git/snippits/",
-  dev = true,
+  "liamvdvyver/snippits",
   dependencies = { "L3MON4D3/LuaSnip" },
   lazy = true,
   event = "VeryLazy",

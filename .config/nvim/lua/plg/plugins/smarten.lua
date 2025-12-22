@@ -1,4 +1,4 @@
 return {
-  dir = "~/git/smarten_nvim",
+  "liamvdvyver/smarten.nvim",
   opts = {},
 }
