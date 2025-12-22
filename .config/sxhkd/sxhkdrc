@@ -1,10 +1,10 @@
 # Applications ------------------------------------------------------------  {{{
 
-super + Return
-    $TERMINAL --name __tmux -e tmux-sessioniser default
-
-super + shift + Return
-    $TERMINAL --name __tmux -e tmux-sessioniser
+# super + Return
+#     $TERMINAL --name __tmux -e tmux-sessioniser default
+#
+# super + shift + Return
+#     $TERMINAL --name __tmux -e tmux-sessioniser
 
 super + shift + a
     rofi-mixer
@@ -17,6 +17,9 @@ super + w
 
 super + shift + w
     brave --password-store=basic
+
+super + e
+    emacsclient -c -a emacs -n
 
 # }}}
 
@@ -33,10 +36,6 @@ super + shift + x
 
 super + Escape
     dunstctl close-all
-
-# One button docking
-Alt_R
-    kmonad-selector && autorandr clone-largest
 
 # }}}
 
@@ -98,5 +97,114 @@ XF86AudioNext
 
 XF86AudioPrev
     playerctl previous
+
+# }}}
+
+# XWMUX -------------------------------------------------------------------- {{{
+
+super + h
+    tmux select-pane -L
+
+super + j
+    tmux select-pane -D
+
+super + k
+    tmux select-pane -U
+
+super + l
+    tmux select-pane -R
+
+super + 1
+    tmux select-window -t 1
+
+super + 2
+    tmux select-window -t 2
+
+super + 3
+    tmux select-window -t 3
+
+super + 4
+    tmux select-window -t 4
+
+super + 5
+    tmux select-window -t 5
+
+super + 6
+    tmux select-window -t 6
+
+super + 7
+    tmux select-window -t 7
+
+super + 8
+    tmux select-window -t 5
+
+super + 9
+    tmux select-window -t 9
+
+super + shift + 1
+    tmux join-pane -t 1
+
+super + shift + 2
+    tmux join-pane -t 2
+
+super + shift + 3
+    tmux join-pane -t 3
+
+super + shift + 4
+    tmux join-pane -t 4
+
+super + shift + 5
+    tmux join-pane -t 5
+
+super + shift + 6
+    tmux join-pane -t 6
+
+super + shift + 7
+    tmux join-pane -t 7
+
+super + shift + 8
+    tmux join-pane -t 5
+
+super + shift + 9
+    tmux join-pane -t 9
+
+super + c
+    tmux new-window
+
+super + s
+    tmux new-window tmux-sessioniser
+
+super + m
+    tmux run-shell tmux-move
+
+super + shift + l
+    tmux switch-client -l
+
+super + shift + j
+    tmux swap-pane -D && xwmux-report.sh
+
+super + shift + k
+    tmux swap-pane -U && xwmux-report.sh
+
+super + x
+    ~/git/xwmux/build/xwmux-ctl kill-pane focused
+
+super + Return
+        tmux send-keys -K $(tmux show-option prefix | cut -f 2 -d ' ') && tmux send-keys -K '"'
+
+super + control + w
+        tmux-find 'qutebrowser'
+
+super + control + v
+        tmux-find 'nvim'
+
+super + control + r
+        tmux-find 'ranger'
+
+super + control + s
+        tmux-find 'ncspot'
+
+super + control + z
+        tmux-find 'zsh'
 
 # }}}
