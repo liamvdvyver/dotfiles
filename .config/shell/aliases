@@ -21,7 +21,6 @@ alias pc='pcmanfm'
 alias pf='pfetch'
 alias py='python'
 alias p3='python3'
-alias r='. ranger'
 alias t='tmux'
 alias v='nvim'
 alias e="emacsclient -c -nw"
@@ -64,6 +63,7 @@ alias mms='muscf; musc; rm -d source/; rm -d other/; mmd'
 alias fb='fzf-calibre'
 alias sb='cd ~/git/strapbook/; ansible-playbook -K --ask-vault-pass run.yml'
 alias men='tmux-cht.sh man'
+alias r='ranger_cd'
 
 # clean up dotfiles
 alias gcalcli='gcalcli --config-folder ~/.config/gcalcli'
