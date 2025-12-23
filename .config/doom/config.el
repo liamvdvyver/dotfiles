@@ -47,9 +47,11 @@
           '(
             ("t" "Todo" entry (file+headline "~/Documents/org/refile.org" "Tasks")
              "* TODO %?")
+            ("T" "Todo today" entry (file+headline "~/Documents/org/refile.org" "Tasks")
+             "* TODO %?\nSCHEDULED: %t")
             ("n" "Note" entry (file+headline "~/Documents/org/refile.org" "Notes")
              "* %?")
-            ("j" "Journal" entry (file+headline "~/Documents/org/refile.org" "Journal")
+            ("j" "Journal" entry (file+datetree "~/Documents/org/refile.org" "Journal")
              "* %u %?")
             ("w" "Weight" entry (file+headline "~/Documents/org/fitness.org" "Weight")
              "* %u %?")
