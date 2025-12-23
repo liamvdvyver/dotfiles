@@ -16,7 +16,6 @@ export TERMINAL=kitty
 export PATH=~/git/scripts:~/.local/bin:~/.config/emacs/bin:/usr/local/stata17:~/.config/tmux/plugins/tmuxifier/bin:/usr/lib/rstudio:~/.ghcup/bin:~/.cabal/bin:~/git/dora/build:~/git/dora/scripts:$PATH:/usr/local/bin:~/.config/tmux/plugins/yats/scripts
 
 # Application config
-export RANGER_LOAD_DEFAULT_RC=FALSE
 export QT_QPA_PLATFORMTHEME=gtk2
 export CALIBRE_USE_SYSTEM_THEME=1
 export FZF_DEFAULT_COMMAND='fd -L -tf'
@@ -33,15 +32,6 @@ export PF_COL1=""
 export PF_COL2=9
 export PF_COL3=6
 #export PF_ASCII="linux"
-
-# YATS config
-export YATS_PATH="$HOME/git
-$HOME/git/school"
-export YATS_EXCLUDE="$HOME/git/school"
-export YATS_DIRS="$HOME/.config/tmux/plugins/yats
-$HOME/Documents/pkb/school/COMP1600/work"
-export YATS_CMDS="weechat
-ncspot"
 
 # XDG directories
 export XDG_DATA_HOME=$HOME/.local/share
