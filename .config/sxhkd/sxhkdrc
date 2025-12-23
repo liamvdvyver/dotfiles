@@ -187,7 +187,7 @@ super + shift + k
     tmux swap-pane -U && xwmux-report.sh
 
 super + x
-    ~/git/xwmux/build/xwmux-ctl kill-pane focused
+    xwmux-ctl kill-pane focused
 
 super + Return
         tmux send-keys -K $(tmux show-option prefix | cut -f 2 -d ' ') && tmux send-keys -K '"'
