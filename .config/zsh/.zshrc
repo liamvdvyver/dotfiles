@@ -50,10 +50,11 @@ autoload -U colors
 colors
 
 # Plugins
+# Installed here on Arch, anaged by nix on NixOS
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh
+source /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh 2>/dev/null
 
 # Git status
 autoload -Uz add-zsh-hook vcs_info
@@ -81,8 +82,7 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
 fi
 
 # FZF
-source /usr/share//fzf/key-bindings.zsh
-source /usr/share//fzf/completion.zsh
+eval "$(fzf --zsh)"
 
 # Zoxide
 eval "$(zoxide init zsh)"

@@ -45,10 +45,10 @@ super +  d
     rofi -show-icons -show drun
 
 super + shift + p
-    passmenu --type
+    usermenu --type
 
 super + shift + u
-    usermenu --type
+    usermenu --type --user
 
 super + shift + v
     autorandr clone-largest
