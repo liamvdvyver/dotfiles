@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+if [[ -z "$1" ]]; then
+    exit 1
+fi
+
+tm_sessions="$(tmux list-panes -aF '#{session_attached} #{window_active} #{pane_id} #{window_id} #{pane_title} #{pane_current_command}' |
+    sort -r | cut -f 3- -d ' ')"
+
+res="$(echo "$tm_sessions" | grep $1 | head -n1)"
+
+pane="$(echo "$res" | cut -f 1 -d ' ')"
+win="$(echo "$res" | cut -f 2 -d ' ')"
+
+# if [[ -n $res && -n $TMUX ]]; then
+if [[ -n $res ]]; then
+    tmux switch-client -t $pane
+fi

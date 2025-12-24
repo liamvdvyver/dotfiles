@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+old_pane="$(tmux display-message -p '#{pane_id}')"
+
+tmux new-window 'sleep infinity'
+tmp_pane="$(tmux display-message -p '#{pane_id}')"
+new_session="$(tmux list-sessions | fzf --tmux | cut -f 1 -d ':')"
+tmux kill-pane -t "$tmp_pane"
+
+# tmux new-window tmux-sessioniser
+# new_session="$(tmux display-message -p '#{session_id}')"
+
+if [[ -n "$new_session" ]]; then
+    tmux switch-client -t "$new_session"
+    tmux break-pane -s "$old_pane" -t "$new_session"
+fi
