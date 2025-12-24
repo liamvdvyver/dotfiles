@@ -62,7 +62,7 @@ alias mmd='find . -regex '\''.*\.\(flac\|mp3\|dsf\)'\'' -exec musmv {} \;'
 alias mms='muscf; musc; rm -d source/; rm -d other/; mmd'
 alias fb='fzf-calibre'
 alias sb='cd ~/git/strapbook/; ansible-playbook -K --ask-vault-pass run.yml'
-alias men='tmux-cht.sh man'
+alias d='docs'
 alias r='ranger_cd'
 
 # clean up dotfiles
