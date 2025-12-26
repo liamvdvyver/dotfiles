@@ -98,6 +98,12 @@ XF86AudioNext
 XF86AudioPrev
     playerctl previous
 
+XF86MonBrightnessUp
+    light -A 10
+
+XF86MonBrightnessDown
+    light -U 10
+
 # }}}
 
 # XWMUX -------------------------------------------------------------------- {{{

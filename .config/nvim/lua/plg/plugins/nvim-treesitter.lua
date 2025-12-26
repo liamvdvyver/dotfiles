@@ -6,6 +6,7 @@ return {
   dependencies = {
     -- { "nvim-treesitter/nvim-treesitter-textobjects" }
   },
+  enabled = false,
   config = function()
 
     local parsers = {
@@ -49,12 +50,12 @@ return {
     local filetypes = vim.iter(parsers):map(vim.treesitter.language.get_filetypes):flatten():totable()
 
     -- Enable treesitter for all installed languages
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = filetypes,
-      callback = function(ev)
-        vim.treesitter.start(ev.buf)
-      end,
-    })
+    -- vim.api.nvim_create_autocmd("FileType", {
+    --   pattern = filetypes,
+    --   callback = function(ev)
+    --     vim.treesitter.start(ev.buf)
+    --   end,
+    -- })
 
     --   indent = { enable = true },
     --   incremental_selection = {
