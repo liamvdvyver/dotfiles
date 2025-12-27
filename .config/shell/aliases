@@ -64,6 +64,7 @@ alias fb='fzf-calibre'
 alias sb='cd ~/git/strapbook/; ansible-playbook -K --ask-vault-pass run.yml'
 alias d='docs'
 alias r='ranger_cd'
+alias pw='usermenu -p system -e'
 
 # clean up dotfiles
 alias gcalcli='gcalcli --config-folder ~/.config/gcalcli'

@@ -37,18 +37,21 @@ super + shift + x
 super + Escape
     dunstctl close-all
 
+super + p
+    usermenu -p system -e
+
 # }}}
 
 # Dmenu -------------------------------------------------------------------- {{{
 
-super +  d
+super + d
     rofi -show-icons -show drun
 
 super + shift + p
-    usermenu --type
+    usermenu
 
 super + shift + u
-    usermenu --type --user
+    usermenu --user
 
 super + shift + v
     autorandr clone-largest
