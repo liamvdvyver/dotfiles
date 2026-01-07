@@ -12,7 +12,6 @@ export BROWSER=qutebrowser
 export PAGER='bat --theme=base16'
 export MANPAGER="$PAGER -l man"
 export TERMINAL=kitty
-#export TERM=xterm-kitty
 export PATH=$PATH:~/git/scripts:~/.local/bin:~/.config/emacs/bin:~/.config/tmux/plugins/tmuxifier/bin:~/.config/tmux/util:/usr/lib/rstudio:~/.ghcup/bin:~/.cabal/bin:~/git/dora/build:/usr/local/bin:~/.config/tmux/plugins/yats/scripts
 
 # Application config
@@ -21,15 +20,6 @@ export CALIBRE_USE_SYSTEM_THEME=1
 export FZF_DEFAULT_COMMAND='fd -L -tf'
 export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/tmuxifier-layouts"
 
-export PYTHONPATH=~/.config/beets/
-
-# Pfetch config
-export PF_INFO="ascii os kernel uptime pkgs shell wm editor palette"
-export PF_COL1=""
-export PF_COL2=9
-export PF_COL3=6
-#export PF_ASCII="linux"
-
 # XDG directories
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
@@ -37,10 +27,9 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_STATE_HOME=$HOME/.local/state
 
 # GPG
-export GNUPGHOME=$XDG_DATA_HOME/gnupg
+# export GNUPGHOME=$XDG_DATA_HOME/gnupg
 
 # Clean up dotfiles
-export PASSWORD_STORE_DIR=~/git/password-store
 export BASH_COMPLETION_USER_FILE=/usr/share/bash-complete-alias/complete_alias
 export LESSHISTFILE=-
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
@@ -51,7 +40,6 @@ export MBSYNCRC=$XDG_CONFIG_HOME/isync/mbsyncrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export CARGO_HOME="$XDG_CONFIG_HOME"/cargo
 export DOT_SAGE="$XDG_CONFIG_HOME"/sage
-export PYTHONSTARTUP="/etc/python/pythonrc"
 export IPYTHONDIR="$XDG_CONFIG_HOME"/ipython
 export GOPATH="$XDG_DATA_HOME"/go
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
@@ -81,3 +69,20 @@ ranger_cd() {
     fi
     rm -f -- "$temp_file"
 }
+
+y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+# System layout
+export PASSWORD_STORE_DIR=~/git/password-store
+export ZOTERO_BIB="$HOME/Documents/zotero/bib.bib"
+export PKB="$HOME/Documents/pkb"
+export REPO_DIR="$HOME/git"
+export SECRET_DOT_DIR="$REPO_DIR/dotfiles-secret"
+export PAPE_DIR="$HOME/Pictures/papes"
+export KMONAD_CONF="$XDG_CONFIG_HOME/kmonad/default.kbd"

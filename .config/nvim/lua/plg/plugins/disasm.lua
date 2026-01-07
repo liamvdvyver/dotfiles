@@ -1,5 +1,5 @@
 return {
-  "liamvdvyver/smarten.nvim",
+  "liamvdvyver/disasm.nvim",
   lazy = false,
   event = "VeryLazy",
   opts = {},

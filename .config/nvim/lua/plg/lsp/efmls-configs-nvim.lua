@@ -9,27 +9,17 @@ return {
 
   config = function()
     local languages = {}
+    local lsp_conf = require("lsp_conf")
 
     -- ensure installed
     local mason = require("mason-registry")
-    local mason_ensure_installed = {
-      "flake8",
-      "black",
-      "luacheck",
-      "stylua",
-      "shfmt",
-      "shellcheck",
-      "prettier",
-      "ansible-lint",
-      "fourmolu",
-      "google-java-format",
-      "eslint-lsp",
-      -- "dprint",
-    }
+    local mason_ensure_installed = vim.tbl_extend("force", lsp_conf.linters, lsp_conf.formatters)
 
-    for _, v in ipairs(mason_ensure_installed) do
-      if not mason.is_installed(v) then
-        vim.cmd("MasonInstall " .. v)
+    if (lsp_conf.use_mason) then
+      for _, v in ipairs(mason_ensure_installed) do
+        if not mason.is_installed(v) then
+          vim.cmd("MasonInstall " .. v)
+        end
       end
     end
 
@@ -70,6 +60,9 @@ return {
       },
       markdown = {
         require("efmls-configs.formatters.mdformat"),
+      },
+      nix = {
+        require("efmls-configs.formatters.alejandra"),
       },
     })
 

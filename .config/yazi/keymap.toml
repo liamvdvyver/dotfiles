@@ -1,0 +1,7 @@
+[[mgr.prepend_keymap]]
+on  = "<A-d>"
+run = "shell -- dragon-drop -x -T $@"
+
+[[mgr.prepend_keymap]]
+on  = "-"
+run = "shell --block -- nvim -c Oil"

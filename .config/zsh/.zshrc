@@ -56,11 +56,19 @@ source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh 2>/de
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh 2>/dev/null
 
+shell_char() {
+    if [[ -n $IN_NIX_SHELL ]]; then
+        echo "󱄅"
+    else
+        echo "$"
+    fi
+}
+
 # Git status
 autoload -Uz add-zsh-hook vcs_info
 setopt prompt_subst
 add-zsh-hook precmd vcs_info
-PS1='%B%F{blue}%10~%f %F{cyan}${vcs_info_msg_0_}❯%f%b '
+PS1='%B%F{blue}%10~%f %F{cyan}${vcs_info_msg_0_}$(shell_char)%f%b '
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr ' *'
 zstyle ':vcs_info:*' stagedstr ' +'
@@ -88,7 +96,11 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 
 # Setup gpg-agent
-. "$XDG_CONFIG_HOME/shell/gpg-agent"
+# . "$XDG_CONFIG_HOME/shell/gpg-agent"
+# eval $(ssh-agent) >/dev/null
+# gpgconf --launch gpg-agent --homedir $XDG_DATA_HOME/gnupg
+# gpgconf  --homedir $XDG_DATA_HOME/gnupg --launch gpg-agent
+# gpgconf --launch gpg-agent
 
 # export PYENV_ROOT="$HOME/.pyenv"
 # [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"

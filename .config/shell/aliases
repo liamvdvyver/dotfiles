@@ -35,7 +35,7 @@ alias o='nvim -c Oil'
 alias g='git'
 
 # yadm
-alias y='yadm'
+# alias y='yadm'
 
 # misc commands
 alias cls='clear && source $ZDOTDIR/.zshrc && source ~/.config/shell/profile && xrdb ~/.config/Xresources 2>/dev/null'
@@ -57,20 +57,18 @@ alias tf='tmuxifier'
 alias ts='tmux at -t $(tmux list-sessions | cut -f 1 -d : | fzf)'
 
 # my scripts
-alias wp='pape -i ~/Documents/papes/'
-alias mmd='find . -regex '\''.*\.\(flac\|mp3\|dsf\)'\'' -exec musmv {} \;'
-alias mms='muscf; musc; rm -d source/; rm -d other/; mmd'
+alias wp="pape -i $PAPE_DIR"
 alias fb='fzf-calibre'
 alias sb='cd ~/git/strapbook/; ansible-playbook -K --ask-vault-pass run.yml'
 alias d='docs'
-alias r='ranger_cd'
+alias r=y
 alias pw='usermenu -p system -e'
 
 # clean up dotfiles
-alias gcalcli='gcalcli --config-folder ~/.config/gcalcli'
 alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
-alias mc="mincraft-launcher --workDir ~/.local/share/minecraft"
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 
 # nix
-alias N="sudo nixos-rebuild switch"
+alias N="sudo nixos-rebuild switch --flake ~/git/nixes"
+alias yv="yadm enter nvim"
+alias ns="nix-shell --run zsh"

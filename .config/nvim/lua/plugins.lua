@@ -17,9 +17,13 @@ local base_dir = vim.fn.stdpath("config") .. "/lua/plg/"
 local all_subdirs = vim.fn.glob(base_dir .. "*")
 
 local specs = {}
-for _, dir in ipairs(vim.fn.split(all_subdirs, '\n')) do
-  local new_entry = {import = "plg." .. dir:gsub(base_dir, "")}
+for _, dir in ipairs(vim.fn.split(all_subdirs, "\n")) do
+  if vim.fs.basename(dir) == "disabled" then
+    goto continue
+  end
+  local new_entry = { import = "plg." .. dir:gsub(base_dir, "") }
   table.insert(specs, new_entry)
+  ::continue::
 end
 
 require("lazy").setup(specs)

@@ -9,8 +9,9 @@ return {
       toc = require("wiki.telescope").toc,
     }
     -- TODO: do this in lua
+    vim.g.wiki_root = vim.fn.environ().PKB
     vim.cmd([[
-      let g:wiki_root = '~/Documents/pkb/'
+      " let g:wiki_root = lua vim.fn.environ().PKB
       let g:wiki_filetypes = ['md', 'org', 'tex']
       let g:wiki_link_extension = ''
       let g:wiki_export = {

@@ -75,6 +75,8 @@ return {
   -- Allow lldb to attach to running process
   config = function()
     local dap = require("dap")
+    if (dap.configurations.cpp) then
+      vim.notify("setup cpp")
     dap.configurations.cpp[#dap.configurations.cpp+1] = {
       -- If you get an "Operation not permitted" error using this, try disabling YAMA:
       --  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
@@ -84,5 +86,6 @@ return {
       pid = require('dap.utils').pick_process,
       args = {},
     }
+  end
   end
 }

@@ -7,7 +7,7 @@
 #     $TERMINAL --name __tmux -e tmux-sessioniser
 
 super + shift + a
-    rofi-mixer
+    rofi-pulse-select sink
 
 super + shift + b
     rofi-bluetooth
@@ -20,6 +20,9 @@ super + shift + w
 
 super + e
     emacsclient -c -a emacs -n
+
+super + f
+    pcmanfm
 
 # }}}
 
@@ -54,7 +57,7 @@ super + shift + u
     usermenu --user
 
 super + shift + v
-    autorandr clone-largest
+    autorandr -c
 
 super + shift + o
     web-open

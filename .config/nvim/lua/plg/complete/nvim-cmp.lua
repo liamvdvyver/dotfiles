@@ -11,12 +11,11 @@ return {
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
     { "hrsh7th/cmp-cmdline" },
-    { "R-nvim/cmp-r" },
     { "jmbuhr/otter.nvim" },
     {
       "liamvdvyver/cmp-bibtex",
       opts = {
-        files = { "~/Documents/zotero/bib.bib" },
+        files = { vim.fn.environ().ZOTERO_BIB },
         filetypes = { "markdown", "tex" },
       },
     },
@@ -39,7 +38,6 @@ return {
     local opts = {
 
       sources = {
-        { name = "cmp_r", priority = 5 },
         { name = "nvim_lsp", priority = 4 },
         { name = "nvim_lua", priority = 3 },
         { name = "path", priority = 2 },
@@ -82,7 +80,6 @@ return {
             nvim_lsp = "[LSP]",
             luasnip = "[LuaSnip]",
             nvim_lua = "[Lua]",
-            cmp_r = "[R.nvim]",
           },
           -- maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
           ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)

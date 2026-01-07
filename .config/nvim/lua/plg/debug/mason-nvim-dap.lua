@@ -1,9 +1,10 @@
 return {
   "jay-babu/mason-nvim-dap.nvim",
   lazy = true,
+  enabled = false,
   dependencies = { "mason.nvim" },
   opts = {
-    ensure_installed = { "bash", "codelldb", "python", --[[ "haskell", ]]"javadbg", "javatest" },
+    ensure_installed = {},
     handlers = {
       function(config)
         -- all sources with no handler get passed here
@@ -26,6 +27,11 @@ return {
   },
   config = function(_, opts)
     -- require("mason").setup()
+      local lsp_conf = require("lsp_conf")
+      if (lsp_conf.use_mason) then
+        opts.ensure_installed = lsp_conf.debuggers
+      end
+
     require("mason-nvim-dap").setup(opts)
   end,
 }

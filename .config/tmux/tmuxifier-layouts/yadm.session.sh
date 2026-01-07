@@ -7,7 +7,7 @@ session_root "$HOME"
 if initialize_session "yadm"; then
 
     new_window "nvim"
-    run_cmd "yadm enter nvim"
+    run_cmd "yv"
 
 fi
 
