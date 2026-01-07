@@ -78,6 +78,11 @@ y() {
 	rm -f -- "$tmp"
 }
 
+c() {
+  cd $1
+  exa --group-directories-first --icons --git -la || ls -lA
+}
+
 # System layout
 export PASSWORD_STORE_DIR=~/git/password-store
 export ZOTERO_BIB="$HOME/Documents/zotero/bib.bib"

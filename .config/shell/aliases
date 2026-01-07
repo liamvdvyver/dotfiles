@@ -1,9 +1,7 @@
 # basic commands
 alias x='startx $XINITRC'
 alias ls='ls --color=auto'
-alias l='exa --group-directories-first --icons'
-alias la='l -a'
-alias ll='l -la --git'
+alias l='exa -la --group-directories-first --icons --git'
 alias grep='grep --color=auto'
 
 # programs
