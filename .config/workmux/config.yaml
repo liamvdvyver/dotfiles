@@ -1,0 +1,8 @@
+nerdfont: true
+panes:
+- command: pi
+  name: pi
+  focus: true
+- command: nvim
+  name: nvim
+  split: vertical

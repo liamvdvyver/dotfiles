@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+kill_str="zsh\|yazi"
+
+tm_sessions="$(tmux list-panes -aF '#{pane_id} #{pane_current_command}')"
+targets="$(echo "$tm_sessions" | grep "^%[0-9]\+\W\($kill_str\)$" | cut -f 1 -d ' ')"
+echo "$targets" | xargs -I % tmux kill-pane -t %
