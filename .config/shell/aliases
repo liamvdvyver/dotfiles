@@ -1,7 +1,7 @@
 # basic commands
 alias x='startx $XINITRC'
 alias ls='ls --color=auto'
-alias l='exa -la --group-directories-first --icons --git'
+alias l='exa -la --group-directories-first --icons --git --group'
 alias grep='grep --color=auto'
 
 # programs
@@ -70,3 +70,5 @@ alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 alias N="sudo nixos-rebuild switch --flake ~/git/nixes"
 alias yv="yadm enter nvim"
 alias ns="nix-shell --run zsh"
+
+alias wm="workmux"
