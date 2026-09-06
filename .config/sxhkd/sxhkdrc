@@ -1,17 +1,5 @@
 # Applications ------------------------------------------------------------  {{{
 
-# super + Return
-#     $TERMINAL --name __tmux -e tmux-sessioniser default
-#
-# super + shift + Return
-#     $TERMINAL --name __tmux -e tmux-sessioniser
-
-super + shift + a
-    rofi-pulse-select sink
-
-super + shift + b
-    rofi-bluetooth
-
 super + w
     qutebrowser
 
@@ -22,7 +10,7 @@ super + e
     emacsclient -c -a emacs -n
 
 super + f
-    pcmanfm
+    tmux new-window yazi
 
 # }}}
 
@@ -30,9 +18,6 @@ super + f
 
 Print
     flameshot gui && killall flameshot
-
-super + shift + m
-    notify-send "Syncing mail" && mw -Y && notify-send "Synced mail"
 
 super + shift + x
     xkill
@@ -57,25 +42,16 @@ super + shift + u
     usermenu --user
 
 super + shift + v
-    autorandr -c
+    autorandr -c docked
 
-super + shift + o
-    web-open
+super + v
+    autorandr -c mobile
 
 super + shift + i
     kmonad-selector
 
 super + shift + s
     system-menu
-
-super + shift + r
-    rice-menu
-
-super + shift + d
-    doramenu.sh
-
-super + shift + n
-    networkmanager_dmenu
 
 # }}}
 
@@ -84,16 +60,16 @@ super + shift + n
 # Media keys
 
 XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +10%
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+
 
 XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -10%
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-
 
 XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
 XF86AudioMicMute
-    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 XF86AudioPlay
     playerctl play-pause
@@ -105,10 +81,10 @@ XF86AudioPrev
     playerctl previous
 
 XF86MonBrightnessUp
-    light -A 10
+    brightnessctl set +10%
 
 XF86MonBrightnessDown
-    light -U 10
+    brightnessctl set 10%-
 
 # }}}
 
@@ -148,46 +124,61 @@ super + 7
     tmux select-window -t 7
 
 super + 8
-    tmux select-window -t 5
+    tmux select-window -t 8
 
 super + 9
     tmux select-window -t 9
 
 super + shift + 1
-    tmux join-pane -t 1
+    tmux join-pane -t 1.
 
 super + shift + 2
-    tmux join-pane -t 2
+    tmux join-pane -t 2.
 
 super + shift + 3
-    tmux join-pane -t 3
+    tmux join-pane -t 3.
 
 super + shift + 4
-    tmux join-pane -t 4
+    tmux join-pane -t 4.
 
 super + shift + 5
-    tmux join-pane -t 5
+    tmux join-pane -t 5.
 
 super + shift + 6
-    tmux join-pane -t 6
+    tmux join-pane -t 6.
 
 super + shift + 7
-    tmux join-pane -t 7
+    tmux join-pane -t 7.
 
 super + shift + 8
-    tmux join-pane -t 5
+    tmux join-pane -t 8.
 
 super + shift + 9
-    tmux join-pane -t 9
+    tmux join-pane -t 9.
 
 super + c
-    tmux new-window
+    tmux send-keys -K 'C-b' 'c'
 
 super + s
     tmux new-window tmux-sessioniser
 
-super + m
+super + o
     tmux run-shell tmux-move
+
+super + shift + o
+    tmux run-shell tmux-link
+
+super + m
+    tmux swap-pane -t 0 && tmux select-pane -t 0
+
+super + n
+    tmux new-window nmtui
+
+super + a
+    tmux new-window pulsemixer
+
+super + b
+    tmux new-window bluetui
 
 super + shift + l
     tmux switch-client -l
@@ -202,7 +193,7 @@ super + x
     xwmux-ctl kill-pane focused
 
 super + Return
-        tmux send-keys -K $(tmux show-option prefix | cut -f 2 -d ' ') && tmux send-keys -K '"'
+    tmux send-keys -K 'C-b' 'Enter'
 
 super + control + w
         tmux-find 'qutebrowser'
@@ -219,4 +210,12 @@ super + control + s
 super + control + z
         tmux-find 'zsh'
 
+super + control + a
+        tmux-find 'pi'
+
+super + comma
+        notify-send prev && xwmux-ctl focus-monitor prev
+
+super + period
+        notify-send next && xwmux-ctl focus-monitor next
 # }}}
