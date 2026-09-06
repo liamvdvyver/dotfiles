@@ -25,11 +25,12 @@ return {
       lualine_b = {
         { "b:gitsigns_head", icon = "" },
         { "diff", source = diff_source },
+        { "lsp_status" },
         { "diagnostics", sources = { "nvim_lsp" } },
       },
       lualine_c = {
         "filename",
-        "lsp_progress",
+        -- "lsp_progress",
       },
       lualine_x = {
         "encoding",

@@ -2,20 +2,20 @@ return {
   "creativenull/efmls-configs-nvim",
   dependencies = {
     -- Installs efm language server
-    "mason-org/mason-lspconfig.nvim",
+    require("lsp_conf").use_mason and "mason-org/mason-lspconfig.nvim" or nil,
+    "neovim/nvim-lspconfig",
   },
-  lazy = false,
-  event = "VeryLazy",
+  -- lazy = false,
+  -- event = "VeryLazy",
 
   config = function()
-    local languages = {}
     local lsp_conf = require("lsp_conf")
 
     -- ensure installed
-    local mason = require("mason-registry")
-    local mason_ensure_installed = vim.tbl_extend("force", lsp_conf.linters, lsp_conf.formatters)
 
-    if (lsp_conf.use_mason) then
+    if lsp_conf.use_mason then
+      local mason = require("mason-registry")
+      local mason_ensure_installed = vim.tbl_extend("force", lsp_conf.linters, lsp_conf.formatters)
       for _, v in ipairs(mason_ensure_installed) do
         if not mason.is_installed(v) then
           vim.cmd("MasonInstall " .. v)
@@ -24,7 +24,7 @@ return {
     end
 
     -- selecting presets
-    languages = vim.tbl_extend("force", languages, {
+    local languages = {
       python = {
         require("efmls-configs.linters.flake8"),
         require("efmls-configs.formatters.black"),
@@ -64,9 +64,7 @@ return {
       nix = {
         require("efmls-configs.formatters.alejandra"),
       },
-    })
-
-    L = languages
+    }
 
     languages.sh[1].formatCommand = languages.sh[1].formatCommand .. "i 4 -" -- use 4 space indents
     languages.python[2].formatCommand = languages.python[2].formatCommand .. "l 71 -" -- black match flake8 line length
@@ -75,13 +73,15 @@ return {
     local opts = {
       filetypes = vim.tbl_keys(languages),
       settings = { rootMarkers = { ".git/" }, languages = languages },
+      -- settings = { languages = languages },
       init_options = {
         documentFormatting = true,
         documentRangeFormatting = true,
       },
+      --cmd = "efm-langserver",
     }
 
-    vim.lsp.config("efm", opts)
     vim.lsp.enable("efm")
+    vim.lsp.config("efm", opts)
   end,
 }

@@ -6,7 +6,7 @@ return {
   dependencies = {
     -- { "nvim-treesitter/nvim-treesitter-textobjects" }
   },
-  enabled = true,
+  enabled = false,
   config = function()
 
     local parsers = {
