@@ -1,0 +1,17 @@
+session_name: default
+windows:
+  - window_name: workmux
+    panes:
+      - workmux dashboard
+  - window_name: neomutt
+    panes:
+      - neomutt
+  - window_name: emacs
+    panes:
+      - emacs -nw
+  - window_name: pkb
+    panes:
+      - nvim -c "Obsidian today"
+  - window_name: ncspot
+    panes:
+      - ncspot
