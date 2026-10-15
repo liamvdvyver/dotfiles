@@ -2,6 +2,7 @@ return {
   "lervag/wiki.vim",
   -- lazy = true, ft = {'markdown'},
   -- FIX: Lazy loading this breaks Enter, BS, TAB, etc. tag navigation
+  enabled = false,
   config = function()
     vim.g.wiki_select_method = {
       pages = require("wiki.telescope").pages,

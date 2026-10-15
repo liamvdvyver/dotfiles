@@ -10,7 +10,6 @@ vim.g.maplocalleader = "\\"
 require("plugins")
 
 vim.cmd.syntax("enable")
-vim.cmd.colorscheme("catppuccin")
 
 -- HELPERS ------------------------------------------------------------------ {{{
 
