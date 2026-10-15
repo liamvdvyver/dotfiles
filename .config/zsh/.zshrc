@@ -49,13 +49,6 @@ bindkey '^v' edit-command-line
 autoload -U colors
 colors
 
-# Plugins
-# Installed here on Arch, anaged by nix on NixOS
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh 2>/dev/null
-
 shell_char() {
     if [[ -n $IN_NIX_SHELL ]]; then
         echo "󱄅"
@@ -75,12 +68,6 @@ zstyle ':vcs_info:*' stagedstr ' +'
 zstyle ':vcs_info:git:*' formats       ' %b%u%c '
 zstyle ':vcs_info:git:*' actionformats ' %b|%a%u%c '
 
-# Conda
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
-
-# Tmuxifier
-eval "$(tmuxifier init -)"
-
 # Kitty shell integration
 if test -n "$KITTY_INSTALLATION_DIR"; then
     export KITTY_SHELL_INTEGRATION="enabled"
@@ -94,14 +81,3 @@ eval "$(fzf --zsh)"
 
 # Zoxide
 eval "$(zoxide init zsh)"
-
-# Setup gpg-agent
-# . "$XDG_CONFIG_HOME/shell/gpg-agent"
-# eval $(ssh-agent) >/dev/null
-# gpgconf --launch gpg-agent --homedir $XDG_DATA_HOME/gnupg
-# gpgconf  --homedir $XDG_DATA_HOME/gnupg --launch gpg-agent
-# gpgconf --launch gpg-agent
-
-# export PYENV_ROOT="$HOME/.pyenv"
-# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init - zsh)"

@@ -10,24 +10,23 @@ export VISUAL=nvim
 export EDITOR=$VISUAL
 export BROWSER=qutebrowser
 export PAGER='bat --theme=base16'
-export MANPAGER="$PAGER -l man"
+export MANPAGER="$PAGER"
 export TERMINAL=kitty
-export PATH=$PATH:~/git/scripts:~/.local/bin:~/.config/emacs/bin:~/.config/tmux/plugins/tmuxifier/bin:~/.config/tmux/util:/usr/lib/rstudio:~/.ghcup/bin:~/.cabal/bin:~/git/dora/build:/usr/local/bin:~/.config/tmux/plugins/yats/scripts
+export PATH=$PATH:~/git/scripts:~/.local/bin:~/.config/emacs/bin:~/.config/tmux/plugins/tmuxifier/bin:~/.config/tmux/util:/usr/local/bin:~/.config/tmux/plugins/yats/scripts
 
 # Application config
 export QT_QPA_PLATFORMTHEME=gtk2
 export CALIBRE_USE_SYSTEM_THEME=1
-export FZF_DEFAULT_COMMAND='fd -L -tf'
 export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/tmuxifier-layouts"
+export FZF_DEFAULT_COMMAND='fd -L -tf'
+# Source fzf theme in profile so it applies to (non-interactive) tmux env
+. "$HOME/.config/shell/fzf-theme.sh"
 
 # XDG directories
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_STATE_HOME=$HOME/.local/state
-
-# GPG
-# export GNUPGHOME=$XDG_DATA_HOME/gnupg
 
 # Clean up dotfiles
 export BASH_COMPLETION_USER_FILE=/usr/share/bash-complete-alias/complete_alias
@@ -50,25 +49,6 @@ export GHCUP_USE_XDG_DIRS=true
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export STACK_XDG=1
 export MAVEN_OPTS="-Dmaven.repo.local=$XDG_DATA_HOME/m2" # Doesn't seem to work
-
-# Compatible with ranger 1.4.2 through 1.9.*
-#
-# Automatically change the current working directory after closing ranger
-#
-# This is a shell function to automatically change the current working
-# directory to the last visited one after ranger quits. Either put it into your
-# .zshrc/.bashrc/etc or source this file from your shell configuration.
-# To undo the effect of this function, you can type "cd -" to return to the
-# original directory.
-
-ranger_cd() {
-    temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
-    ranger --choosedir="$temp_file" -- "${@:-$PWD}"
-    if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
-        cd -- "$chosen_dir"
-    fi
-    rm -f -- "$temp_file"
-}
 
 y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
