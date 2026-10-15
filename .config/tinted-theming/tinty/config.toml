@@ -1,0 +1,61 @@
+[[items]]
+path = "https://github.com/tinted-theming/base16-qutebrowser"
+name = "base16-qutebrowser"
+themes-dir = "themes/default"
+theme-file-extension = ".config.py"
+hook = """
+       cp -f \"$TINTY_THEME_FILE_PATH\" ~/.config/qutebrowser/theme.py &&
+       pgrep QtWebEngineProc 1>/dev/null &&
+       qutebrowser ':config-source'
+       """
+
+[[items]]
+path = "https://github.com/tinted-theming/tinted-terminal"
+name = "tinted-kitty"
+themes-dir = "themes/kitty"
+hook = "cp -f \"$TINTY_THEME_FILE_PATH\" ~/.config/kitty/theme.conf"
+
+[[items]]
+path = "https://github.com/tinted-theming/base16-rofi"
+name = "base16-rofi"
+theme-file-extension = ".rasi"
+themes-dir = "themes"
+hook = "cp -f \"$TINTY_THEME_FILE_PATH\" ~/.config/rofi/theme.rasi"
+
+[[items]]
+path = "https://github.com/tinted-theming/base16-dunst"
+name = "base16-dunst"
+themes-dir = "themes"
+hook = "pgrep dunst && dunstctl reload"
+write-to-file = ["~/.config/dunst/dunstrc", "# Tinty Start", "# Tinty End"]
+
+[[items]]
+path = "https://github.com/HaoZeke/base16-zathura"
+name = "base16-zathura"
+themes-dir = "build_schemes/colors"
+write-to-file = ["~/.config/zathura/zathurarc", "# Tinty Start", "# Tinty End"]
+hook = """
+       pgrep zathura |
+           xargs -I '{}' dbus-send --type=method_call \
+           --dest=org.pwmt.zathura.PID-'{}' /org/pwmt/zathura org.pwmt.zathura.ExecuteCommand string:source
+       """
+
+[[items]]
+path = "https://github.com/tinted-theming/base16-sioyek"
+name = "base16-sioyek"
+themes-dir = "colors"
+# write-to-file = ["~/.config/sioyek/prefs_user.config", "# Tinty Start", "# Tinty End"]
+# hook = "sioyek --execute-command reload_config"
+hook = "cp -f \"$TINTY_THEME_FILE_PATH\" ~/.config/sioyek/colors.config"
+
+[[items]]
+path = "https://github.com/tinted-theming/tinted-fzf"
+name = "tinted-fzf"
+themes-dir = "sh"
+hook = "cp -f \"$TINTY_THEME_FILE_PATH\" ~/.config/shell/fzf-theme.sh"
+
+[[items]]
+path = "https://github.com/player131007/tinted-btop"
+name = "tinted-bop"
+themes-dir = "colors"
+hook = "cp -f \"$TINTY_THEME_FILE_PATH\" ~/.config/btop/themes/tinted.theme"

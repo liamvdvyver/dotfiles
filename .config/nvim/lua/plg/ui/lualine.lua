@@ -17,9 +17,9 @@ return {
   },
   opts = {
     options = {
-      -- theme = "catppuccin",
       section_separators = "",
       component_separators = "",
+      theme = "tinted",
     },
     sections = {
       lualine_b = {

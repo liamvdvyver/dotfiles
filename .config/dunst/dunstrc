@@ -1,20 +1,23 @@
-# FOLLOWING LINES WILL BE OVERWRITTEN
-
 [global]
 icon_theme = "Papirus-Dark"
 enable_recursive_icon_lookup = "true"
 
-[urgency_low]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
-frame_color = "#45475a"
+# Tinty Start[global]
+frame_color = "#cdd6f4"
+separator_color = "#cdd6f4"
 
-[urgency_normal]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
-frame_color = "#89b4fa"
+[base16_low]
+    msg_urgency = "low"
+    background = "#181825"
+    foreground = "#45475a"
 
-[urgency_critical]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
-frame_color = "#f38ba8"
+[base16_normal]
+    msg_urgency = "normal"
+    background = "#313244"
+    foreground = "#cdd6f4"
+
+[base16_critical]
+    msg_urgency = "critical"
+    background = "#f38ba8"
+    foreground = "#f5e0dc"
+# Tinty End

@@ -1,0 +1,7 @@
+applications:
+  qutebrowser:
+    enabled: true
+    files:
+      default:
+        path: ~/.config/qutebrowser/theme.py
+        mode: rewrite
