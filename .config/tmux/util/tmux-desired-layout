@@ -1,0 +1,157 @@
+#!/usr/bin/env bash
+# Apply the preferred layout to the current tmux window (or to $1).
+# A pane whose current command is `workmux` is treated as a fixed sidebar.
+set -euo pipefail
+
+if ! tmux display-message -p '#{window_id}' >/dev/null 2>&1; then
+    echo 'tmux-desired-layout: must be run from tmux' >&2
+    exit 1
+fi
+
+target_args=()
+if (( $# > 0 )); then
+    target_args=(-t "$1")
+fi
+window=$(tmux display-message "${target_args[@]}" -p '#{window_id}')
+read -r window_width window_height cell_width cell_height < <(
+    tmux display-message -t "$window" -p '#{window_width} #{window_height} #{client_cell_width} #{client_cell_height}'
+)
+# tmux reports pane dimensions in character cells. Compare their pixel sizes so
+# a portrait terminal with non-square character cells is correctly "tall".
+: "${cell_width:=1}" "${cell_height:=1}"
+
+# list-panes is ordered by pane index, which defines "first" here.
+pane_ids=()
+pane_indices=()
+pane_commands=()
+pane_lefts=()
+pane_tops=()
+pane_widths=()
+pane_heights=()
+while IFS='|' read -r id index command left top width height; do
+    pane_ids+=("$id")
+    pane_indices+=("$index")
+    pane_commands+=("$command")
+    pane_lefts+=("$left")
+    pane_tops+=("$top")
+    pane_widths+=("$width")
+    pane_heights+=("$height")
+done < <(tmux list-panes -t "$window" -F '#{pane_id}|#{pane_index}|#{pane_current_command}|#{pane_left}|#{pane_top}|#{pane_width}|#{pane_height}')
+
+sidebar=-1
+for i in "${!pane_ids[@]}"; do
+    if [[ ${pane_commands[i]} == workmux ]]; then
+        sidebar=$i
+        break
+    fi
+done
+
+# The panes which this script is allowed to arrange.
+content=()
+for i in "${!pane_ids[@]}"; do
+    (( i == sidebar )) || content+=("$i")
+done
+(( ${#content[@]} > 0 )) || exit 0
+
+content_x=0
+content_y=0
+content_width=$window_width
+content_height=$window_height
+sidebar_side=
+if (( sidebar >= 0 )); then
+    sx=${pane_lefts[sidebar]}
+    sy=${pane_tops[sidebar]}
+    sw=${pane_widths[sidebar]}
+    sh=${pane_heights[sidebar]}
+
+    # A sidebar must occupy one complete vertical edge.  Refuse rather than
+    # accidentally move a workmux pane in an unusual layout.
+    if (( sy != 0 || sh != window_height )); then
+        echo 'tmux-desired-layout: workmux pane is not a full-height sidebar; leaving window unchanged' >&2
+        exit 0
+    elif (( sx == 0 )); then
+        sidebar_side=left
+        content_x=$((sw + 1))
+        content_width=$((window_width - sw - 1))
+    elif (( sx + sw == window_width )); then
+        sidebar_side=right
+        content_width=$((window_width - sw - 1))
+    else
+        echo 'tmux-desired-layout: workmux pane is not at a window edge; leaving window unchanged' >&2
+        exit 0
+    fi
+fi
+
+if (( content_width < 1 || content_height < ${#content[@]} )); then
+    echo 'tmux-desired-layout: window is too small for its panes' >&2
+    exit 1
+fi
+
+leaf() {
+    local slot=$1 width=$2 height=$3 x=$4 y=$5
+    printf '%dx%d,%d,%d,%d' "$width" "$height" "$x" "$y" "${pane_indices[slot]}"
+}
+
+# A horizontal split is a horizontal divider: panes are stacked top-to-bottom.
+stack() {
+    local x=$1 y=$2 width=$3 height=$4 start=$5 count=$6
+    local origin_x=$x origin_y=$y available base extra result part_height slot j
+    result="${width}x${height},${origin_x},${origin_y}["
+    available=$((height - count + 1))
+    base=$((available / count))
+    extra=$((available % count))
+    for ((j = 0; j < count; j++)); do
+        slot=${content[start + j]}
+        part_height=$base
+        (( j < extra )) && part_height=$((part_height + 1))
+        (( j > 0 )) && result+=','
+        result+=$(leaf "$slot" "$width" "$part_height" "$x" "$y")
+        y=$((y + part_height + 1))
+    done
+    printf '%s]' "$result"
+}
+
+count=${#content[@]}
+if (( count == 1 )); then
+    arranged=$(leaf "${content[0]}" "$content_width" "$content_height" "$content_x" "$content_y")
+elif (( content_width * cell_width >= content_height * cell_height )); then
+    main_width=$(((content_width + 1) / 2))
+    stack_width=$((content_width - main_width - 1))
+    if (( stack_width < 1 )); then
+        echo 'tmux-desired-layout: remaining area is too narrow for a main/stack layout' >&2
+        exit 1
+    fi
+    main=$(leaf "${content[0]}" "$main_width" "$content_height" "$content_x" "$content_y")
+    right=$(stack "$((content_x + main_width + 1))" "$content_y" "$stack_width" "$content_height" 1 "$((count - 1))")
+    arranged="${content_width}x${content_height},${content_x},${content_y}{${main},${right}}"
+else
+    arranged=$(stack "$content_x" "$content_y" "$content_width" "$content_height" 0 "$count")
+fi
+
+if (( sidebar >= 0 )); then
+    sidebar_leaf=$(leaf "$sidebar" "${pane_widths[sidebar]}" "$window_height" "${pane_lefts[sidebar]}" 0)
+    if [[ $sidebar_side == left ]]; then
+        arranged="${window_width}x${window_height},0,0{${sidebar_leaf},${arranged}}"
+    else
+        arranged="${window_width}x${window_height},0,0{${arranged},${sidebar_leaf}}"
+    fi
+fi
+layout=$arranged
+
+# tmux layouts carry a rotating 16-bit checksum before the description.
+checksum=0
+for ((i = 0; i < ${#layout}; i++)); do
+    printf -v char_code '%d' "'${layout:i:1}"
+    checksum=$(((((checksum >> 1) | ((checksum & 1) << 15)) + char_code) & 65535))
+done
+printf -v layout '%04x,%s' "$checksum" "$layout"
+tmux select-layout -t "$window" "$layout"
+
+# select-layout keeps panes in traversal order rather than honoring the leaf
+# pane numbers. Put the first non-workmux pane in the designated main/top cell.
+main_id=${pane_ids[${content[0]}]}
+target_id=$(tmux list-panes -t "$window" -F '#{pane_id}|#{pane_left}|#{pane_top}' |
+    awk -F '|' -v x="$content_x" -v y="$content_y" '$2 == x && $3 == y { print $1; exit }')
+if [[ -n $target_id && $target_id != "$main_id" ]]; then
+    tmux swap-pane -d -s "$main_id" -t "$target_id"
+fi
