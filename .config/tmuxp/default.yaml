@@ -12,6 +12,3 @@ windows:
   - window_name: pkb
     panes:
       - nvim -c "Obsidian today"
-  - window_name: ncspot
-    panes:
-      - ncspot

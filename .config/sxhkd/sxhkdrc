@@ -160,7 +160,7 @@ super + c
     tmux send-keys -K 'C-b' 'c'
 
 super + s
-    tmux new-window tmux-sessioniser
+    tmux run-shell tmux-sessioniser-popup
 
 super + o
     tmux run-shell tmux-move

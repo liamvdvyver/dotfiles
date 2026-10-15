@@ -96,6 +96,10 @@ leaf() {
 stack() {
     local x=$1 y=$2 width=$3 height=$4 start=$5 count=$6
     local origin_x=$x origin_y=$y available base extra result part_height slot j
+    if (( count == 1 )); then
+        leaf "${content[start]}" "$width" "$height" "$x" "$y"
+        return
+    fi
     result="${width}x${height},${origin_x},${origin_y}["
     available=$((height - count + 1))
     base=$((available / count))

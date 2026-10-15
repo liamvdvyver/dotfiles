@@ -18,6 +18,7 @@ autorandr clone-largest
 if [ -n "$1" ]; then
     wm="$1"
 else
+    tmuxp load default -d
     wm=xwmux
 fi
 exec "$wm"
